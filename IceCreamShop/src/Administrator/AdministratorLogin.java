@@ -23,6 +23,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Client.Client_MainScreen;
+import IceCreamShop.MainScreen;
 
 public class AdministratorLogin extends JFrame {
 
@@ -73,9 +74,8 @@ public class AdministratorLogin extends JFrame {
 				}
 		});
 		
-
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.control);
+		contentPane.setBackground(new Color(153, 204, 255));
 		contentPane.setBorder(new LineBorder(Color.BLACK, 2, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -83,59 +83,64 @@ public class AdministratorLogin extends JFrame {
 		JCheckBox DarkTheme = new JCheckBox("DARK");
 		DarkTheme.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		DarkTheme.setBackground(Color.WHITE);
-		DarkTheme.setBounds(0, 290, 67, 25);
+		DarkTheme.setBounds(8, 243, 67, 25);
 		contentPane.add(DarkTheme);
 		
 		JLabel lblKey = new JLabel("PASSWORD");
-		lblKey.setBounds(93, 134, 204, 25);
+		lblKey.setBounds(110, 134, 204, 25);
 		contentPane.add(lblKey);
 		lblKey.setForeground(Color.BLACK);
 		lblKey.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		lblKey.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(93, 170, 204, 25);
+		passwordField.setBounds(110, 170, 204, 25);
 		contentPane.add(passwordField);
 		passwordField.setBorder(new LineBorder(Color.BLACK, 1, true));
 		
-		JLabel lblNoTemConta = new JLabel("N\u00E3o possui conta?");
-		lblNoTemConta.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNoTemConta.setBounds(269, 243, 89, 14);
-		contentPane.add(lblNoTemConta);
-		lblNoTemConta.setForeground(Color.BLUE);
-		
-		JButton btnCliqueAqui = new JButton("");
-		btnCliqueAqui.setBounds(288, 270, 89, 33);
-		btnCliqueAqui.setIcon(new ImageIcon(Client_MainScreen.class.getResource("/images/clicking.png")));
-		contentPane.add(btnCliqueAqui);
-		btnCliqueAqui.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					AdministratorRegistrator frame = new AdministratorRegistrator();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		
 		JLabel lblLogin = new JLabel("LOGIN");
-		lblLogin.setBounds(93, 62, 204, 25);
+		lblLogin.setBounds(110, 62, 204, 25);
 		contentPane.add(lblLogin);
 		lblLogin.setForeground(Color.BLACK);
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLogin.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
 		
 		txtFLogin = new JTextField();
-		txtFLogin.setBounds(93, 98, 204, 25);
+		txtFLogin.setBounds(110, 98, 204, 25);
 		contentPane.add(txtFLogin);
 		txtFLogin.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		txtFLogin.setBackground(Color.WHITE);
 		txtFLogin.setColumns(10);
 		
+		JPanel pnCima = new JPanel();
+		pnCima.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		pnCima.setBounds(0, 0, 394, 38);
+		pnCima.setBackground(new Color(255, 222, 173));
+		contentPane.add(pnCima);
+		
+		JPanel pnBaixo = new JPanel();
+		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		pnBaixo.setBounds(0, 275, 394, 40);
+		pnBaixo.setBackground(new Color(255, 222, 173));
+		contentPane.add(pnBaixo);
+		
+		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.setBounds(151, 226, 89, 23);
 		contentPane.add(btnEntrar);
+		
+		JLabel label = new JLabel("");
+		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		label.setBounds(80, 93, 30, 34);
+		label.setIcon(new ImageIcon(MainScreen.class.getResource("/images/key.png")));
+		contentPane.add(label);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		label_1.setBounds(80, 166, 30,34);
+		label_1.setIcon(new ImageIcon(MainScreen.class.getResource("/images/lock.png")));	
+		contentPane.add(label_1);
+		
 		btnEntrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -166,7 +171,7 @@ public class AdministratorLogin extends JFrame {
 	
 				}
 				else {
-					contentPane.setBackground(SystemColor.menu);
+					contentPane.setBackground(new Color(153, 204, 255));
 					lblLogin.setForeground(Color.BLACK);
 					lblKey.setForeground(Color.BLACK);
 				}

@@ -123,8 +123,7 @@ public class MainScreen extends JFrame {
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 
-		JLabel lblSystemDevelopedBy = new JLabel(
-				"System Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
+		JLabel lblSystemDevelopedBy = new JLabel("System Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
 		lblSystemDevelopedBy.setBounds(0, 0, 551, 47);
 		Developer.add(lblSystemDevelopedBy);
 		lblSystemDevelopedBy.setForeground(new Color(0, 0, 0));
