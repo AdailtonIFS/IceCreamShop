@@ -7,12 +7,15 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -59,6 +62,18 @@ public class AdministratorLogin extends JFrame {
 		setBounds(100, 100, 400, 350);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		//bloquearFrame
+			this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+				}
+		});
+		
+
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.control);
 		contentPane.setBorder(new LineBorder(Color.BLACK, 2, true));
@@ -68,7 +83,7 @@ public class AdministratorLogin extends JFrame {
 		JCheckBox DarkTheme = new JCheckBox("DARK");
 		DarkTheme.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		DarkTheme.setBackground(Color.WHITE);
-		DarkTheme.setBounds(6, 208, 63, 25);
+		DarkTheme.setBounds(0, 290, 67, 25);
 		contentPane.add(DarkTheme);
 		
 		JLabel lblKey = new JLabel("PASSWORD");
@@ -85,12 +100,12 @@ public class AdministratorLogin extends JFrame {
 		
 		JLabel lblNoTemConta = new JLabel("N\u00E3o possui conta?");
 		lblNoTemConta.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNoTemConta.setBounds(278, 243, 89, 14);
+		lblNoTemConta.setBounds(269, 243, 89, 14);
 		contentPane.add(lblNoTemConta);
 		lblNoTemConta.setForeground(Color.BLUE);
 		
 		JButton btnCliqueAqui = new JButton("");
-		btnCliqueAqui.setBounds(278, 263, 89, 33);
+		btnCliqueAqui.setBounds(288, 270, 89, 33);
 		btnCliqueAqui.setIcon(new ImageIcon(Client_MainScreen.class.getResource("/images/clicking.png")));
 		contentPane.add(btnCliqueAqui);
 		btnCliqueAqui.addActionListener(new ActionListener() {
@@ -122,14 +137,23 @@ public class AdministratorLogin extends JFrame {
 		btnEntrar.setBounds(151, 226, 89, 23);
 		contentPane.add(btnEntrar);
 		btnEntrar.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				try {
-					AdministratorMainScreen frame = new AdministratorMainScreen();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
+				
+				if(txtFLogin.getText().equalsIgnoreCase("admin") && passwordField.getText().equalsIgnoreCase("admin")) {
+					
+					try {
+						AdministratorMainScreen frame = new AdministratorMainScreen();
+						frame.setVisible(true);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					dispose();
 				}
-				dispose();
+				else {
+					JOptionPane.showMessageDialog(null, "USUARIO OU SENHA INVÁLIDO","AVISO",2);
+				}
+				
 			}
 		});
 		

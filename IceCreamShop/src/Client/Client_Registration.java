@@ -9,6 +9,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -108,6 +110,19 @@ public class Client_Registration extends JFrame {
 		setBounds(100, 100, 600, 650);
 		setLocationRelativeTo(null); // centralizarFrame
 		setResizable(false); // bloquearMaximizar
+		
+		//bloquearFrame
+			this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+				}
+		});
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -187,18 +187,6 @@ public class Person{
 						}
     			
     		}
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-	
-    		
-	
-    
-
 	   
 
 	}

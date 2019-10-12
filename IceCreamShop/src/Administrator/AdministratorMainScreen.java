@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -45,6 +47,17 @@ public class AdministratorMainScreen extends JFrame {
 		setBounds(100, 100, 700, 600);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		
+			this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+				}
+		});
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

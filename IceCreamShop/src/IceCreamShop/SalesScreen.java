@@ -1,6 +1,8 @@
 package IceCreamShop;
 
 import java.awt.EventQueue;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -38,6 +40,18 @@ public class SalesScreen extends JFrame {
 		setBounds(100, 100, 799, 597);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		
+			this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+				}
+		});
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

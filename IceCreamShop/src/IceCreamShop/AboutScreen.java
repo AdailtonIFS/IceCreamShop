@@ -112,7 +112,7 @@ public class AboutScreen extends JFrame {
 		
 		Panel panel_1 = new Panel();
 		panel_1.setBackground(new Color(255, 222, 173));
-		panel_1.setBounds(0, 224, 444, 47);
+		panel_1.setBounds(0, 217, 444, 47);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		

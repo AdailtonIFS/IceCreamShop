@@ -8,6 +8,8 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -68,6 +70,18 @@ public class Client_MainScreen extends JFrame {
 		setBounds(100, 100, 600, 400);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		
+			this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+				}
+		});
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new LineBorder(Color.BLACK, 1, true));
 		contentPane.setBackground(new Color(153, 204, 255));
