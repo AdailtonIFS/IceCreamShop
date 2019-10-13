@@ -20,10 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
-import IceCreamShop.MainScreen;
 
 public class Client_MainScreen extends JFrame {
 
@@ -90,13 +87,13 @@ public class Client_MainScreen extends JFrame {
 		
 		JButton btnSearch = new JButton("PESQUISAR");
 		btnSearch.setIcon(new ImageIcon(Client_MainScreen.class.getResource("/images/search.png")));
-		btnSearch.setFont(new Font("Comic Sans MS", Font.BOLD, 23));
+		btnSearch.setFont(new Font("Cambria Math", Font.BOLD, 23));
 		btnSearch.setBounds(339, 146, 214, 106);
 		contentPane.add(btnSearch);
 		
 		JButton btnRegister = new JButton("CADASTRAR");
 		btnRegister.setIcon(new ImageIcon(Client_MainScreen.class.getResource("/images/copywriter.png")));
-		btnRegister.setFont(new Font("Comic Sans MS", Font.BOLD, 23));
+		btnRegister.setFont(new Font("Cambria Math", Font.BOLD, 23));
 		btnRegister.setBounds(47, 146, 214, 106);
 		
 		
@@ -127,7 +124,7 @@ public class Client_MainScreen extends JFrame {
 		pnTitle.add(lblClientes);
 		
 		JPanel pnbaixo = new JPanel();
-		pnbaixo.setBounds(0, 318, 593, 53);
+		pnbaixo.setBounds(0, 312, 593, 53);
 		pnbaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		pnbaixo.setBackground(new Color(255, 222, 173));
 		contentPane.add(pnbaixo);

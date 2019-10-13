@@ -147,7 +147,7 @@ public class Client_Registration extends JFrame {
 		JPanel pnBaixo = new JPanel();
 		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		pnBaixo.setBackground(new Color(255, 222, 173));
-		pnBaixo.setBounds(0, 568, 594, 53);
+		pnBaixo.setBounds(0, 562, 594, 53);
 		contentPane.add(pnBaixo);
 		pnBaixo.setLayout(null);
 
@@ -163,16 +163,12 @@ public class Client_Registration extends JFrame {
 		pnBaixo.add(label);
 		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));
 
-		LineBorder borda = new LineBorder(Color.RED, 1, true);
-		LineBorder bordaNao = new LineBorder(Color.GREEN, 0, false);
-		
-		
 		
 		JButton SALVAR = new JButton("SALVAR");// CRIANDO BOTÃO SALVAR
 		SALVAR.setBounds(253, 508, 114, 41);
 		contentPane.add(SALVAR);
 		SALVAR.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		SALVAR.setFont(new Font("Arial", Font.BOLD, 13));
+		SALVAR.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		SALVAR.setForeground(Color.BLACK);// FUNDO DO BOTÃO
 		SALVAR.setBackground(UIManager.getColor("Button.background"));
 
@@ -188,7 +184,7 @@ public class Client_Registration extends JFrame {
 		pnEspecial.add(lblDataDeNascimento);
 		lblDataDeNascimento.setForeground(Color.GRAY);
 		lblDataDeNascimento.setHorizontalAlignment(SwingConstants.LEFT);
-		lblDataDeNascimento.setFont(new Font("SansSerif", Font.BOLD, 17));
+		lblDataDeNascimento.setFont(new Font("Cambria Math", Font.BOLD, 17));
 
 		JYearChooser yearChooser = new JYearChooser();
 		yearChooser.setBounds(309, 36, 130, 25);
@@ -206,11 +202,11 @@ public class Client_Registration extends JFrame {
 		pnEspecial.add(spinField);
 
 		JLabel lblGnero = new JLabel("G\u00EAnero");
-		lblGnero.setBounds(42, 71, 163, 25);
+		lblGnero.setBounds(32, 70, 163, 25);
 		pnEspecial.add(lblGnero);
 		lblGnero.setHorizontalAlignment(SwingConstants.LEFT);
 		lblGnero.setForeground(Color.GRAY);
-		lblGnero.setFont(new Font("SansSerif", Font.BOLD, 17));
+		lblGnero.setFont(new Font("Cambria Math", Font.BOLD, 17));
 
 		JRadioButton rdbtnPersonalizado = new JRadioButton("PERSONALIZADO");
 		rdbtnPersonalizado.setBounds(297, 104, 139, 25);
@@ -406,7 +402,7 @@ public class Client_Registration extends JFrame {
 		pnEnd.add(lblDadosPessoais);
 		lblDadosPessoais.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDadosPessoais.setForeground(Color.GRAY);
-		lblDadosPessoais.setFont(new Font("SansSerif", Font.BOLD, 17));
+		lblDadosPessoais.setFont(new Font("Cambria Math", Font.BOLD, 17));
 
 		JPanel pnDadosPessoais = new JPanel();
 		pnDadosPessoais.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -566,7 +562,7 @@ public class Client_Registration extends JFrame {
 		lblDadosPessoais_1.setBounds(0, 0, 411, 24);
 		lblDadosPessoais_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblDadosPessoais_1.setForeground(Color.GRAY);
-		lblDadosPessoais_1.setFont(new Font("SansSerif", Font.BOLD, 17));
+		lblDadosPessoais_1.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		pnDpessoais.add(lblDadosPessoais_1);
 		
 				
@@ -585,33 +581,7 @@ public class Client_Registration extends JFrame {
 
 				// String cpff = txtFCPF.getText().replaceAll("\\.", "");
 				// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
-				// EM SÓ NÚMEROS
 			
-				
-				contentPane.setComponentZOrder(lblW1, 4);
-
-				if (txtFNome.getText().isEmpty() || txtFNome.getText().trim().equals("Nome")) {
-					lblW1.setBounds(10, 40, 544, 250);
-					lblW1.setVisible(true);
-					lblW1.setForeground(Color.RED);
-					txtFNome.setBorder(borda);
-
-				} else {
-					
-					
-				}
-
-				if (txtFCPF.getText().isEmpty() || txtFCPF.getText().equals("CPF")) {
-					lblW2.setVisible(true);
-					lblW2.setForeground(Color.RED);
-					txtFCPF.setBorder(borda);
-				}
-				
-				if (txtFEmail.getText().isEmpty() || txtFEmail.getText().equals("Email")) {
-					lblW3.setVisible(true);
-					lblW3.setForeground(Color.RED);
-					txtFEmail.setBorder(borda);
-				}
 
 			}
 		});

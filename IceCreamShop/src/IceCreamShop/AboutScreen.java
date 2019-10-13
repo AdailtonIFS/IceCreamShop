@@ -71,28 +71,28 @@ public class AboutScreen extends JFrame {
 		
 		JLabel lblEsseO = new JLabel("Esse \u00E9 o Ice Cream Shop, um programa");
 		lblEsseO.setForeground(Color.WHITE);
-		lblEsseO.setFont(new Font("Arial Black", Font.BOLD, 16));
+		lblEsseO.setFont(new Font("Serif", Font.BOLD, 16));
 		lblEsseO.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEsseO.setBounds(0, 109, 444, 28);
+		lblEsseO.setBounds(0, 92, 444, 28);
 		contentPane.add(lblEsseO);
 		
 		JLabel lblComOIntuito = new JLabel("com o intuito de ajudar os donos de sorveteria");
 		lblComOIntuito.setForeground(Color.WHITE);
-		lblComOIntuito.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		lblComOIntuito.setFont(new Font("Serif", Font.BOLD, 16));
 		lblComOIntuito.setHorizontalAlignment(SwingConstants.CENTER);
 		lblComOIntuito.setBounds(0, 133, 444, 22);
 		contentPane.add(lblComOIntuito);
 		
 		JLabel lblQueTemInteresse = new JLabel("que tem interesse em crescer no mercado de sorveterias,");
 		lblQueTemInteresse.setForeground(Color.WHITE);
-		lblQueTemInteresse.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		lblQueTemInteresse.setFont(new Font("Serif", Font.BOLD, 15));
 		lblQueTemInteresse.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQueTemInteresse.setBounds(0, 153, 444, 22);
 		contentPane.add(lblQueTemInteresse);
 		
 		JLabel lblEsteProgramaConta = new JLabel("este programa conta com diversas funcionalidades para ajuda-lo.");
 		lblEsteProgramaConta.setForeground(Color.WHITE);
-		lblEsteProgramaConta.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		lblEsteProgramaConta.setFont(new Font("Serif", Font.BOLD, 14));
 		lblEsteProgramaConta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEsteProgramaConta.setBounds(0, 171, 444, 22);
 		contentPane.add(lblEsteProgramaConta);
@@ -122,6 +122,6 @@ public class AboutScreen extends JFrame {
 		panel_1.add(lblVersion);
 		lblVersion.setForeground(SystemColor.desktop);
 		lblVersion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblVersion.setFont(new Font("SansSerif", Font.BOLD, 38));
+		lblVersion.setFont(new Font("Cambria Math", Font.BOLD, 30));
 	}
 }

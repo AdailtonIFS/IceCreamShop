@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.Font;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -60,27 +61,32 @@ public class AdministratorMainScreen extends JFrame {
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 255));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBackground(new Color(255, 222, 173));
-		panel.setBounds(0, 432, 694, 139);
+		panel.setBounds(0, 426, 694, 139);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("FUNCION\u00C1RIOS");
+		btnNewButton.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
-		btnNewButton.setBounds(49, 49, 134, 66);
+		btnNewButton.setBounds(48, 38, 135, 70);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CONTA");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnNewButton_1.setBounds(292, 49, 134, 66);
+		btnNewButton_1.setBounds(290, 38, 135, 70);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("      SAIR");
@@ -91,7 +97,7 @@ public class AdministratorMainScreen extends JFrame {
 			}
 		});
 		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnNewButton_2.setBounds(523, 49, 134, 66);
+		btnNewButton_2.setBounds(523, 38, 135, 70);
 		panel.add(btnNewButton_2);
 		
 		

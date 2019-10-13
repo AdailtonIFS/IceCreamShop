@@ -57,7 +57,7 @@ public class HelpScreen extends JFrame {
 				contentPane.add(panel);
 
 				List listaPerguntas = new List();
-				listaPerguntas.setFont(new Font("Arial", Font.PLAIN, 16) );
+				listaPerguntas.setFont(new Font("SansSerif", Font.PLAIN, 15) );
 				listaPerguntas.add("QUANDO SABER SE O CAMPO É OBRIGATÓRIO");
 				listaPerguntas.setBounds(10, 10, 649, 214);
 				panel.add(listaPerguntas);
@@ -70,8 +70,8 @@ public class HelpScreen extends JFrame {
 				TextArea resposta = new TextArea();
 				contentPane.add(resposta);
 				resposta.setEditable(false);
-				resposta.setFont(new Font("Arial", Font.PLAIN, 18));
-				resposta.setBounds(48, 305, 597, 170);
+				resposta.setFont(new Font("SansSerif", Font.PLAIN, 18));
+				resposta.setBounds(48, 320, 597, 170);
 				resposta.setFocusable(false);
 				
 				JPanel pnCima = new JPanel();

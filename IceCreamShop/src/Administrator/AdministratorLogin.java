@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Client.Client_MainScreen;
+import Client.Client_Registration;
 import IceCreamShop.MainScreen;
 
 public class AdministratorLogin extends JFrame {
@@ -87,10 +90,10 @@ public class AdministratorLogin extends JFrame {
 		contentPane.add(DarkTheme);
 		
 		JLabel lblKey = new JLabel("PASSWORD");
-		lblKey.setBounds(110, 134, 204, 25);
+		lblKey.setBounds(110, 140, 204, 25);
 		contentPane.add(lblKey);
 		lblKey.setForeground(Color.BLACK);
-		lblKey.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		lblKey.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		lblKey.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		passwordField = new JPasswordField();
@@ -103,7 +106,7 @@ public class AdministratorLogin extends JFrame {
 		contentPane.add(lblLogin);
 		lblLogin.setForeground(Color.BLACK);
 		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
+		lblLogin.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		
 		txtFLogin = new JTextField();
 		txtFLogin.setBounds(110, 98, 204, 25);
@@ -123,23 +126,35 @@ public class AdministratorLogin extends JFrame {
 		pnBaixo.setBounds(0, 275, 394, 40);
 		pnBaixo.setBackground(new Color(255, 222, 173));
 		contentPane.add(pnBaixo);
+		pnBaixo.setLayout(null);
 		
+		JLabel label = new JLabel("");
+		label.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+
+			}
+		});
+		label.setBounds(32, 0, 34, 40);
+		pnBaixo.add(label);
+		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));		
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.setBounds(151, 226, 89, 23);
 		contentPane.add(btnEntrar);
 		
-		JLabel label = new JLabel("");
-		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		label.setBounds(80, 93, 30, 34);
-		label.setIcon(new ImageIcon(MainScreen.class.getResource("/images/key.png")));
-		contentPane.add(label);
+		JLabel lblChave = new JLabel("");
+		lblChave.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		lblChave.setBounds(80, 93, 30, 34);
+		lblChave.setIcon(new ImageIcon(MainScreen.class.getResource("/images/key.png")));
+		contentPane.add(lblChave);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		label_1.setBounds(80, 166, 30,34);
-		label_1.setIcon(new ImageIcon(MainScreen.class.getResource("/images/lock.png")));	
-		contentPane.add(label_1);
+		JLabel lblCadeado = new JLabel("");
+		lblCadeado.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		lblCadeado.setBounds(80, 166, 30,34);
+		lblCadeado.setIcon(new ImageIcon(MainScreen.class.getResource("/images/lock.png")));	
+		contentPane.add(lblCadeado);
 		
 		btnEntrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")

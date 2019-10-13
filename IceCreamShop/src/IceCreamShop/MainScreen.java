@@ -108,7 +108,7 @@ public class MainScreen extends JFrame {
 
 		Data = new JTextField();
 		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(550, 574, 143, 47);
+		Data.setBounds(550, 568, 143, 47);
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Data.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -119,7 +119,7 @@ public class MainScreen extends JFrame {
 		Data.setText(finalDate);
 		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Developer.setBackground(new Color(255, 228, 181));
-		Developer.setBounds(2, 574, 551, 47);
+		Developer.setBounds(2, 568, 551, 47);
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 
@@ -132,7 +132,7 @@ public class MainScreen extends JFrame {
 
 		JButton btnClients = new JButton("CLIENTES");
 		btnClients.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnClients.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		btnClients.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnClients.setIcon(new ImageIcon(MainScreen.class.getResource("/images/man.png")));
 		btnClients.setBounds(511, 479, 151, 65);
 		contentPane.add(btnClients);
@@ -150,7 +150,7 @@ public class MainScreen extends JFrame {
 		JButton btnLogout = new JButton("   SAIR");
 		btnLogout.setBackground(Color.WHITE);
 		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnLogout.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		btnLogout.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnLogout.setIcon(new ImageIcon(MainScreen.class.getResource("/images/turn-on.png")));
 		btnLogout.setBounds(32, 479, 151, 65);
 		contentPane.add(btnLogout);
@@ -203,6 +203,7 @@ public class MainScreen extends JFrame {
 		panelSabores.setLayout(null);
 
 		JLabel lblPreco = new JLabel("SABORES");
+		lblPreco.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		lblPreco.setBounds(0, 0, 345, 42);
 		panelSabores.add(lblPreco);
 		lblPreco.setHorizontalAlignment(SwingConstants.CENTER);
@@ -226,13 +227,16 @@ public class MainScreen extends JFrame {
 		menuBar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 
 		JMenu mnAjuda = new JMenu("AJUDA");
+		mnAjuda.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		mnAjuda.setIcon(new ImageIcon(MainScreen.class.getResource("/images/help_question_16768 (1).png")));
 		menuBar.add(mnAjuda);
 
 		JMenuItem mntmExibirAjuda = new JMenuItem("EXIBIR AJUDA");
+		mntmExibirAjuda.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		mnAjuda.add(mntmExibirAjuda);
 
 		JMenuItem mntmSobreOIce = new JMenuItem("SOBRE O ICE CREAM SHOP");
+		mntmSobreOIce.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		mnAjuda.add(mntmSobreOIce);
 
 		JPanel panelValor = new JPanel();
@@ -242,6 +246,7 @@ public class MainScreen extends JFrame {
 		panelValor.setLayout(null);
 
 		JLabel lblValor = new JLabel("VALOR");
+		lblValor.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		lblValor.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		lblValor.setBounds(0, 0, 345, 42);
 		panelValor.add(lblValor);
@@ -249,11 +254,12 @@ public class MainScreen extends JFrame {
 
 		JButton btnAdministrar = new JButton("ADMINISTRADOR");
 		btnAdministrar.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnAdministrar.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		btnAdministrar.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnAdministrar.setIcon(new ImageIcon(MainScreen.class.getResource("/images/team.png")));
 		btnAdministrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
+					dispose();
 					AdministratorLogin frame = new AdministratorLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {

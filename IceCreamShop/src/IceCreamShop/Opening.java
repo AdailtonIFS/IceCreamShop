@@ -105,38 +105,56 @@ public class Opening extends JFrame {
 		label_1.setBounds(27, 178, 545, 14);
 		contentPane.add(label_1);
 		
-				JProgressBar progressBar = new JProgressBar();
-				progressBar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-				progressBar.setStringPainted(true);
-				progressBar.setForeground(new Color(0, 0, 0));
-				progressBar.setBackground(new Color(135, 206, 250));
-				progressBar.setIndeterminate(true);
-				progressBar.setBounds(100, 307, 402, 36);
-				contentPane.add(progressBar);
-				
-				new Thread (){
-					public void run() {
+	 	JProgressBar progressBar = new JProgressBar();
+		progressBar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		progressBar.setStringPainted(true);
+		progressBar.setForeground(new Color(0, 0, 0));
+		progressBar.setBackground(new Color(135, 206, 250));
+		progressBar.setIndeterminate(true);
+		progressBar.setBounds(100, 307, 402, 36);
+		contentPane.add(progressBar);
+		
+		JLabel lblEntrada = new JLabel("");
+		lblEntrada.setFont(new Font("Courier New", Font.BOLD, 15));
+		lblEntrada.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEntrada.setBounds(0, 386, 596, 16);
+		contentPane.add(lblEntrada);
+					
+			new Thread (){
+				public void run() {
+					
+					for(int i = 0; i < 101; i++) {
 						
-						for(int i = 0; i < 101; i++) {
-							
-							try {
-							    sleep(25);
-								progressBar.setValue(i);
-								
-			
-							}catch(InterruptedException ex){
-							}
-								
-						}
-						dispose();	
 						try {
-							MainScreen frame = new MainScreen();
-							frame.setVisible(true);	
+							 sleep(30);
+							    if(i == 25) {
+							    	lblEntrada.setText("CARREGANDO O CÓDIGO...");
+							    }
+							    else
+							    	if(i == 50) {
+							    		lblEntrada.setText("CARREGANDO BANCO DE DADOS...");
+							    	}
+							    	else
+							    		if(i == 75) {
+								    		lblEntrada.setText("ENTRANDO...");
+
+							    		}
+							    progressBar.setValue(i);
 							
-							} catch (Exception e) {
-							e.printStackTrace();
+		
+						}catch(InterruptedException ex){
 						}
+							
 					}
-				}.start();
+					dispose();	
+					try {
+						MainScreen frame = new MainScreen();
+						frame.setVisible(true);	
+						
+						} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}.start();
 	}
 }
