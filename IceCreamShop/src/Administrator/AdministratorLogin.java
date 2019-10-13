@@ -24,7 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Client.Client_MainScreen;
 import Client.Client_Registration;
 import IceCreamShop.MainScreen;
 

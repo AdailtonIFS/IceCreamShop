@@ -2,6 +2,7 @@ package Administrator;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -11,9 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.Font;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -86,7 +85,7 @@ public class AdministratorMainScreen extends JFrame {
 		});
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnNewButton_1.setBounds(290, 38, 135, 70);
+		btnNewButton_1.setBounds(283, 38, 135, 70);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("      SAIR");
@@ -97,7 +96,7 @@ public class AdministratorMainScreen extends JFrame {
 			}
 		});
 		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnNewButton_2.setBounds(523, 38, 135, 70);
+		btnNewButton_2.setBounds(517, 38, 135, 70);
 		panel.add(btnNewButton_2);
 		
 		
