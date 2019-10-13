@@ -13,7 +13,9 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
@@ -105,30 +107,100 @@ public class MainScreen extends JFrame {
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
+		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		Developer.setBackground(new Color(255, 228, 181));
+		Developer.setBounds(0, 568, 553, 47);
+		contentPane.add(Developer);
+		Developer.setLayout(null);
+		
+				JLabel lblSystemDevelopedBy = new JLabel("System Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
+				lblSystemDevelopedBy.setBounds(0, 0, 551, 47);
+				Developer.add(lblSystemDevelopedBy);
+				lblSystemDevelopedBy.setForeground(new Color(0, 0, 0));
+				lblSystemDevelopedBy.setFont(new Font("SansSerif", Font.BOLD, 15));
+				lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
+		
+				JPanel panel = new JPanel();
+				panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+				panel.setBounds(2, 168, 691, 253);
+				panel.setLayout(null);
+				contentPane.add(panel);
+				
+						JPanel pnName = new JPanel();
+						pnName.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+						pnName.setBounds(20, 10, 323, 231);
+						panel.add(pnName);
+						pnName.setLayout(null);
+						
+								List listaSabores = new List();
+								listaSabores.setBounds(10, 10, 303, 211);
+								pnName.add(listaSabores);
+								listaSabores.setFont(new Font("Tahoma", Font.PLAIN, 11));
+								
+										JPanel pnPrecos = new JPanel();
+										pnPrecos.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+										pnPrecos.setBounds(353, 10, 323, 231);
+										panel.add(pnPrecos);
+										pnPrecos.setLayout(null);
+										
+												List listaPrecos = new List();
+												listaPrecos.setBounds(10, 10, 303, 211);
+												pnPrecos.add(listaPrecos);
+												listaPrecos.setFont(new Font("Tahoma", Font.PLAIN, 11));
+												listaPrecos.add("R$17,75");
+												listaPrecos.setEnabled(false);
+												listaSabores.add("CHOCOLATE");
+												listaSabores.addActionListener(new ActionListener() {
+													public void actionPerformed(ActionEvent e) {
+														try {
+															SalesScreen frame = new SalesScreen();
+															frame.setVisible(true);
+														} catch (Exception e1) {
+															e1.printStackTrace();
+														}
+													}
+												});
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel_2.setBackground(new Color(255, 222, 173));
+		panel_2.setBounds(550, 592, 143, 23);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lbHour = new JLabel("");
+		lbHour.setHorizontalAlignment(SwingConstants.CENTER);
+		lbHour.setFont(new Font("Cambria Math", Font.BOLD, 16));
+		lbHour.setBounds(0, 0, 141, 22);
+		panel_2.add(lbHour);
 
 		Data = new JTextField();
 		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(550, 568, 143, 47);
+		Data.setBounds(550, 568, 143, 24);
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Data.setHorizontalAlignment(SwingConstants.RIGHT);
+		Data.setHorizontalAlignment(SwingConstants.CENTER);
 		Data.setBackground(new Color(255, 228, 181));
 		Data.setEditable(false);
-		Data.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		Data.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		Data.setColumns(10);
 		Data.setText(finalDate);
-		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Developer.setBackground(new Color(255, 228, 181));
-		Developer.setBounds(2, 568, 551, 47);
-		contentPane.add(Developer);
-		Developer.setLayout(null);
-
-		JLabel lblSystemDevelopedBy = new JLabel("System Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
-		lblSystemDevelopedBy.setBounds(0, 0, 551, 47);
-		Developer.add(lblSystemDevelopedBy);
-		lblSystemDevelopedBy.setForeground(new Color(0, 0, 0));
-		lblSystemDevelopedBy.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		 Thread th = new Thread(new Runnable() { //cria uma thread
+		        public void run() {
+		            while(true) { //roda indefinidamente
+		                Date data = Calendar.getInstance().getTime();
+		                DateFormat h = DateFormat.getTimeInstance();
+		                lbHour.setText(h.format(data));     
+		                try {
+		                    Thread.sleep(1000); //espera 1 segundo para fazer a nova evolução
+		                } catch(InterruptedException ex){
+		                }
+		            }
+		        }
+		    }); th.start();
 
 		JButton btnClients = new JButton("CLIENTES");
 		btnClients.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -154,47 +226,6 @@ public class MainScreen extends JFrame {
 		btnLogout.setIcon(new ImageIcon(MainScreen.class.getResource("/images/turn-on.png")));
 		btnLogout.setBounds(32, 479, 151, 65);
 		contentPane.add(btnLogout);
-
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(2, 168, 691, 253);
-		panel.setLayout(null);
-		contentPane.add(panel);
-
-		JPanel pnName = new JPanel();
-		pnName.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnName.setBounds(20, 10, 323, 231);
-		panel.add(pnName);
-		pnName.setLayout(null);
-
-		List listaSabores = new List();
-		listaSabores.setBounds(10, 10, 303, 211);
-		pnName.add(listaSabores);
-		listaSabores.setFont(new Font("Tahoma", Font.PLAIN, 11));
-
-		JPanel pnPrecos = new JPanel();
-		pnPrecos.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnPrecos.setBounds(353, 10, 323, 231);
-		panel.add(pnPrecos);
-		pnPrecos.setLayout(null);
-
-		List listaPrecos = new List();
-		listaPrecos.setBounds(10, 10, 303, 211);
-		pnPrecos.add(listaPrecos);
-		listaPrecos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		listaPrecos.add("R$17,75");
-		listaPrecos.setEnabled(false);
-		listaSabores.add("CHOCOLATE");
-		listaSabores.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					SalesScreen frame = new SalesScreen();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
 
 		JPanel panelSabores = new JPanel();
 		panelSabores.setBorder(new LineBorder(new Color(0, 0, 0)));
