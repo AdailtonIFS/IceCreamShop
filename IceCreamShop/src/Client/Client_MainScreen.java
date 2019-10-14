@@ -12,6 +12,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
 import java.io.File;
 import java.io.IOException;
 
@@ -19,10 +20,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import com.sun.glass.events.WindowEvent;
+
+import IceCreamShop.MainScreen;
 
 public class Client_MainScreen extends JFrame {
 
@@ -79,7 +85,7 @@ public class Client_MainScreen extends JFrame {
 				setEnabled(true);
 				}
 		});
-		
+			
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new LineBorder(Color.BLACK, 1, true));
@@ -141,7 +147,13 @@ public class Client_MainScreen extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
+				try {
+					MainScreen frame = new MainScreen();
+					frame.setVisible(true);
 
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		

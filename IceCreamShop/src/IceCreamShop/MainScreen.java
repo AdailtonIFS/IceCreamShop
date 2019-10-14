@@ -123,12 +123,14 @@ public class MainScreen extends JFrame {
 				lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
 		
 				JPanel panel = new JPanel();
+				panel.setBackground(new Color(250, 240, 230));
 				panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-				panel.setBounds(2, 168, 691, 253);
+				panel.setBounds(2, 197, 691, 253);
 				panel.setLayout(null);
 				contentPane.add(panel);
 				
 						JPanel pnName = new JPanel();
+						pnName.setBackground(new Color(169, 169, 169));
 						pnName.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 						pnName.setBounds(20, 10, 323, 231);
 						panel.add(pnName);
@@ -140,6 +142,7 @@ public class MainScreen extends JFrame {
 								listaSabores.setFont(new Font("Tahoma", Font.PLAIN, 11));
 								
 										JPanel pnPrecos = new JPanel();
+										pnPrecos.setBackground(new Color(169, 169, 169));
 										pnPrecos.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 										pnPrecos.setBounds(353, 10, 323, 231);
 										panel.add(pnPrecos);
@@ -210,6 +213,7 @@ public class MainScreen extends JFrame {
 		contentPane.add(btnClients);
 		btnClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				try {
 					Client_MainScreen frame = new Client_MainScreen();
 					frame.setVisible(true);
@@ -229,7 +233,7 @@ public class MainScreen extends JFrame {
 
 		JPanel panelSabores = new JPanel();
 		panelSabores.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelSabores.setBounds(1, 125, 345, 42);
+		panelSabores.setBounds(0, 154, 345, 42);
 		contentPane.add(panelSabores);
 		panelSabores.setLayout(null);
 
@@ -242,7 +246,7 @@ public class MainScreen extends JFrame {
 		JPanel panelCardapio = new JPanel();
 		panelCardapio.setBackground(new Color(255, 222, 173));
 		panelCardapio.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panelCardapio.setBounds(0, 35, 694, 88);
+		panelCardapio.setBounds(0, 65, 694, 88);
 		contentPane.add(panelCardapio);
 		panelCardapio.setLayout(null);
 
@@ -272,7 +276,7 @@ public class MainScreen extends JFrame {
 
 		JPanel panelValor = new JPanel();
 		panelValor.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelValor.setBounds(348, 125, 345, 42);
+		panelValor.setBounds(348, 154, 345, 42);
 		contentPane.add(panelValor);
 		panelValor.setLayout(null);
 
@@ -309,13 +313,13 @@ public class MainScreen extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setForeground(Color.BLACK);
 		separator_1.setOrientation(SwingConstants.VERTICAL);
-		separator_1.setBounds(216, 448, 1, 101);
+		separator_1.setBounds(216, 461, 1, 88);
 		contentPane.add(separator_1);
 
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setOrientation(SwingConstants.VERTICAL);
 		separator_2.setForeground(Color.BLACK);
-		separator_2.setBounds(480, 448, 1, 101);
+		separator_2.setBounds(480, 461, 1, 88);
 		contentPane.add(separator_2);
 
 		JSeparator separator_3 = new JSeparator();

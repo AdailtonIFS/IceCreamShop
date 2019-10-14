@@ -18,12 +18,6 @@ public class Person{
 	private String Sex;
 	private String DataNascimento;
 	
-	
-	
-
-		
-	
-		
 	public String getName() {
 		return Name;
 	}
@@ -195,7 +189,6 @@ public class Person{
     		
 
 			
-			
 			public static void registerClient(String tabela, ArrayList <String> valores) throws SQLException {
 				
 			Connection conn = DataBase.DB.getConnection();
@@ -205,13 +198,14 @@ public class Person{
 			sql = String.format("insert into %s values (", tabela);
 
 			for (String valor : valores) {
-				sql += "'" + valor + "',";
+				sql += "'" +valor + "',";
 			}
 
-			sql = sql.substring(0, sql.length() - 1) + ")";
+			sql = sql.substring(0, sql.length() - 1) + ")"
+					+ "";
 
 			statement.executeUpdate(sql);
-			statement.close();
+			DataBase.DB.closeStatement(statement);
 			
 			}
 	   

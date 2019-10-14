@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -81,113 +83,113 @@ public class Client_Registration extends JFrame {
 	 * @throws ParseException
 	 */
 
-	public Client_Registration() throws ParseException {
-
-		Font dropthegame1 = null;
-
-		try {
-			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")).deriveFont(82f);
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
-		} catch (IOException | FontFormatException e) {
-
-		}
-
-		setIconImage(
-				Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
-		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-
-		// =================mascarasCampos================
-		ftmTelefone = new MaskFormatter("(##)#####-####");
-		ftmCPF = new MaskFormatter("###.###.###-##");
-		ftmCEP = new MaskFormatter("#####-###");
-		// ===============================================
-
-		Client Cl = new Client(); //instanciarClasseClient
-
-		setTitle("CADASTRO DE CLIENTES"); // tituloPagina
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600, 650);
-		setLocationRelativeTo(null); // centralizarFrame
-		setResizable(false); // bloquearMaximizar
-		
-		//bloquearFrame
-			this.addComponentListener(new ComponentAdapter() {
-
-				public void componentMoved(ComponentEvent e) {
-
-				setEnabled(false);
-
-				setEnabled(true);
-				}
-		});
-		
-		
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 255));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		JPanel pnTitle = new JPanel();
-		pnTitle.setForeground(new Color(255, 255, 0));
-		pnTitle.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		pnTitle.setBackground(new Color(255, 222, 173));
-		pnTitle.setBounds(0, 0, 594, 99);
-		contentPane.add(pnTitle);
-		pnTitle.setLayout(null);
-
-		JLabel lblRegistrando = new JLabel("REGISTRANDO");
-		lblRegistrando.setForeground(Color.DARK_GRAY);
-		lblRegistrando.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRegistrando.setBounds(0, 0, 594, 99);
-		lblRegistrando.setFont(dropthegame1);
-		pnTitle.add(lblRegistrando);
-
-		JPanel pnBaixo = new JPanel();
-		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		pnBaixo.setBackground(new Color(255, 222, 173));
-		pnBaixo.setBounds(0, 568, 594, 53);
-		contentPane.add(pnBaixo);
-		pnBaixo.setLayout(null);
-		
-				JLabel label = new JLabel("");
-				label.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						dispose();
-
+				public Client_Registration() throws ParseException {
+			
+					Font dropthegame1 = null;
+			
+					try {
+						dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")).deriveFont(82f);
+						GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+						ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
+					} catch (IOException | FontFormatException e) {
+			
 					}
-				});
-		label.setBounds(32, 7, 35, 40);
-		pnBaixo.add(label);
-		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));
-
-						
-						JButton SALVAR = new JButton("SALVAR");// CRIANDO BOTÃO SALVAR
-						SALVAR.setBounds(253, 508, 114, 41);
-						contentPane.add(SALVAR);
-						SALVAR.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-						SALVAR.setFont(new Font("Cambria Math", Font.BOLD, 15));
-						SALVAR.setForeground(Color.BLACK);// FUNDO DO BOTÃO
-						SALVAR.setBackground(UIManager.getColor("Button.background"));
-						
-
-						// AÇÃO DO BOTÃO SALVAR
-
-						SALVAR.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent e) {
-
-								// String cpff = txtFCPF.getText().replaceAll("\\.", "");
-								// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
-								
-								
-								
-							
-
+			
+					setIconImage(
+							Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
+					setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+			
+					// =================mascarasCampos================
+					ftmTelefone = new MaskFormatter("(##)#####-####");
+					ftmCPF = new MaskFormatter("###.###.###-##");
+					ftmCEP = new MaskFormatter("#####-###");
+					// ===============================================
+			
+					Client Cl = new Client(); //instanciarClasseClient
+			
+					setTitle("CADASTRO DE CLIENTES"); // tituloPagina
+					setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					setBounds(100, 100, 600, 650);
+					setLocationRelativeTo(null); // centralizarFrame
+					setResizable(false); // bloquearMaximizar
+					
+					//bloquearFrame
+						this.addComponentListener(new ComponentAdapter() {
+			
+							public void componentMoved(ComponentEvent e) {
+			
+							setEnabled(false);
+			
+							setEnabled(true);
 							}
-						});
-		
+					});
+	
+	
+					contentPane = new JPanel();
+					contentPane.setBackground(new Color(153, 204, 255));
+					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+					setContentPane(contentPane);
+					contentPane.setLayout(null);
+					
+					JPanel pnTitle = new JPanel();
+					pnTitle.setForeground(new Color(255, 255, 0));
+					pnTitle.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+					pnTitle.setBackground(new Color(255, 222, 173));
+					pnTitle.setBounds(0, 0, 594, 99);
+					contentPane.add(pnTitle);
+					pnTitle.setLayout(null);
+					
+					JLabel lblRegistrando = new JLabel("REGISTRANDO");
+					lblRegistrando.setForeground(Color.DARK_GRAY);
+					lblRegistrando.setHorizontalAlignment(SwingConstants.CENTER);
+					lblRegistrando.setBounds(0, 0, 594, 99);
+					lblRegistrando.setFont(dropthegame1);
+					pnTitle.add(lblRegistrando);
+					
+					JPanel pnBaixo = new JPanel();
+					pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+					pnBaixo.setBackground(new Color(255, 222, 173));
+					pnBaixo.setBounds(0, 568, 594, 53);
+					contentPane.add(pnBaixo);
+					pnBaixo.setLayout(null);
+					
+					JLabel label = new JLabel("");
+					label.setBounds(32, 7, 35, 40);
+					label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));
+					pnBaixo.add(label);
+					
+					
+					label.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							dispose();
+						}
+					});
+					
+					JButton SALVAR = new JButton("SALVAR");// CRIANDO BOTÃO SALVAR
+					SALVAR.setBounds(253, 508, 114, 41);
+					contentPane.add(SALVAR);
+					SALVAR.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+					SALVAR.setFont(new Font("Cambria Math", Font.BOLD, 15));
+					SALVAR.setForeground(Color.BLACK);// FUNDO DO BOTÃO
+					SALVAR.setBackground(UIManager.getColor("Button.background"));
+					
+
+					// AÇÃO DO BOTÃO SALVAR
+
+					SALVAR.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+
+							// String cpff = txtFCPF.getText().replaceAll("\\.", "");
+							// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
+							
+							
+							
+						
+
+						}
+					});
+	
 				JPanel pnEspecial = new JPanel();
 				pnEspecial.setBackground(new Color(135, 204, 255));
 				pnEspecial.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -225,25 +227,29 @@ public class Client_Registration extends JFrame {
 				lblGnero.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		
 				JRadioButton rdbtnPersonalizado = new JRadioButton("PERSONALIZADO");
+				rdbtnPersonalizado.setFont(new Font("Dialog", Font.PLAIN, 13));
 				rdbtnPersonalizado.setBounds(300, 216, 139, 25);
 				pnEspecial.add(rdbtnPersonalizado);
 				
 				JRadioButton rdbtnMasculino = new JRadioButton("MASCULINO");
+				rdbtnMasculino.setBorder(new LineBorder(new Color(0, 0, 0)));
+				rdbtnMasculino.setFont(new Font("Dialog", Font.PLAIN, 13));
 				rdbtnMasculino.setBounds(45, 216, 109, 25);
 				pnEspecial.add(rdbtnMasculino);
 				rdbtnMasculino.setHorizontalAlignment(SwingConstants.CENTER);
 				
 				JRadioButton rdbtnFeminino = new JRadioButton("FEMININO");
+				rdbtnFeminino.setFont(new Font("Dialog", Font.PLAIN, 13));
 				rdbtnFeminino.setBounds(175, 216, 109, 25);
 				pnEspecial.add(rdbtnFeminino);
 				rdbtnFeminino.setHorizontalAlignment(SwingConstants.CENTER);
 						
 				JTextField txtGnero = new JTextField();
 				txtGnero.setText("G\u00EAnero");
-				txtGnero.setForeground(Color.LIGHT_GRAY);
+				txtGnero.setForeground(new Color(128, 128, 128));
 				txtGnero.setVisible(false);
-				txtGnero.setFont(new Font("SansSerif", Font.PLAIN, 15));
-				txtGnero.setBounds(45, 271, 182, 25);
+				txtGnero.setFont(new Font("Dialog", Font.PLAIN, 16));
+				txtGnero.setBounds(42, 269, 182, 25);
 				pnEspecial.add(txtGnero);
 				txtGnero.setColumns(10);
 						
@@ -257,162 +263,325 @@ public class Client_Registration extends JFrame {
 				label_1.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/faqs.png")));
 				pnEspecial.add(label_1);
 				
+
+										
+//------------------------------------------------------------------------------------------------------------
+				//==================================__Campo_Nome__===================================
 				txtFNome = new JTextField();
 				txtFNome.setBounds(42, 48, 182, 25);
-				pnEspecial.add(txtFNome);
-				txtFNome.setForeground(Color.LIGHT_GRAY);
+				txtFNome.setForeground(new Color(128, 128, 128));
 				txtFNome.setText("Nome");
-				txtFNome.setFont(new Font("SansSerif", Font.PLAIN, 15));
+				txtFNome.setFont(new Font("Dialog", Font.PLAIN, 16));
 				txtFNome.setBorder(new LineBorder(Color.BLACK, 1, true));
 				txtFNome.setColumns(10);
-						
+				pnEspecial.add(txtFNome);
+				//=================================__ACÃO__NO__txtField===============================	
+				txtFNome.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent arg0) {
+			
+						if (txtFNome.getText().equals("Nome")) {
+							
+							txtFNome.setText("");
+							txtFNome.setForeground(Color.black);
+							
+						}
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						if (txtFNome.getText().isEmpty()) {
+							
+							txtFNome.setText("Nome");
+							txtFNome.setForeground(new Color(128, 128, 128));
+							txtFNome.setBorder(new LineBorder(Color.BLACK, 1, true));
+		
+						}
+					}
+				});
+				//=====================================__FIM__======================================
+//------------------------------------------------------------------------------------------------------------				
+				
+												
+				
+//-------------------------------------------------------------------------------------------------------------				
+				//==================================__Campo_CPF__===================================
 						JFormattedTextField txtFCPF = new JFormattedTextField();
 						txtFCPF.setBounds(257, 48, 182, 25);
-						pnEspecial.add(txtFCPF);
-						txtFCPF.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) {
+						txtFCPF.setForeground(new Color(128, 128, 128));
+						txtFCPF.setText("CPF");
+						txtFCPF.setFont(new Font("Dialog", Font.PLAIN, 16));
+						txtFCPF.setBorder(new LineBorder(Color.BLACK, 1, true));
+						pnEspecial.add(txtFCPF);							
+				//=================================__Ação__no__CampoCPF==============================
+						
+						txtFCPF.addFocusListener(new FocusAdapter() {
+							@Override
+							public void focusGained(FocusEvent e) {
+								
 								txtFCPF.setForeground(Color.BLACK);
 								txtFCPF.setText("");
 								ftmCPF.install(txtFCPF);
-
 							}
-
 							@Override
-							public void mouseExited(MouseEvent e) {
+							public void focusLost(FocusEvent e) {
+	
 								if (txtFCPF.getText().trim().length() < 14) {
 									ftmCPF.uninstall();
-									txtFCPF.setForeground(Color.LIGHT_GRAY);
+									txtFCPF.setForeground(new Color(128, 128, 128));
 									txtFCPF.setText("CPF");
 								}
 							}
 						});
-						txtFCPF.setForeground(Color.LIGHT_GRAY);
-						txtFCPF.setText("CPF");
-						txtFCPF.setFont(new Font("SansSerif", Font.PLAIN, 15));
-						txtFCPF.setBorder(new LineBorder(Color.BLACK));
 						
+				//=====================================__FIM__========================================
+//---------------------------------------------------------------------------------------------------------------
+						
+						
+							
+//---------------------------------------------------------------------------------------------------------------
+				//==================================__Campo_Email__===================================		
 					txtFEmail = new JTextField();
 					txtFEmail.setBounds(42, 84, 182, 25);
-					pnEspecial.add(txtFEmail);
-					txtFEmail.setForeground(Color.LIGHT_GRAY);
+					txtFEmail.setForeground(new Color(128, 128, 128));
 					txtFEmail.setText("Email");
 					txtFEmail.setHorizontalAlignment(SwingConstants.LEFT);
-					txtFEmail.setFont(new Font("SansSerif", Font.PLAIN, 15));
+					txtFEmail.setFont(new Font("Dialog", Font.PLAIN, 16));
 					txtFEmail.setBorder(new LineBorder(Color.BLACK));
 					txtFEmail.setColumns(10);
+					pnEspecial.add(txtFEmail);
+				//=================================__Ação__no__CampoEmail==============================	
+					txtFEmail.addFocusListener(new FocusAdapter() {
+						@Override
+						public void focusGained(FocusEvent e) {
+							
+							if (txtFEmail.getText().equals("Email")) {
+								txtFEmail.setText("");
+								txtFEmail.setForeground(Color.BLACK);
+							}
+							
+						}
+						@Override
+						public void focusLost(FocusEvent e) {
+							
+							if (txtFEmail.getText().isEmpty()) {
+								txtFEmail.setText("Email");
+								txtFEmail.setForeground(new Color(128, 128, 128));
+								}
+							
+						}
+					});
 					
+				//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------					
+				
+				
+					
+//----------------------------------------------------------------------------------------------------------------
+					//==================================__Campo_Telefone__===================================								
 							JFormattedTextField txtFTelefone = new JFormattedTextField();// CAMPO
 							txtFTelefone.setBounds(257, 84, 182, 25);
+							txtFTelefone.setForeground(new Color(128, 128, 128));
+							txtFTelefone.setText("Telefone");
+							txtFTelefone.setFont(new Font("Dialog", Font.PLAIN, 16));
+							txtFTelefone.setBorder(new LineBorder(Color.BLACK));
 							pnEspecial.add(txtFTelefone);
-							// QUE
-							// USA A
-							// MASCARA
-							// DO
-							// TELEFONE
-					txtFTelefone.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) {
-					
-							txtFTelefone.setForeground(Color.BLACK);
-							txtFTelefone.setText("");
-						ftmTelefone.install(txtFTelefone);
-					
-					}
-
-						@Override
-						public void mouseExited(MouseEvent e) {
-					if (txtFTelefone.getText().trim().length() < 14) {
-						ftmTelefone.uninstall();
-						txtFTelefone.setForeground(Color.LIGHT_GRAY);
-						txtFTelefone.setText("Telefone");
-						}
-						}
-						});
-					txtFTelefone.setForeground(Color.LIGHT_GRAY);
-					txtFTelefone.setText("Telefone");
-					txtFTelefone.setFont(new Font("SansSerif", Font.PLAIN, 15));
-					txtFTelefone.setBorder(new LineBorder(Color.BLACK));
-					
+					//=================================__Ação__no__CampoTelefone=============================			
+						
+							txtFTelefone.addFocusListener(new FocusAdapter() {
+								@Override
+								public void focusGained(FocusEvent e) {
+	
+									txtFTelefone.setForeground(Color.BLACK);
+									txtFTelefone.setText("");
+									ftmTelefone.install(txtFTelefone);
+									
+								}
+								@Override
+								public void focusLost(FocusEvent e) {
+									
+									if (txtFTelefone.getText().trim().length() < 14) {
+										
+										ftmTelefone.uninstall();
+										txtFTelefone.setForeground(new Color(128, 128, 128));
+										txtFTelefone.setText("Telefone");
+							
+									}
+									
+								}
+							});
+					//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------					
+												
+		
+							
+//----------------------------------------------------------------------------------------------------------------
+					//==================================__Campo_Endereco__===================================	
 							txtFEndereco = new JTextField();// CAMPO DO ENDERECO
 							txtFEndereco.setBounds(42, 298, 182, 25);
+							txtFEndereco.setForeground(new Color(128, 128, 128));
+							txtFEndereco.setText("Logradouro");
+							txtFEndereco.setFont(new Font("Dialog", Font.PLAIN, 16));
+							txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+							txtFEndereco.setColumns(10);
 							pnEspecial.add(txtFEndereco);
-							txtFEndereco.addMouseListener(new MouseAdapter() {
+					//=================================__Ação__no__CampoEndereco=============================		
+							
+							txtFEndereco.addFocusListener(new FocusAdapter() {
 								@Override
-								public void mouseClicked(MouseEvent e) {
+								public void focusGained(FocusEvent e) {
 									if (txtFEndereco.getText().equals("Logradouro")) {
 
 										txtFEndereco.setText("");
 										txtFEndereco.setForeground(Color.BLACK);
 									}
-
 								}
-
 								@Override
-								public void mouseExited(MouseEvent e) {
+								public void focusLost(FocusEvent e) {
+									
 									if (txtFEndereco.getText().isEmpty()) {
-										txtFEndereco.setForeground(Color.LIGHT_GRAY);
+										
+										txtFEndereco.setForeground(new Color(128, 128, 128));
 										txtFEndereco.setText("Logradouro");
+									
 									}
+									
 								}
 							});
-							txtFEndereco.setForeground(Color.LIGHT_GRAY);
-							txtFEndereco.setText("Logradouro");
-							txtFEndereco.setFont(new Font("SansSerif", Font.PLAIN, 15));
-							txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-							txtFEndereco.setColumns(10);
 							
+							
+					//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------
+							
+							
+							
+//----------------------------------------------------------------------------------------------------------------
+					//==================================__Campo_Bairro__===================================
 									txtBairro = new JTextField();
 									txtBairro.setBounds(257, 297, 182, 26);
-									pnEspecial.add(txtBairro);
 									txtBairro.setBorder(new LineBorder(Color.BLACK, 1, true));
-									txtBairro.setFont(new Font("SansSerif", Font.PLAIN, 15));
-									txtBairro.setForeground(Color.LIGHT_GRAY);
+									txtBairro.setFont(new Font("Dialog", Font.PLAIN, 16));
+									txtBairro.setForeground(new Color(128, 128, 128));
 									txtBairro.setText("Bairro");
 									txtBairro.setColumns(10);
-									
-											JFormattedTextField txtFCep = new JFormattedTextField();// CAMPO QUE USA
-											txtFCep.setBounds(42, 334, 182, 25);
-											pnEspecial.add(txtFCep);
-											// A MASCARA DO
-											// CEP
-				txtFCep.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						txtFCep.setForeground(Color.BLACK);
-						txtFCep.setText("");
-						ftmCEP.install(txtFCep);
-					}
+									pnEspecial.add(txtBairro);
+					//=================================__Ação__no__CampoBairro=============================					
+									txtBairro.addFocusListener(new FocusAdapter() {
+										@Override
+										public void focusGained(FocusEvent e) {
+											if (txtBairro.getText().equals("Bairro")) {
 
-				@Override
-				public void mouseExited(MouseEvent e) {
-					if (txtFCep.getText().trim().length() < 9) {
-						ftmCEP.uninstall();
-						txtFCep.setForeground(Color.LIGHT_GRAY);
-						txtFCep.setText("CEP");
-					}
-				}
-			});
-				txtFCep.setForeground(Color.LIGHT_GRAY);
-				txtFCep.setText("CEP");
-				txtFCep.setFont(new Font("SansSerif", Font.PLAIN, 15));
-				txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+												txtBairro.setText("");
+												txtBairro.setForeground(Color.BLACK);
+											}
+											
+										}
+										@Override
+										public void focusLost(FocusEvent e) {
+											
+											if (txtBairro.getText().isEmpty()) {
+												
+												txtBairro.setForeground(new Color(128, 128, 128));
+												txtBairro.setText("Bairro");
+											
+											}
+											
+										}
+									});
+									
+
+					//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------				
+									
+						
+									
+//----------------------------------------------------------------------------------------------------------------
+					//==================================__Campo_CEP__===================================
+							
+					JFormattedTextField txtFCep = new JFormattedTextField();
+					txtFCep.setBounds(42, 334, 182, 25);
+					txtFCep.setForeground(new Color(128, 128, 128));
+					txtFCep.setText("CEP");
+					txtFCep.setFont(new Font("Dialog", Font.PLAIN, 16));
+					txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+					pnEspecial.add(txtFCep);
+					
+				//=================================__Ação__no__CampoCEP=============================	
+					txtFCep.addFocusListener(new FocusAdapter() {
+						@Override
+						public void focusGained(FocusEvent e) {
+							
+							txtFCep.setForeground(Color.BLACK);
+							txtFCep.setText("");
+							ftmCEP.install(txtFCep);
+						}
+						@Override
+						public void focusLost(FocusEvent e) {
+	
+							if (txtFCep.getText().trim().length() < 9) {
+							ftmCEP.uninstall();
+							txtFCep.setForeground(new Color(128, 128, 128));
+							txtFCep.setText("CEP");
+						
+							}
+							
+						}
+				});
+				//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------	
+					
+			
+
+//----------------------------------------------------------------------------------------------------------------
+				//==================================__Campo_Numero__===================================
 				
 				txtNmero = new JTextField();
 				txtNmero.setBounds(257, 334, 182, 25);
 				pnEspecial.add(txtNmero);
 				txtNmero.setBorder(new LineBorder(Color.BLACK, 1, true));
-				txtNmero.setForeground(Color.LIGHT_GRAY);
-				txtNmero.setFont(new Font("SansSerif", Font.PLAIN, 15));
+				txtNmero.setForeground(new Color(128, 128, 128));
+				txtNmero.setFont(new Font("Dialog", Font.PLAIN, 16));
 				txtNmero.setHorizontalAlignment(SwingConstants.LEFT);
 				txtNmero.setText("N\u00FAmero");
 				txtNmero.setColumns(10);
 				
+				//=================================__Ação__no__CampoNumero=============================	
+				
+				txtNmero.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						
+						if (txtNmero.getText().equals("Número")) {
+
+							txtNmero.setText("");
+							txtNmero.setForeground(Color.BLACK);
+						}
+						
+					}
+					@Override
+					public void focusLost(FocusEvent e) {
+						
+						if (txtNmero.getText().isEmpty()) {
+						
+							txtNmero.setForeground(new Color(128, 128, 128));
+							txtNmero.setText("Número");
+						
+						}
+						
+						
+					}
+				});
+				
+				//=====================================__FIM__========================================
+//----------------------------------------------------------------------------------------------------------------	
+									
+				
+						
 				JPanel pnDadosPessoais = new JPanel();
 				pnDadosPessoais.setBounds(0, 0, 471, 25);
+				pnDadosPessoais.setLayout(null);
 				pnEspecial.add(pnDadosPessoais);
-						pnDadosPessoais.setLayout(null);
 				
+										
 						JLabel lblDadosPessoais = new JLabel("Dados Pessoais");
 						lblDadosPessoais.setBounds(0, 0, 471, 25);
 						pnDadosPessoais.add(lblDadosPessoais);
@@ -434,50 +603,6 @@ public class Client_Registration extends JFrame {
 						lblEndereco.setForeground(Color.GRAY);
 						lblEndereco.setFont(new Font("Courier New", Font.BOLD, 17));
 					
-					txtFEmail.addMouseListener(new MouseAdapter() {
-						
-						@Override
-						public void mouseClicked(MouseEvent e) {
-							
-							if (txtFEmail.getText().equals("Email")) {
-								txtFEmail.setText("");
-								txtFEmail.setForeground(Color.BLACK);
-							}
-						}
-			
-						@Override
-						public void mouseExited(MouseEvent e) {
-							if (txtFEmail.getText().isEmpty()) {
-								txtFEmail.setText("Email");
-								txtFEmail.setForeground(Color.LIGHT_GRAY);
-							}
-						}
-					});
-				
-						
-					txtFNome.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseExited(MouseEvent e) {
-							if (txtFNome.getText().isEmpty()) {
-								
-								txtFNome.setText("Nome");
-								txtFNome.setForeground(Color.LIGHT_GRAY);
-								txtFNome.setBorder(new LineBorder(Color.BLACK, 1, true));
-			
-							}
-						}
-				
-						@Override
-						public void mouseClicked(MouseEvent arg0) {
-							if (txtFNome.getText().equals("Nome")) {
-								
-								txtFNome.setText("");
-								txtFNome.setForeground(Color.black);
-							}
-						}
-			
-					});
-				
 				rdbtnMasculino.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						if (rdbtnMasculino.isSelected()) {
@@ -586,6 +711,6 @@ public class Client_Registration extends JFrame {
 							}
 						});
 
-		// SALVAR
+		
 	}
 }
