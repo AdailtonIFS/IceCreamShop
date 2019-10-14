@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -123,11 +125,26 @@ public class Client_MainScreen extends JFrame {
 		lblClientes.setFont(dropthegame1);
 		pnTitle.add(lblClientes);
 		
-		JPanel pnbaixo = new JPanel();
-		pnbaixo.setBounds(0, 312, 593, 53);
-		pnbaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		pnbaixo.setBackground(new Color(255, 222, 173));
-		contentPane.add(pnbaixo);
+		JPanel pnBaixo = new JPanel();
+		pnBaixo.setBounds(0, 318, 593, 53);
+		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		pnBaixo.setBackground(new Color(255, 222, 173));
+		contentPane.add(pnBaixo);
+		pnBaixo.setLayout(null);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(32, 7, 35, 40);
+		pnBaixo.add(label);
+		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));
+		
+		label.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+
+			}
+		});
+		
 		
 		JSeparator separator = new JSeparator();
 		separator.setBackground(Color.YELLOW);
