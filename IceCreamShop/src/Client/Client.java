@@ -54,23 +54,7 @@ public class Client extends Person {
 			
 			
 			
-			public static void registerClient(String tabela, ArrayList <String> valores) throws SQLException {
-			Connection conn = DataBase.DB.getConnection();
-			String sql;
-			Statement statement = conn.createStatement();
-
-			sql = String.format("insert into %s values (", tabela);
-
-			for (String valor : valores) {
-				sql += "'" + valor + "',";
-			}
-
-			sql = sql.substring(0, sql.length() - 1) + ")";
-
-			statement.executeUpdate(sql);
-			statement.close();
 			
-			}
 			
 			public static ArrayList<String> searchClient(String tabela) throws SQLException {
 			Connection conn = DataBase.DB.getConnection();

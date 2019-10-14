@@ -1,5 +1,9 @@
 package IceCreamShop;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import javax.swing.JOptionPane;
@@ -187,6 +191,29 @@ public class Person{
 						}
     			
     		}
+    		
+    		
+
+			
+			
+			public static void registerClient(String tabela, ArrayList <String> valores) throws SQLException {
+				
+			Connection conn = DataBase.DB.getConnection();
+			String sql;
+			Statement statement = conn.createStatement();
+
+			sql = String.format("insert into %s values (", tabela);
+
+			for (String valor : valores) {
+				sql += "'" + valor + "',";
+			}
+
+			sql = sql.substring(0, sql.length() - 1) + ")";
+
+			statement.executeUpdate(sql);
+			statement.close();
+			
+			}
 	   
 
 	}
