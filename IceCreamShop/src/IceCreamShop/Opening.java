@@ -5,11 +5,13 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -51,7 +53,8 @@ public class Opening extends JFrame {
 	public Opening() {
 	
 		setTitle("ICE CREAM SHOP");
-		
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Opening.class.getResource("/images/business.png")));
+
 		Font dropthegame = null;
 		
 		try {
@@ -88,7 +91,7 @@ public class Opening extends JFrame {
 		
 		JLabel lblBemVindo = new JLabel("BEM VINDO");
 		lblBemVindo.setBackground(Color.WHITE);
-		lblBemVindo.setForeground(Color.BLACK);
+		lblBemVindo.setForeground(Color.WHITE);
 		lblBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBemVindo.setBounds(0, 104, 599, 105);
 		lblBemVindo.setFont(dropthegame);
@@ -98,27 +101,26 @@ public class Opening extends JFrame {
 		label_2.setBounds(516, 346, 56, 16);
 		contentPane.add(label_2);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setForeground(Color.WHITE);
-		label_1.setBackground(Color.WHITE);
-		label_1.setBorder(new MatteBorder(0, 0, 6, 0, (Color) new Color(255, 255, 255)));
-		label_1.setBounds(27, 178, 545, 14);
-		contentPane.add(label_1);
-		
 	 	JProgressBar progressBar = new JProgressBar();
 		progressBar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		progressBar.setStringPainted(true);
 		progressBar.setForeground(new Color(0, 0, 0));
-		progressBar.setBackground(new Color(135, 206, 250));
+		progressBar.setBackground(Color.WHITE);
 		progressBar.setIndeterminate(true);
-		progressBar.setBounds(100, 307, 402, 36);
+		progressBar.setBounds(98, 264, 402, 36);
 		contentPane.add(progressBar);
 		
 		JLabel lblEntrada = new JLabel("");
-		lblEntrada.setFont(new Font("Courier New", Font.BOLD, 15));
+		lblEntrada.setForeground(Color.WHITE);
+		lblEntrada.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		lblEntrada.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEntrada.setBounds(0, 386, 596, 16);
+		lblEntrada.setBounds(0, 374, 596, 16);
 		contentPane.add(lblEntrada);
+		
+		JLabel label = new JLabel("");
+		label.setBounds(0, 0, 594, 421);
+		label.setIcon(new ImageIcon(Opening.class.getResource("/images/open-image.jpg")));
+		contentPane.add(label);
 					
 			new Thread (){
 				public void run() {

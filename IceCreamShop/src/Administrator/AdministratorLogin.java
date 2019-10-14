@@ -122,7 +122,7 @@ public class AdministratorLogin extends JFrame {
 		
 		JPanel pnBaixo = new JPanel();
 		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnBaixo.setBounds(0, 275, 394, 40);
+		pnBaixo.setBounds(0, 281, 394, 40);
 		pnBaixo.setBackground(new Color(255, 222, 173));
 		contentPane.add(pnBaixo);
 		pnBaixo.setLayout(null);
@@ -132,6 +132,13 @@ public class AdministratorLogin extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
+				try {
+					MainScreen frame = new MainScreen();
+					frame.setVisible(true);
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 
 			}
 		});

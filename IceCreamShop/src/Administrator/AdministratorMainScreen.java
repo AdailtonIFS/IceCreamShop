@@ -44,7 +44,7 @@ public class AdministratorMainScreen extends JFrame {
 	public AdministratorMainScreen() {
 		setTitle("TELA PRINCIPAL");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 700, 600);
+		setBounds(100, 100, 600, 500);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		
@@ -67,7 +67,7 @@ public class AdministratorMainScreen extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBackground(new Color(255, 222, 173));
-		panel.setBounds(0, 426, 694, 139);
+		panel.setBounds(0, 347, 594, 124);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -75,7 +75,7 @@ public class AdministratorMainScreen extends JFrame {
 		btnNewButton.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
-		btnNewButton.setBounds(48, 38, 135, 70);
+		btnNewButton.setBounds(40, 26, 135, 70);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CONTA");
@@ -85,7 +85,7 @@ public class AdministratorMainScreen extends JFrame {
 		});
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnNewButton_1.setBounds(283, 38, 135, 70);
+		btnNewButton_1.setBounds(223, 26, 135, 70);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("      SAIR");
@@ -96,7 +96,7 @@ public class AdministratorMainScreen extends JFrame {
 			}
 		});
 		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnNewButton_2.setBounds(517, 38, 135, 70);
+		btnNewButton_2.setBounds(414, 26, 135, 70);
 		panel.add(btnNewButton_2);
 		
 		

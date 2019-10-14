@@ -81,7 +81,7 @@ public class MainScreen extends JFrame {
 		// ====================================================================
 		setTitle("ICE CREAM SHOP");
 		setForeground(Color.GRAY);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreen.class.getResource("/images/homepage.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreen.class.getResource("/images/ice-cream-shop.png")));
 		setResizable(false);
 			this.addComponentListener(new ComponentAdapter() {
 
@@ -111,7 +111,7 @@ public class MainScreen extends JFrame {
 		
 		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Developer.setBackground(new Color(255, 228, 181));
-		Developer.setBounds(0, 568, 553, 47);
+		Developer.setBounds(0, 573, 553, 47);
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 		
@@ -166,7 +166,7 @@ public class MainScreen extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_2.setBackground(new Color(255, 222, 173));
-		panel_2.setBounds(550, 592, 143, 23);
+		panel_2.setBounds(550, 597, 143, 23);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -178,7 +178,7 @@ public class MainScreen extends JFrame {
 
 		Data = new JTextField();
 		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(550, 568, 143, 24);
+		Data.setBounds(550, 573, 143, 24);
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Data.setHorizontalAlignment(SwingConstants.CENTER);
