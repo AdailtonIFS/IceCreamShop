@@ -175,20 +175,7 @@ public class Client_Registration extends JFrame {
 					SALVAR.setBackground(UIManager.getColor("Button.background"));
 					
 
-					// AÇÃO DO BOTÃO SALVAR
-
-					SALVAR.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
-
-							// String cpff = txtFCPF.getText().replaceAll("\\.", "");
-							// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
-							
-							
-							
-						
-
-						}
-					});
+				
 	
 				JPanel pnEspecial = new JPanel();
 				pnEspecial.setBackground(new Color(135, 204, 255));
@@ -280,7 +267,7 @@ public class Client_Registration extends JFrame {
 					@Override
 					public void focusGained(FocusEvent arg0) {
 			
-						if (txtFNome.getText().equals("Nome")) {
+						if (txtFNome.getText().equalsIgnoreCase("Nome")) {
 							
 							txtFNome.setText("");
 							txtFNome.setForeground(Color.black);
@@ -354,7 +341,7 @@ public class Client_Registration extends JFrame {
 						@Override
 						public void focusGained(FocusEvent e) {
 							
-							if (txtFEmail.getText().equals("Email")) {
+							if (txtFEmail.getText().equalsIgnoreCase("Email")) {
 								txtFEmail.setText("");
 								txtFEmail.setForeground(Color.BLACK);
 							}
@@ -429,7 +416,7 @@ public class Client_Registration extends JFrame {
 							txtFEndereco.addFocusListener(new FocusAdapter() {
 								@Override
 								public void focusGained(FocusEvent e) {
-									if (txtFEndereco.getText().equals("Logradouro")) {
+									if (txtFEndereco.getText().equalsIgnoreCase("Logradouro")) {
 
 										txtFEndereco.setText("");
 										txtFEndereco.setForeground(Color.BLACK);
@@ -468,7 +455,7 @@ public class Client_Registration extends JFrame {
 									txtBairro.addFocusListener(new FocusAdapter() {
 										@Override
 										public void focusGained(FocusEvent e) {
-											if (txtBairro.getText().equals("Bairro")) {
+											if (txtBairro.getText().equalsIgnoreCase("Bairro")) {
 
 												txtBairro.setText("");
 												txtBairro.setForeground(Color.BLACK);
@@ -550,7 +537,7 @@ public class Client_Registration extends JFrame {
 					@Override
 					public void focusGained(FocusEvent e) {
 						
-						if (txtNmero.getText().equals("Número")) {
+						if (txtNmero.getText().equalsIgnoreCase("Número")) {
 
 							txtNmero.setText("");
 							txtNmero.setForeground(Color.BLACK);
@@ -573,7 +560,33 @@ public class Client_Registration extends JFrame {
 				
 				//=====================================__FIM__========================================
 //----------------------------------------------------------------------------------------------------------------	
-									
+				// AÇÃO DO BOTÃO SALVAR 	private String Name;
+//				private String CPF;
+//				private String Phone;
+//				private String Adress;
+//				private String CEP;
+//				private String Sex;
+//				private String DataNascimento;
+
+				SALVAR.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+						// String cpff = txtFCPF.getText().replaceAll("\\.", "");
+						// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
+						
+						if(!txtFNome.getText().equals("") || txtFNome.getText().equalsIgnoreCase("Nome")) {
+							Cl.setName(txtFNome.getText());
+						}
+						else
+							if(!txtFCPF.getText().equalsIgnoreCase("CPF")) {
+								Cl.setCPF(txtFCPF.getText());
+							}
+						
+						
+					
+
+					}
+				});
 				
 						
 				JPanel pnDadosPessoais = new JPanel();
