@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
@@ -560,7 +561,18 @@ public class Client_Registration extends JFrame {
 				
 				//=====================================__FIM__========================================
 //----------------------------------------------------------------------------------------------------------------	
-				// AÇÃO DO BOTÃO SALVAR 	private String Name;
+				// AÇÃO DO BOTÃO SALVAR 	
+				
+//				Name varchar(45)not null,
+//				CPF char(14) not null primary key,
+//				Phone char(14) null,
+//				Adress varchar(45) null,
+//				CEP char(9) null,
+//				Sex varchar(15) not null,
+//				DataNascimento char(10) not null,
+//				Email varchar(60) null
+				
+		//		private String Name;
 //				private String CPF;
 //				private String Phone;
 //				private String Adress;
@@ -570,20 +582,34 @@ public class Client_Registration extends JFrame {
 
 				SALVAR.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+						JOptionPane.showMessageDialog(null,"pe");
 
 						// String cpff = txtFCPF.getText().replaceAll("\\.", "");
 						// String cpfff = cpff.replaceAll("\\-", ""); // CONVERTER CPF'S
 						
-						if(!txtFNome.getText().equals("") || txtFNome.getText().equalsIgnoreCase("Nome")) {
+						if(!txtFNome.getText().equals("") || !txtFNome.getText().equalsIgnoreCase("Nome")) {
 							Cl.setName(txtFNome.getText());
+							JOptionPane.showMessageDialog(null, "nome");
 						}
-						else
-							if(!txtFCPF.getText().equalsIgnoreCase("CPF")) {
+				
+						if(!txtFCPF.getText().equalsIgnoreCase("CPF")) {
 								Cl.setCPF(txtFCPF.getText());
+								JOptionPane.showMessageDialog(null, "CPFPFPFASPFPS");
+							}
+							
+						if(!txtFTelefone.getText().equalsIgnoreCase("Telefone")) {
+									Cl.setPhone(txtFTelefone.getText());
+									JOptionPane.showMessageDialog(null, "TELEFONE");
+						}
+				
+						if(   (!txtFEndereco.getText().equals("") || !txtFEndereco.getText().equalsIgnoreCase("Logradouro"))  && (!txtNmero.getText().equals("") || !txtNmero.getText().equalsIgnoreCase("Número")) && ( !txtBairro.getText().equals("") || !txtBairro.getText().equalsIgnoreCase("Bairro") )      ) {									
+									
+										String endereco = String.format("%s n° %s, %s " , txtFEndereco.getText(),txtNmero.getText(),txtBairro.getText()  );
+										System.out.println(endereco);
 							}
 						
-						
-					
+					JOptionPane.showMessageDialog(null, "2312");
 
 					}
 				});
