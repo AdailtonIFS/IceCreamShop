@@ -1,4 +1,4 @@
-package IceCreamShop;
+package Class;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -187,8 +187,6 @@ public class Person{
     		}
     		
     		
-
-			
 			public static void registerClient(String tabela, ArrayList <String> valores) throws SQLException {
 				
 			Connection conn = DataBase.DB.getConnection();

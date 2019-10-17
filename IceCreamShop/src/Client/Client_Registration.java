@@ -110,7 +110,7 @@ public class Client_Registration extends JFrame {
 			
 					setTitle("CADASTRO DE CLIENTES"); // tituloPagina
 					setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-					setBounds(100, 100, 600, 650);
+					setBounds(100, 100, 600, 600);
 					setLocationRelativeTo(null); // centralizarFrame
 					setResizable(false); // bloquearMaximizar
 					
@@ -128,7 +128,7 @@ public class Client_Registration extends JFrame {
 	
 					contentPane = new JPanel();
 					contentPane.setBackground(new Color(153, 204, 255));
-					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+					contentPane.setBorder(new LineBorder(Color.BLACK, 1, true));
 					setContentPane(contentPane);
 					contentPane.setLayout(null);
 					
@@ -136,21 +136,14 @@ public class Client_Registration extends JFrame {
 					pnTitle.setForeground(new Color(255, 255, 0));
 					pnTitle.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 					pnTitle.setBackground(new Color(255, 222, 173));
-					pnTitle.setBounds(0, 0, 594, 99);
+					pnTitle.setBounds(0, 0, 594, 53);
 					contentPane.add(pnTitle);
 					pnTitle.setLayout(null);
-					
-					JLabel lblRegistrando = new JLabel("REGISTRANDO");
-					lblRegistrando.setForeground(Color.DARK_GRAY);
-					lblRegistrando.setHorizontalAlignment(SwingConstants.CENTER);
-					lblRegistrando.setBounds(0, 0, 594, 99);
-					lblRegistrando.setFont(dropthegame1);
-					pnTitle.add(lblRegistrando);
 					
 					JPanel pnBaixo = new JPanel();
 					pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 					pnBaixo.setBackground(new Color(255, 222, 173));
-					pnBaixo.setBounds(0, 568, 594, 53);
+					pnBaixo.setBounds(0, 518, 594, 53);
 					contentPane.add(pnBaixo);
 					pnBaixo.setLayout(null);
 					
@@ -168,7 +161,7 @@ public class Client_Registration extends JFrame {
 					});
 					
 					JButton SALVAR = new JButton("SALVAR");// CRIANDO BOTÃO SALVAR
-					SALVAR.setBounds(253, 508, 114, 41);
+					SALVAR.setBounds(237, 459, 114, 41);
 					contentPane.add(SALVAR);
 					SALVAR.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 					SALVAR.setFont(new Font("Cambria Math", Font.BOLD, 15));
@@ -181,7 +174,7 @@ public class Client_Registration extends JFrame {
 				JPanel pnEspecial = new JPanel();
 				pnEspecial.setBackground(new Color(135, 204, 255));
 				pnEspecial.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-				pnEspecial.setBounds(63, 127, 471, 370);
+				pnEspecial.setBounds(64, 78, 471, 370);
 				contentPane.add(pnEspecial);
 				pnEspecial.setLayout(null);
 		
@@ -648,15 +641,15 @@ public class Client_Registration extends JFrame {
 							rdbtnFeminino.setSelected(false);
 							rdbtnPersonalizado.setSelected(false);
 							
-							setBounds(100, 100, 600, 650);
+							setBounds(100, 100, 600, 600);
 							setLocationRelativeTo(null); // centralizarFrame
 							setResizable(false);
 							txtGnero.setVisible(false);
 							separator.setVisible(false);
 							
-							pnEspecial.setBounds(63, 127, 471, 370);
-							pnBaixo.setBounds(0, 568, 594, 53);
-							SALVAR.setBounds(253, 508, 114, 41);
+							pnEspecial.setBounds(64, 78, 471, 370);
+							pnBaixo.setBounds(0, 518, 594, 53);
+							SALVAR.setBounds(237, 459, 114, 41);
 							pnEndereco.setBounds(0, 262, 471, 24);
 							txtFEndereco.setBounds(42, 298, 182, 25);
 							txtFCep.setBounds(42, 334, 182, 25);
@@ -675,15 +668,16 @@ public class Client_Registration extends JFrame {
 						rdbtnMasculino.setSelected(false);
 						rdbtnPersonalizado.setSelected(false);
 						
-						setBounds(100, 100, 600, 650);
+						
+						setBounds(100, 100, 600, 600);
 						setLocationRelativeTo(null); // centralizarFrame
 						setResizable(false);
 						txtGnero.setVisible(false);
 						separator.setVisible(false);
 						
-						pnEspecial.setBounds(63, 127, 471, 370);
-						pnBaixo.setBounds(0, 568, 594, 53);
-						SALVAR.setBounds(253, 508, 114, 41);
+						pnEspecial.setBounds(64, 78, 471, 370);
+						pnBaixo.setBounds(0, 518, 594, 53);
+						SALVAR.setBounds(237, 459, 114, 41);
 						pnEndereco.setBounds(0, 262, 471, 24);
 						txtFEndereco.setBounds(42, 298, 182, 25);
 						txtFCep.setBounds(42, 334, 182, 25);
@@ -700,7 +694,7 @@ public class Client_Registration extends JFrame {
 									rdbtnMasculino.setSelected(false);
 									rdbtnFeminino.setSelected(false);
 									
-									setBounds(100, 100, 600, 700);
+									setBounds(100, 100, 600, 650);
 									setLocationRelativeTo(null); // centralizarFrame
 									setResizable(false); // bloquearMaximizar
 									
@@ -710,7 +704,6 @@ public class Client_Registration extends JFrame {
 											public void componentMoved(ComponentEvent e) {
 
 											setEnabled(false);
-
 											setEnabled(true);
 											}
 									});
@@ -718,27 +711,27 @@ public class Client_Registration extends JFrame {
 									txtGnero.setVisible(true);
 									separator.setVisible(true);
 				
-									pnEspecial.setBounds(63, 127, 471, 428);
-									pnBaixo.setBounds(0, 618, 594, 53); // g
-									SALVAR.setBounds(241, 566, 114, 41);	
-									pnEndereco.setBounds(0, 320, 471, 24);
-									txtFEndereco.setBounds(42, 356, 182, 25);
-									txtFCep.setBounds(42, 392, 182, 25);
-									txtBairro.setBounds(257, 355, 182, 26);
-									txtNmero.setBounds(257, 392, 182, 25);
+									pnEspecial.setBounds(64, 78, 471, 426);
+									pnBaixo.setBounds(0, 568, 594, 53);
+									SALVAR.setBounds(239, 515, 114, 41);
+									pnEndereco.setBounds(0, 305, 471, 24);
+									txtFEndereco.setBounds(42, 354, 182, 25);
+									txtFCep.setBounds(42, 390, 182, 25);
+									txtBairro.setBounds(257, 354, 182, 26);
+									txtNmero.setBounds(257, 390, 182, 25);
 
 									
 									
 								} else {
-									setBounds(100, 100, 600, 650);
+									setBounds(100, 100, 600, 600);
 									setLocationRelativeTo(null); // centralizarFrame
 									setResizable(false);
 									txtGnero.setVisible(false);
 									separator.setVisible(false);
 									
-									pnEspecial.setBounds(63, 127, 471, 370);
-									pnBaixo.setBounds(0, 568, 594, 53);
-									SALVAR.setBounds(253, 508, 114, 41);
+									pnEspecial.setBounds(64, 78, 471, 370);
+									pnBaixo.setBounds(0, 518, 594, 53);
+									SALVAR.setBounds(237, 459, 114, 41);
 									pnEndereco.setBounds(0, 262, 471, 24);
 									txtFEndereco.setBounds(42, 298, 182, 25);
 									txtFCep.setBounds(42, 334, 182, 25);

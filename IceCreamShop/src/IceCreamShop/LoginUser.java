@@ -1,4 +1,4 @@
-package Administrator;
+package IceCreamShop;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -24,10 +24,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import Administrator.AdministratorMainScreen;
 import Client.Client_Registration;
 import IceCreamShop.MainScreen;
 
-public class AdministratorLogin extends JFrame {
+public class LoginUser extends JFrame {
 
 	/**
 	 * 
@@ -44,7 +45,7 @@ public class AdministratorLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdministratorLogin frame = new AdministratorLogin();
+					LoginUser frame = new LoginUser();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,8 +57,8 @@ public class AdministratorLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AdministratorLogin() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(AdministratorLogin.class.getResource("/images/privacy.png")));
+	public LoginUser() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginUser.class.getResource("/images/privacy.png")));
 		setBackground(Color.BLACK);
 		setTitle("MAIN SCREEN\r\n");
 		
@@ -118,27 +119,22 @@ public class AdministratorLogin extends JFrame {
 		pnCima.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		pnCima.setBounds(0, 0, 394, 38);
 		pnCima.setBackground(new Color(255, 222, 173));
+		pnCima.setLayout(null);
 		contentPane.add(pnCima);
 		
 		JPanel pnBaixo = new JPanel();
 		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		pnBaixo.setBounds(0, 281, 394, 40);
 		pnBaixo.setBackground(new Color(255, 222, 173));
-		contentPane.add(pnBaixo);
 		pnBaixo.setLayout(null);
+		contentPane.add(pnBaixo);
 		
 		JLabel label = new JLabel("");
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				try {
-					MainScreen frame = new MainScreen();
-					frame.setVisible(true);
-
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+			
 
 			}
 		});
@@ -167,15 +163,30 @@ public class AdministratorLogin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(txtFLogin.getText().equalsIgnoreCase("admin") && passwordField.getText().equalsIgnoreCase("admin")) {
-					
+				
 					try {
-						AdministratorMainScreen frame = new AdministratorMainScreen();
+						MainScreen frame = new MainScreen();
 						frame.setVisible(true);
+
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
 					dispose();
+					
 				}
+					else
+						if(txtFLogin.getText().equalsIgnoreCase("employee") && passwordField.getText().equalsIgnoreCase("employee")) {
+							
+							try {
+								AdministratorMainScreen frame = new AdministratorMainScreen();
+								frame.setVisible(true);
+							} catch (Exception e1) {
+								e1.printStackTrace();
+							}
+							dispose();
+						}
+				
+				
 				else {
 					JOptionPane.showMessageDialog(null, "USUARIO OU SENHA INVÁLIDO","AVISO",2);
 				}

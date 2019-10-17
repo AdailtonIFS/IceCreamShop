@@ -1,6 +1,4 @@
-package Employees;
-
-import IceCreamShop.Person;
+package Class;
 
 public class Employee extends Person {
 

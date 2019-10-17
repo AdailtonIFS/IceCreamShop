@@ -3,16 +3,11 @@ package IceCreamShop;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
-import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.io.File;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,13 +21,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import Administrator.AdministratorLogin;
 import Client.Client_MainScreen;
-import javax.swing.JSeparator;
 
 public class MainScreen extends JFrame {
 
@@ -67,17 +61,7 @@ public class MainScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public MainScreen() {
-
-		Font dropthegame1 = null;
-
-		try {
-			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("REIS.ttf")).deriveFont(72f);
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("REIS.ttf")));
-		} catch (IOException | FontFormatException e) {
-
-		}
-
+		
 		// ====================================================================
 		setTitle("ICE CREAM SHOP");
 		setForeground(Color.GRAY);
@@ -100,7 +84,7 @@ public class MainScreen extends JFrame {
 		String finalDate = formatador.format(data);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 650);
+		setBounds(100, 100, 550, 400);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 255));
@@ -111,83 +95,39 @@ public class MainScreen extends JFrame {
 		
 		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Developer.setBackground(new Color(255, 228, 181));
-		Developer.setBounds(0, 573, 553, 47);
+		Developer.setBounds(0, 327, 411, 48);
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 		
-				JLabel lblSystemDevelopedBy = new JLabel("System Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
-				lblSystemDevelopedBy.setBounds(0, 0, 551, 47);
+				JLabel lblSystemDevelopedBy = new JLabel("Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
+				lblSystemDevelopedBy.setFont(new Font("Cambria Math", Font.BOLD, 11));
+				lblSystemDevelopedBy.setBounds(0, 0, 411, 48);
 				Developer.add(lblSystemDevelopedBy);
 				lblSystemDevelopedBy.setForeground(new Color(0, 0, 0));
-				lblSystemDevelopedBy.setFont(new Font("SansSerif", Font.BOLD, 15));
 				lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
-		
-				JPanel panel = new JPanel();
-				panel.setBackground(new Color(250, 240, 230));
-				panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-				panel.setBounds(2, 197, 691, 253);
-				panel.setLayout(null);
-				contentPane.add(panel);
-				
-						JPanel pnName = new JPanel();
-						pnName.setBackground(new Color(169, 169, 169));
-						pnName.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-						pnName.setBounds(20, 10, 323, 231);
-						panel.add(pnName);
-						pnName.setLayout(null);
-						
-								List listaSabores = new List();
-								listaSabores.setBounds(10, 10, 303, 211);
-								pnName.add(listaSabores);
-								listaSabores.setFont(new Font("Tahoma", Font.PLAIN, 11));
-								
-										JPanel pnPrecos = new JPanel();
-										pnPrecos.setBackground(new Color(169, 169, 169));
-										pnPrecos.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-										pnPrecos.setBounds(353, 10, 323, 231);
-										panel.add(pnPrecos);
-										pnPrecos.setLayout(null);
-										
-												List listaPrecos = new List();
-												listaPrecos.setBounds(10, 10, 303, 211);
-												pnPrecos.add(listaPrecos);
-												listaPrecos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-												listaPrecos.add("R$17,75");
-												listaPrecos.setEnabled(false);
-												listaSabores.add("CHOCOLATE");
-												listaSabores.addActionListener(new ActionListener() {
-													public void actionPerformed(ActionEvent e) {
-														try {
-															SalesScreen frame = new SalesScreen();
-															frame.setVisible(true);
-														} catch (Exception e1) {
-															e1.printStackTrace();
-														}
-													}
-												});
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_2.setBackground(new Color(255, 222, 173));
-		panel_2.setBounds(550, 597, 143, 23);
+		panel_2.setBounds(410, 350, 133, 25);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel lbHour = new JLabel("");
 		lbHour.setHorizontalAlignment(SwingConstants.CENTER);
 		lbHour.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		lbHour.setBounds(0, 0, 141, 22);
+		lbHour.setBounds(0, 0, 133, 23);
 		panel_2.add(lbHour);
 
 		Data = new JTextField();
 		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(550, 573, 143, 24);
+		Data.setBounds(410, 327, 133, 24);
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Data.setHorizontalAlignment(SwingConstants.CENTER);
 		Data.setBackground(new Color(255, 228, 181));
 		Data.setEditable(false);
-		Data.setFont(new Font("Cambria Math", Font.BOLD, 16));
+		Data.setFont(new Font("Cambria Math", Font.BOLD, 14));
 		Data.setColumns(10);
 		Data.setText(finalDate);
 		
@@ -209,7 +149,7 @@ public class MainScreen extends JFrame {
 		btnClients.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnClients.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnClients.setIcon(new ImageIcon(MainScreen.class.getResource("/images/man.png")));
-		btnClients.setBounds(511, 479, 151, 65);
+		btnClients.setBounds(21, 158, 151, 65);
 		contentPane.add(btnClients);
 		btnClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -228,36 +168,11 @@ public class MainScreen extends JFrame {
 		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnLogout.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnLogout.setIcon(new ImageIcon(MainScreen.class.getResource("/images/turn-on.png")));
-		btnLogout.setBounds(32, 479, 151, 65);
+		btnLogout.setBounds(201, 201, 151, 65);
 		contentPane.add(btnLogout);
 
-		JPanel panelSabores = new JPanel();
-		panelSabores.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelSabores.setBounds(0, 154, 345, 42);
-		contentPane.add(panelSabores);
-		panelSabores.setLayout(null);
-
-		JLabel lblPreco = new JLabel("SABORES");
-		lblPreco.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		lblPreco.setBounds(0, 0, 345, 42);
-		panelSabores.add(lblPreco);
-		lblPreco.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JPanel panelCardapio = new JPanel();
-		panelCardapio.setBackground(new Color(255, 222, 173));
-		panelCardapio.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panelCardapio.setBounds(0, 65, 694, 88);
-		contentPane.add(panelCardapio);
-		panelCardapio.setLayout(null);
-
-		JLabel lblCardpio = new JLabel("CARDAPIO");
-		lblCardpio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCardpio.setBounds(0, 0, 694, 88);
-		lblCardpio.setFont(dropthegame1);
-		panelCardapio.add(lblCardpio);
-
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 694, 36);
+		menuBar.setBounds(0, 0, 544, 36);
 		contentPane.add(menuBar);
 		menuBar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 
@@ -274,63 +189,33 @@ public class MainScreen extends JFrame {
 		mntmSobreOIce.setFont(new Font("Cambria Math", Font.BOLD, 15));
 		mnAjuda.add(mntmSobreOIce);
 
-		JPanel panelValor = new JPanel();
-		panelValor.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelValor.setBounds(348, 154, 345, 42);
-		contentPane.add(panelValor);
-		panelValor.setLayout(null);
-
-		JLabel lblValor = new JLabel("VALOR");
-		lblValor.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		lblValor.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblValor.setBounds(0, 0, 345, 42);
-		panelValor.add(lblValor);
-		lblValor.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JButton btnAdministrar = new JButton("ADMINISTRADOR");
-		btnAdministrar.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnAdministrar.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		btnAdministrar.setIcon(new ImageIcon(MainScreen.class.getResource("/images/team.png")));
-		btnAdministrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					dispose();
-					AdministratorLogin frame = new AdministratorLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		btnAdministrar.setBounds(244, 479, 209, 65);
-		contentPane.add(btnAdministrar);
-
-		JSeparator separator = new JSeparator();
-		separator.setForeground(Color.BLACK);
-		separator.setBounds(235, 555, 227, 2);
-		contentPane.add(separator);
-
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setForeground(Color.BLACK);
 		separator_1.setOrientation(SwingConstants.VERTICAL);
-		separator_1.setBounds(216, 461, 1, 88);
+		separator_1.setBounds(182, 151, 1, 88);
 		contentPane.add(separator_1);
 
 		JSeparator separator_2 = new JSeparator();
 		separator_2.setOrientation(SwingConstants.VERTICAL);
 		separator_2.setForeground(Color.BLACK);
-		separator_2.setBounds(480, 461, 1, 88);
+		separator_2.setBounds(362, 158, 1, 88);
 		contentPane.add(separator_2);
-
-		JSeparator separator_3 = new JSeparator();
-		separator_3.setForeground(Color.BLACK);
-		separator_3.setBounds(21, 555, 172, 2);
-		contentPane.add(separator_3);
-
-		JSeparator separator_4 = new JSeparator();
-		separator_4.setForeground(Color.BLACK);
-		separator_4.setBounds(499, 555, 172, 2);
-		contentPane.add(separator_4);
+		
+		JButton btnIceCream = new JButton("SORVETES");
+		btnIceCream.setBorder(new LineBorder(Color.BLACK, 1, true));
+		btnIceCream.setFont(new Font("Cambria Math", Font.BOLD, 16));
+		btnIceCream.setBounds(373, 158, 151, 65);
+		btnIceCream.setIcon(new ImageIcon(MainScreen.class.getResource("/images/ice-cream.png")));
+		contentPane.add(btnIceCream);
+		
+		JButton btnSales = new JButton("VENDA");
+		btnSales.setFont(new Font("Cambria Math", Font.BOLD, 16));
+		btnSales.setBorder(new LineBorder(Color.BLACK, 1, true));
+		btnSales.setBounds(201, 113, 151, 65);
+		btnSales.setIcon(new ImageIcon(MainScreen.class.getResource("/images/goods.png")));
+		contentPane.add(btnSales);
+		
+		
 		mntmSobreOIce.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -344,6 +229,12 @@ public class MainScreen extends JFrame {
 
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					LoginUser frame = new LoginUser();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				dispose();
 			}
 		});

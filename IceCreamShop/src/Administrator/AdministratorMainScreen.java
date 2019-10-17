@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import IceCreamShop.LoginUser;
+
 public class AdministratorMainScreen extends JFrame {
 
 	/**
@@ -44,7 +46,7 @@ public class AdministratorMainScreen extends JFrame {
 	public AdministratorMainScreen() {
 		setTitle("TELA PRINCIPAL");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600, 500);
+		setBounds(100, 100, 550, 400);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		
@@ -67,7 +69,7 @@ public class AdministratorMainScreen extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBackground(new Color(255, 222, 173));
-		panel.setBounds(0, 347, 594, 124);
+		panel.setBounds(0, 247, 544, 124);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -75,28 +77,36 @@ public class AdministratorMainScreen extends JFrame {
 		btnNewButton.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
-		btnNewButton.setBounds(40, 26, 135, 70);
+		btnNewButton.setBounds(29, 26, 135, 70);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("CONTA");
+		btnNewButton_1.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnNewButton_1.setBounds(223, 26, 135, 70);
+		btnNewButton_1.setBounds(206, 26, 135, 70);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("      SAIR");
+		btnNewButton_2.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					LoginUser frame = new LoginUser();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});
 		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnNewButton_2.setBounds(414, 26, 135, 70);
+		btnNewButton_2.setBounds(380, 26, 135, 70);
 		panel.add(btnNewButton_2);
 		
 		

@@ -1,4 +1,4 @@
-	package IceCream;
+	package Class;
 
 public class IceCream {
 	

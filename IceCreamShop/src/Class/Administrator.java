@@ -1,6 +1,4 @@
-package Administrator;
-
-import Employees.Employee;
+package Class;
 
 public class Administrator extends Employee{
 	

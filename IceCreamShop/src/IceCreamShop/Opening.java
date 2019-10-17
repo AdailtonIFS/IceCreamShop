@@ -149,12 +149,11 @@ public class Opening extends JFrame {
 					}
 					dispose();	
 					try {
-						MainScreen frame = new MainScreen();
-						frame.setVisible(true);	
-						
+							LoginUser frame = new LoginUser();
+							frame.setVisible(true);
 						} catch (Exception e) {
-						e.printStackTrace();
-					}
+							e.printStackTrace();
+						}
 				}
 			}.start();
 	}
