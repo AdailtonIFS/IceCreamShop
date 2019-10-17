@@ -1,4 +1,4 @@
-package IceCreamShop;
+package Employees;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -27,8 +27,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Client.Client_MainScreen;
+import IceCreamShop.AboutScreen;
+import IceCreamShop.LoginUser;
 
-public class MainScreen extends JFrame {
+public class Employee_MainScreen extends JFrame {
 
 	/**
 	 * 
@@ -47,7 +49,7 @@ public class MainScreen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainScreen frame = new MainScreen();
+					Employee_MainScreen frame = new Employee_MainScreen();
 					frame.setVisible(true);
 
 				} catch (Exception e) {
@@ -60,12 +62,12 @@ public class MainScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MainScreen() {
+	public Employee_MainScreen() {
 		
 		// ====================================================================
 		setTitle("ICE CREAM SHOP");
 		setForeground(Color.GRAY);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MainScreen.class.getResource("/images/ice-cream-shop.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_MainScreen.class.getResource("/images/ice-cream-shop.png")));
 		setResizable(false);
 			this.addComponentListener(new ComponentAdapter() {
 
@@ -148,7 +150,7 @@ public class MainScreen extends JFrame {
 		JButton btnClients = new JButton("CLIENTES");
 		btnClients.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnClients.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		btnClients.setIcon(new ImageIcon(MainScreen.class.getResource("/images/man.png")));
+		btnClients.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/man.png")));
 		btnClients.setBounds(21, 158, 151, 65);
 		contentPane.add(btnClients);
 		btnClients.addActionListener(new ActionListener() {
@@ -167,7 +169,7 @@ public class MainScreen extends JFrame {
 		btnLogout.setBackground(Color.WHITE);
 		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnLogout.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		btnLogout.setIcon(new ImageIcon(MainScreen.class.getResource("/images/turn-on.png")));
+		btnLogout.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/turn-on.png")));
 		btnLogout.setBounds(201, 201, 151, 65);
 		contentPane.add(btnLogout);
 
@@ -178,7 +180,7 @@ public class MainScreen extends JFrame {
 
 		JMenu mnAjuda = new JMenu("AJUDA");
 		mnAjuda.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		mnAjuda.setIcon(new ImageIcon(MainScreen.class.getResource("/images/help_question_16768 (1).png")));
+		mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/help_question_16768 (1).png")));
 		menuBar.add(mnAjuda);
 
 		JMenuItem mntmExibirAjuda = new JMenuItem("EXIBIR AJUDA");
@@ -205,15 +207,20 @@ public class MainScreen extends JFrame {
 		btnIceCream.setBorder(new LineBorder(Color.BLACK, 1, true));
 		btnIceCream.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnIceCream.setBounds(373, 158, 151, 65);
-		btnIceCream.setIcon(new ImageIcon(MainScreen.class.getResource("/images/ice-cream.png")));
+		btnIceCream.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
 		contentPane.add(btnIceCream);
 		
 		JButton btnSales = new JButton("VENDA");
 		btnSales.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnSales.setBorder(new LineBorder(Color.BLACK, 1, true));
 		btnSales.setBounds(201, 113, 151, 65);
-		btnSales.setIcon(new ImageIcon(MainScreen.class.getResource("/images/goods.png")));
+		btnSales.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/goods.png")));
 		contentPane.add(btnSales);
+		
+		JLabel lblWallpaper = new JLabel("");
+		lblWallpaper.setBounds(0, 36, 543, 292);
+		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaperMain.jpg")));
+		contentPane.add(lblWallpaper);
 		
 		
 		mntmSobreOIce.addActionListener(new ActionListener() {

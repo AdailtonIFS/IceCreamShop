@@ -26,7 +26,7 @@ import javax.swing.border.LineBorder;
 
 import Administrator.AdministratorMainScreen;
 import Client.Client_Registration;
-import IceCreamShop.MainScreen;
+import Employees.Employee_MainScreen;
 
 public class LoginUser extends JFrame {
 
@@ -149,14 +149,19 @@ public class LoginUser extends JFrame {
 		JLabel lblChave = new JLabel("");
 		lblChave.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		lblChave.setBounds(80, 93, 30, 34);
-		lblChave.setIcon(new ImageIcon(MainScreen.class.getResource("/images/key.png")));
+		lblChave.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/key.png")));
 		contentPane.add(lblChave);
 		
 		JLabel lblCadeado = new JLabel("");
 		lblCadeado.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		lblCadeado.setBounds(80, 166, 30,34);
-		lblCadeado.setIcon(new ImageIcon(MainScreen.class.getResource("/images/lock.png")));	
+		lblCadeado.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/lock.png")));	
 		contentPane.add(lblCadeado);
+		
+		JLabel lblWallpaper = new JLabel("");
+		lblWallpaper.setBounds(0, 36, 394, 247);
+		contentPane.add(lblWallpaper);
+		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaper.jpg")));
 		
 		btnEntrar.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
@@ -165,9 +170,8 @@ public class LoginUser extends JFrame {
 				if(txtFLogin.getText().equalsIgnoreCase("admin") && passwordField.getText().equalsIgnoreCase("admin")) {
 				
 					try {
-						MainScreen frame = new MainScreen();
+						AdministratorMainScreen frame = new AdministratorMainScreen();
 						frame.setVisible(true);
-
 					} catch (Exception e1) {
 						e1.printStackTrace();
 					}
@@ -176,13 +180,14 @@ public class LoginUser extends JFrame {
 				}
 					else
 						if(txtFLogin.getText().equalsIgnoreCase("employee") && passwordField.getText().equalsIgnoreCase("employee")) {
-							
 							try {
-								AdministratorMainScreen frame = new AdministratorMainScreen();
+								Employee_MainScreen frame = new Employee_MainScreen();
 								frame.setVisible(true);
+
 							} catch (Exception e1) {
 								e1.printStackTrace();
 							}
+							
 							dispose();
 						}
 				

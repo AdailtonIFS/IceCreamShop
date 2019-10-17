@@ -24,7 +24,7 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import IceCreamShop.MainScreen;
+import Employees.Employee_MainScreen;
 
 public class Client_MainScreen extends JFrame {
 
@@ -144,7 +144,7 @@ public class Client_MainScreen extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				dispose();
 				try {
-					MainScreen frame = new MainScreen();
+					Employee_MainScreen frame = new Employee_MainScreen();
 					frame.setVisible(true);
 
 				} catch (Exception e1) {
