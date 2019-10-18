@@ -67,7 +67,7 @@ public class Opening extends JFrame {
 		setBackground(Color.WHITE);
 		setForeground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 450);
+		setBounds(100, 100, 500, 450);
 		setLocationRelativeTo(null);
 		setResizable(false);
 
@@ -92,7 +92,7 @@ public class Opening extends JFrame {
 		lblBemVindo.setBackground(Color.WHITE);
 		lblBemVindo.setForeground(Color.WHITE);
 		lblBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBemVindo.setBounds(0, 104, 599, 105);
+		lblBemVindo.setBounds(-3, 97, 497, 105);
 		lblBemVindo.setFont(dropthegame);
 		contentPane.add(lblBemVindo);
 		
@@ -106,18 +106,18 @@ public class Opening extends JFrame {
 		progressBar.setForeground(new Color(0, 0, 0));
 		progressBar.setBackground(Color.WHITE);
 		progressBar.setIndeterminate(true);
-		progressBar.setBounds(98, 264, 402, 36);
+		progressBar.setBounds(46, 278, 402, 36);
 		contentPane.add(progressBar);
 		
 		JLabel lblEntrada = new JLabel("");
 		lblEntrada.setForeground(Color.WHITE);
 		lblEntrada.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		lblEntrada.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEntrada.setBounds(0, 374, 596, 16);
+		lblEntrada.setBounds(0, 374, 494, 16);
 		contentPane.add(lblEntrada);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(0, 0, 594, 421);
+		label.setBounds(-109, 0, 609, 421);
 		label.setIcon(new ImageIcon(Opening.class.getResource("/images/open-image.jpg")));
 		contentPane.add(label);
 					

@@ -1,4 +1,4 @@
-create table administrator (
+create table employeeAdvanced (
 
 	Name varchar(45)not null,
 	CPF char(14) not null primary key,
@@ -13,7 +13,7 @@ create table administrator (
 	Password varchar(20) not null
 );
 
-create table Client(
+create table client(
 	Name varchar(45)not null,
 	CPF char(14) not null primary key,
 	Phone char(14) null,
@@ -47,3 +47,6 @@ create table IceCream (
 	Cod varchar(10) not null primary key
 
 );
+
+insert into employeeAdvanced
+values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','Indiferente','18/10/2019','0','Administrador','admin','admin')

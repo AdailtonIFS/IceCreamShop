@@ -114,7 +114,7 @@ public class AdministratorMainScreen extends JFrame {
 		panel.add(btnNewButton_2);
 		
 		ArrayList<String> valores = new ArrayList<String>();
-		valores.addAll(DataBase.Functions.searchAdministrator("administrator"));
+		valores.addAll(DataBase.Functions.searchAdministrator("employeeAdvanced"));
 		
 		JLabel lblBemVindo = new JLabel("Bem vindo:   "+valores.get(IceCreamShop.LoginUser.posicao-8));
 		lblBemVindo.setFont(new Font("Cambria Math", Font.BOLD, 13));

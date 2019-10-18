@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -166,7 +167,6 @@ public class LoginUser extends JFrame {
 		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaper.jpg")));
 		
 		btnEntrar.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
 				ArrayList <String> valores = new ArrayList<String>();
@@ -174,22 +174,32 @@ public class LoginUser extends JFrame {
 				boolean p = false;
 				
 				try {
-					valores.addAll(DataBase.Functions.searchAdministrator("administrator"));
-					for(int i = 0; i < valores.size();i++) {
-					System.out.println(valores.get(i));
-					}
-					System.out.println("123123");
-					for(int i = 0; i < valores.size();i++) {
-						
-					if(i % 8 == 0 && valores.get(i).equalsIgnoreCase(txtFLogin.getText())) {
-					System.out.println("ACHOU");
-					l = true;
-					posicao = i;
-					}
-					if(i % 9 == 0 && valores.get(i).equalsIgnoreCase(passwordField.getText())) {
+					valores.addAll(DataBase.Functions.searchAdministrator("employeeAdvanced"));
+					
+					String senha = new String(passwordField.getPassword());
+					
+					
+					for(int i = 9; i < valores.size();i++) {
+							
+					if(valores.get(i).equalsIgnoreCase(senha)) {
 						System.out.println("ACHOOOOOU");
-					p = true;
+						p = true;
+						break;
+				
+					}	
+						i+=9;
 					}
+					
+					for(int i = 8; i < valores.size();i++) {
+		
+					if(valores.get(i).equalsIgnoreCase(txtFLogin.getText())) {
+					System.out.println("ACHOU");
+					l = true;	
+					posicao = i;
+					break;
+					}
+					
+					i+=9;
 					
 					}
 					
@@ -202,6 +212,9 @@ public class LoginUser extends JFrame {
 							e1.printStackTrace();
 						}
 						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
