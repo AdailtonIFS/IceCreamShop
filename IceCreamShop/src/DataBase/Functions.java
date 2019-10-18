@@ -6,15 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import Class.Employee;
-
 public class Functions {
 	
 	public static ArrayList<String> searchEmployeeAdvanced(String tabela) throws SQLException {
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
 		ArrayList<String> valores = new ArrayList <String> ();
-		ArrayList<Employee> employees = new ArrayList<>();
+//		ArrayList<Employee> employees = new ArrayList<>();
 
 		ResultSet rs = statement.executeQuery("select * from "+tabela);
 		

@@ -27,7 +27,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Administrator.AdministratorMainScreen;
-import Class.Employee;
 import Client.Client_Registration;
 import Employees.Employee_MainScreen;
 
@@ -134,6 +133,9 @@ public class LoginUser extends JFrame {
 		contentPane.add(pnBaixo);
 		
 		JLabel label = new JLabel("");
+		label.setBounds(32, 0, 34, 40);
+		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));	
+		pnBaixo.add(label);	
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -142,9 +144,7 @@ public class LoginUser extends JFrame {
 
 			}
 		});
-		label.setBounds(32, 0, 34, 40);
-		pnBaixo.add(label);
-		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));		
+		
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.setBounds(151, 226, 89, 23);

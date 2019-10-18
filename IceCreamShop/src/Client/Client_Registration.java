@@ -101,16 +101,16 @@ public class Client_Registration extends JFrame {
 					setLocationRelativeTo(null); // centralizarFrame
 					setResizable(false); // bloquearMaximizar
 					
-					//bloquearFrame
-						this.addComponentListener(new ComponentAdapter() {
-			
-							public void componentMoved(ComponentEvent e) {
-			
-							setEnabled(false);
-			
-							setEnabled(true);
-							}
-					});
+//					//bloquearFrame
+//						this.addComponentListener(new ComponentAdapter() {
+//			
+//							public void componentMoved(ComponentEvent e) {
+//			
+//							setEnabled(false);
+//			
+//							setEnabled(true);
+//							}
+//					});
 	
 	
 					contentPane = new JPanel();
