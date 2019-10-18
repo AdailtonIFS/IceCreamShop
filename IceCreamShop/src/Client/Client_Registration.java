@@ -41,6 +41,8 @@ import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 import com.toedter.components.JSpinField;
 
+import Class.Client;
+
 
 public class Client_Registration extends JFrame {
 

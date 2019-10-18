@@ -11,13 +11,14 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -37,6 +38,7 @@ public class LoginUser extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtFLogin;
 	private JPasswordField passwordField;
+	public static int posicao;
 
 	/**
 	 * Launch the application.
@@ -167,33 +169,43 @@ public class LoginUser extends JFrame {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				
-				if(txtFLogin.getText().equalsIgnoreCase("admin") && passwordField.getText().equalsIgnoreCase("admin")) {
+				ArrayList <String> valores = new ArrayList<String>();
+				boolean l = false;
+				boolean p = false;
 				
-					try {
-						AdministratorMainScreen frame = new AdministratorMainScreen();
-						frame.setVisible(true);
-					} catch (Exception e1) {
-						e1.printStackTrace();
+				try {
+					valores.addAll(DataBase.Functions.searchAdministrator("administrator"));
+					for(int i = 0; i < valores.size();i++) {
+					System.out.println(valores.get(i));
 					}
-					dispose();
+					System.out.println("123123");
+					for(int i = 0; i < valores.size();i++) {
+						
+					if(i % 8 == 0 && valores.get(i).equalsIgnoreCase(txtFLogin.getText())) {
+					System.out.println("ACHOU");
+					l = true;
+					posicao = i;
+					}
+					if(i % 9 == 0 && valores.get(i).equalsIgnoreCase(passwordField.getText())) {
+						System.out.println("ACHOOOOOU");
+					p = true;
+					}
 					
-				}
-					else
-						if(txtFLogin.getText().equalsIgnoreCase("employee") && passwordField.getText().equalsIgnoreCase("employee")) {
-							try {
-								Employee_MainScreen frame = new Employee_MainScreen();
-								frame.setVisible(true);
-
-							} catch (Exception e1) {
-								e1.printStackTrace();
-							}
-							
-							dispose();
+					}
+					
+					if(l == true && p == true ) {
+						dispose();
+						try {
+							AdministratorMainScreen frame = new AdministratorMainScreen();
+							frame.setVisible(true);
+						} catch (Exception e1) {
+							e1.printStackTrace();
 						}
-				
-				
-				else {
-					JOptionPane.showMessageDialog(null, "USUARIO OU SENHA INVÁLIDO","AVISO",2);
+						
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				
 			}

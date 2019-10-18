@@ -1,4 +1,4 @@
-package Client;
+package Class;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,8 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import Class.Person;
 
 public class Client extends Person {
 	

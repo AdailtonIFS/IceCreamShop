@@ -35,7 +35,9 @@ create table employee (
 	Sex varchar(15) not null,
 	DataNascimento char(10) not null,
 	Salar decimal  not null,
-	Office varchar(20) not null
+	Office varchar(20) not null,
+	Login varchar(20) not null,
+	Password varchar(20) not null
 );
 
 create table IceCream (

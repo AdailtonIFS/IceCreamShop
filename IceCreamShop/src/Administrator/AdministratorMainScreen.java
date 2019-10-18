@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import IceCreamShop.LoginUser;
+import javax.swing.JLabel;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -42,8 +45,9 @@ public class AdministratorMainScreen extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public AdministratorMainScreen() {
+	public AdministratorMainScreen() throws SQLException {
 		setTitle("TELA PRINCIPAL");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
@@ -108,6 +112,14 @@ public class AdministratorMainScreen extends JFrame {
 		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
 		btnNewButton_2.setBounds(380, 26, 135, 70);
 		panel.add(btnNewButton_2);
+		
+		ArrayList<String> valores = new ArrayList<String>();
+		valores.addAll(DataBase.Functions.searchAdministrator("administrator"));
+		
+		JLabel lblBemVindo = new JLabel("Bem vindo:   "+valores.get(IceCreamShop.LoginUser.posicao-8));
+		lblBemVindo.setFont(new Font("Cambria Math", Font.BOLD, 13));
+		lblBemVindo.setBounds(41, 13, 311, 16);
+		contentPane.add(lblBemVindo);
 		
 		
 		
