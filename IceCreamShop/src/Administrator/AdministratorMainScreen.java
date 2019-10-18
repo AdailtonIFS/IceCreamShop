@@ -77,28 +77,30 @@ public class AdministratorMainScreen extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("FUNCION\u00C1RIOS");
-		btnNewButton.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnNewButton.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
-		btnNewButton.setBounds(29, 26, 135, 70);
-		panel.add(btnNewButton);
+		JButton btnEmployee = new JButton("FUNCION\u00C1RIOS");
+		btnEmployee.setFont(new Font("Cambria Math", Font.BOLD, 13));
+		btnEmployee.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		btnEmployee.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
+		btnEmployee.setBounds(29, 26, 135, 70);
+		panel.add(btnEmployee);
 		
-		JButton btnNewButton_1 = new JButton("CONTA");
-		btnNewButton_1.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnAccount = new JButton("CONTA");
+		btnAccount.setFont(new Font("Cambria Math", Font.BOLD, 13));
+		btnAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
 			}
 		});
-		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnNewButton_1.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnNewButton_1.setBounds(206, 26, 135, 70);
-		panel.add(btnNewButton_1);
+		btnAccount.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		btnAccount.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
+		btnAccount.setBounds(206, 26, 135, 70);
+		panel.add(btnAccount);
 		
-		JButton btnNewButton_2 = new JButton("      SAIR");
-		btnNewButton_2.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnExit = new JButton("      SAIR");
+		btnExit.setFont(new Font("Cambria Math", Font.BOLD, 13));
+		btnExit.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					LoginUser frame = new LoginUser();
@@ -109,12 +111,12 @@ public class AdministratorMainScreen extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_2.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnNewButton_2.setBounds(380, 26, 135, 70);
-		panel.add(btnNewButton_2);
+		btnExit.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
+		btnExit.setBounds(380, 26, 135, 70);
+		panel.add(btnExit);
 		
 		ArrayList<String> valores = new ArrayList<String>();
-		valores.addAll(DataBase.Functions.searchAdministrator("employeeAdvanced"));
+		valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
 		
 		JLabel lblBemVindo = new JLabel("Bem vindo:   "+valores.get(IceCreamShop.LoginUser.posicao-8));
 		lblBemVindo.setFont(new Font("Cambria Math", Font.BOLD, 13));

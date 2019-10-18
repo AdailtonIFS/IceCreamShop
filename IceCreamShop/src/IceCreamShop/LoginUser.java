@@ -27,6 +27,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Administrator.AdministratorMainScreen;
+import Class.Employee;
 import Client.Client_Registration;
 import Employees.Employee_MainScreen;
 
@@ -169,37 +170,41 @@ public class LoginUser extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				ArrayList <String> valores = new ArrayList<String>();
+				ArrayList<String> valores = new ArrayList<>();
 				boolean l = false;
 				boolean p = false;
 				
 				try {
 				
-					DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced");
+					valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
 					
 					String senha = new String(passwordField.getPassword());
 					
+				for(int i = 0; i < valores.size();i++) {
+				System.out.println(valores.get(i));
+				}
 					
 					for(int i = 9; i < valores.size();i++) {
 							
-					if(valores.get(i).equalsIgnoreCase(senha)) {
+					if(valores.get(i).equals(senha)) {
 						p = true;
 						break;
 					}	
 						i+=9;
 					}
 					
+					
 					for(int i = 8; i < valores.size();i++) {
 		
-					if(valores.get(i).equalsIgnoreCase(txtFLogin.getText())) {
+					if(valores.get(i).equals(txtFLogin.getText())) {
 					System.out.println("ACHOU");
 					l = true;	
 					posicao = i;
 					break;
+					
 					}
-					
+	
 					i+=9;
-					
 					}
 					
 					if(l == true && p == true ) {
