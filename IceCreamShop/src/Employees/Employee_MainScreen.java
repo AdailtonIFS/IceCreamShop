@@ -29,6 +29,7 @@ import javax.swing.border.LineBorder;
 import Client.Client_MainScreen;
 import IceCreamShop.AboutScreen;
 import IceCreamShop.LoginUser;
+import IceCreamShop.SalesScreen;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -216,6 +217,19 @@ public class Employee_MainScreen extends JFrame {
 		btnSales.setBounds(201, 113, 151, 65);
 		btnSales.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/goods.png")));
 		contentPane.add(btnSales);
+		btnSales.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					SalesScreen frame = new SalesScreen();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+
+		
 		
 		JLabel lblWallpaper = new JLabel("");
 		lblWallpaper.setBounds(0, 36, 543, 292);

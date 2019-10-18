@@ -174,7 +174,8 @@ public class LoginUser extends JFrame {
 				boolean p = false;
 				
 				try {
-					valores.addAll(DataBase.Functions.searchAdministrator("employeeAdvanced"));
+				
+					DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced");
 					
 					String senha = new String(passwordField.getPassword());
 					
@@ -182,10 +183,8 @@ public class LoginUser extends JFrame {
 					for(int i = 9; i < valores.size();i++) {
 							
 					if(valores.get(i).equalsIgnoreCase(senha)) {
-						System.out.println("ACHOOOOOU");
 						p = true;
 						break;
-				
 					}	
 						i+=9;
 					}

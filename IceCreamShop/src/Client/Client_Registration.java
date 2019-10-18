@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +13,6 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 
 import javax.swing.ImageIcon;
@@ -32,7 +28,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.text.MaskFormatter;
@@ -87,19 +82,9 @@ public class Client_Registration extends JFrame {
 	 */
 
 				public Client_Registration() throws ParseException {
+		
 			
-					Font dropthegame1 = null;
-			
-					try {
-						dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")).deriveFont(82f);
-						GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-						ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
-					} catch (IOException | FontFormatException e) {
-			
-					}
-			
-					setIconImage(
-							Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
+					setIconImage(Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
 					setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 			
 					// =================mascarasCampos================
