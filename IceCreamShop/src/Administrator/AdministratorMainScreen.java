@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +22,9 @@ import javax.swing.border.LineBorder;
 
 import IceCreamShop.LoginUser;
 import javax.swing.JLabel;
+import java.awt.List;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -26,6 +33,8 @@ public class AdministratorMainScreen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private final JPanel Developer = new JPanel();
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -70,21 +79,46 @@ public class AdministratorMainScreen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBackground(new Color(255, 222, 173));
-		panel.setBounds(0, 247, 544, 124);
-		contentPane.add(panel);
-		panel.setLayout(null);
+		Date data = new Date();
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+		String finalDate = formatador.format(data);
 		
-		JButton btnEmployee = new JButton("FUNCION\u00C1RIOS");
-		btnEmployee.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		btnEmployee.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnEmployee.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
-		btnEmployee.setBounds(29, 26, 135, 70);
-		panel.add(btnEmployee);
+		ArrayList<String> valores = new ArrayList<String>();
+		valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+		
+		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		Developer.setBackground(new Color(255, 228, 181));
+		Developer.setBounds(0, 323, 411, 48);
+		contentPane.add(Developer);
+		Developer.setLayout(null);
+		
+		JLabel label = new JLabel("Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
+		label.setBounds(0, 0, 411, 48);
+		Developer.add(label);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.BLACK);
+		label.setFont(new Font("Cambria Math", Font.BOLD, 11));
+		
+		List list = new List();
+		list.setBounds(71, 56, 391, 204);
+		contentPane.add(list);
+		
+		JPanel panelCima = new JPanel();
+		panelCima.setBorder(new LineBorder(Color.BLACK, 1, true));
+		panelCima.setBackground(new Color(255, 222, 173));
+		panelCima.setBounds(0, 0, 544, 32);
+		contentPane.add(panelCima);
+		panelCima.setLayout(null);
+		
+		JLabel lblBemVindo = new JLabel("Bem vindo:   "+valores.get(IceCreamShop.LoginUser.posicao-8));
+		lblBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBemVindo.setBounds(0, 0, 544, 32);
+		panelCima.add(lblBemVindo);
+		lblBemVindo.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		
 		JButton btnAccount = new JButton("CONTA");
+		btnAccount.setBounds(310, 128, 135, 70);
+		contentPane.add(btnAccount);
 		btnAccount.setFont(new Font("Cambria Math", Font.BOLD, 13));
 		btnAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -94,34 +128,47 @@ public class AdministratorMainScreen extends JFrame {
 		});
 		btnAccount.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnAccount.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/settings.png")));
-		btnAccount.setBounds(206, 26, 135, 70);
-		panel.add(btnAccount);
 		
-		JButton btnExit = new JButton("      SAIR");
-		btnExit.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		btnExit.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					LoginUser frame = new LoginUser();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				dispose();
-			}
-		});
-		btnExit.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/turn-on.png")));
-		btnExit.setBounds(380, 26, 135, 70);
-		panel.add(btnExit);
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel.setBackground(new Color(255, 222, 173));
+		panel.setBounds(410, 346, 133, 25);
+		contentPane.add(panel);
 		
-		ArrayList<String> valores = new ArrayList<String>();
-		valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+		JLabel lblHour = new JLabel("");
+		lblHour.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHour.setFont(new Font("Cambria Math", Font.BOLD, 16));
+		lblHour.setBounds(0, 0, 133, 23);
+		panel.add(lblHour);
 		
-		JLabel lblBemVindo = new JLabel("Bem vindo:   "+valores.get(IceCreamShop.LoginUser.posicao-8));
-		lblBemVindo.setFont(new Font("Cambria Math", Font.BOLD, 13));
-		lblBemVindo.setBounds(41, 13, 311, 16);
-		contentPane.add(lblBemVindo);
+		
+		Thread th = new Thread(new Runnable() { //cria uma thread
+	        public void run() {
+	            while(true) { //roda indefinidamente
+	                Date data = Calendar.getInstance().getTime();
+	                DateFormat h = DateFormat.getTimeInstance();
+	                lblHour.setText(h.format(data));     
+	                try {
+	                    Thread.sleep(1000); //espera 1 segundo para fazer a nova evolução
+	                } catch(InterruptedException ex){
+	                }
+	            }
+	        }
+	    }); th.start();
+
+		
+		textField = new JTextField();
+		textField.setText("30/10/2019");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setForeground(Color.BLACK);
+		textField.setFont(new Font("Cambria Math", Font.BOLD, 14));
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		textField.setBackground(new Color(255, 228, 181));
+		textField.setBounds(410, 323, 133, 24);
+		contentPane.add(textField);
 		
 		
 		

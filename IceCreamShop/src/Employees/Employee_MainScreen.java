@@ -70,7 +70,8 @@ public class Employee_MainScreen extends JFrame {
 		setForeground(Color.GRAY);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_MainScreen.class.getResource("/images/ice-cream-shop.png")));
 		setResizable(false);
-			this.addComponentListener(new ComponentAdapter() {
+			
+		this.addComponentListener(new ComponentAdapter() {
 
 				public void componentMoved(ComponentEvent e) {
 
@@ -98,7 +99,7 @@ public class Employee_MainScreen extends JFrame {
 		
 		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Developer.setBackground(new Color(255, 228, 181));
-		Developer.setBounds(0, 327, 411, 48);
+		Developer.setBounds(0, 323, 411, 48);
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 		
@@ -112,7 +113,7 @@ public class Employee_MainScreen extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		panel_2.setBackground(new Color(255, 222, 173));
-		panel_2.setBounds(410, 350, 133, 25);
+		panel_2.setBounds(410, 346, 133, 25);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -124,7 +125,7 @@ public class Employee_MainScreen extends JFrame {
 
 		Data = new JTextField();
 		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(410, 327, 133, 24);
+		Data.setBounds(410, 323, 133, 24);
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Data.setHorizontalAlignment(SwingConstants.CENTER);
@@ -228,13 +229,6 @@ public class Employee_MainScreen extends JFrame {
 				}
 			}
 		});
-
-		
-		
-		JLabel lblWallpaper = new JLabel("");
-		lblWallpaper.setBounds(0, 36, 543, 292);
-		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaperMain.jpg")));
-		contentPane.add(lblWallpaper);
 		
 		
 		mntmSobreOIce.addActionListener(new ActionListener() {

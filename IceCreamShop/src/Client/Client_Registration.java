@@ -37,6 +37,7 @@ import com.toedter.calendar.JYearChooser;
 import com.toedter.components.JSpinField;
 
 import Class.Client;
+import java.awt.SystemColor;
 
 
 public class Client_Registration extends JFrame {
@@ -122,14 +123,14 @@ public class Client_Registration extends JFrame {
 					JPanel pnTitle = new JPanel();
 					pnTitle.setForeground(new Color(255, 255, 0));
 					pnTitle.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-					pnTitle.setBackground(new Color(255, 222, 173));
+					pnTitle.setBackground(SystemColor.scrollbar);
 					pnTitle.setBounds(0, 0, 594, 53);
 					contentPane.add(pnTitle);
 					pnTitle.setLayout(null);
 					
 					JPanel pnBaixo = new JPanel();
 					pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-					pnBaixo.setBackground(new Color(255, 222, 173));
+					pnBaixo.setBackground(SystemColor.scrollbar);
 					pnBaixo.setBounds(0, 518, 594, 53);
 					contentPane.add(pnBaixo);
 					pnBaixo.setLayout(null);

@@ -165,7 +165,7 @@ public class LoginUser extends JFrame {
 		JLabel lblWallpaper = new JLabel("");
 		lblWallpaper.setBounds(0, 36, 394, 247);
 		contentPane.add(lblWallpaper);
-		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaper.jpg")));
+//		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaper.jpg")));
 		
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -6,7 +6,7 @@ public class EmployeeAdvanced extends Employee{
 	private String PasswordADM;
 	
 	public String getLoginADM() {
-		return LoginADM;
+		return LoginADM;	 
 	}
 
 	public void setLoginADM(String loginADM) {
