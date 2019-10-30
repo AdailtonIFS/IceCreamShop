@@ -1,17 +1,14 @@
 package Administrator;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JInternalFrame;
-import java.awt.Color;
+import javax.swing.border.EmptyBorder;
 
 public class FunctionsAdministrator extends JFrame {
 

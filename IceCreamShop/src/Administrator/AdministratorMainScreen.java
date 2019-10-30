@@ -3,6 +3,7 @@ package Administrator;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -17,14 +18,18 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-
-import IceCreamShop.LoginUser;
 import javax.swing.JLabel;
-import java.awt.List;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
+
+import Employees.Employee_Registration;
+
+import javax.swing.border.BevelBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -81,6 +86,7 @@ public class AdministratorMainScreen extends JFrame {
 		
 		Date data = new Date();
 		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+		@SuppressWarnings("unused")
 		String finalDate = formatador.format(data);
 		
 		ArrayList<String> valores = new ArrayList<String>();
@@ -100,7 +106,7 @@ public class AdministratorMainScreen extends JFrame {
 		label.setFont(new Font("Cambria Math", Font.BOLD, 11));
 		
 		List list = new List();
-		list.setBounds(71, 56, 391, 204);
+		list.setBounds(72, 87, 392, 156);
 		contentPane.add(list);
 		
 		JPanel panelCima = new JPanel();
@@ -169,6 +175,29 @@ public class AdministratorMainScreen extends JFrame {
 		textField.setBackground(new Color(255, 228, 181));
 		textField.setBounds(410, 323, 133, 24);
 		contentPane.add(textField);
+		
+		JLabel lblNewLabel = new JLabel("Lista de Funcion\u00E1rios");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("DialogInput", Font.BOLD, 12));
+		lblNewLabel.setBounds(71, 67, 393, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel cadastrar = new JLabel("");
+		cadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Employee_Registration frame = new Employee_Registration();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		cadastrar.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		cadastrar.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/plus.png")));
+		cadastrar.setBounds(437, 249, 27, 41);
+		contentPane.add(cadastrar);
 		
 		
 		

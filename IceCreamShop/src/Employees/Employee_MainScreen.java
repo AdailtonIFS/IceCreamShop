@@ -1,6 +1,7 @@
 package Employees;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -28,8 +29,13 @@ import javax.swing.border.LineBorder;
 
 import Client.Client_MainScreen;
 import IceCreamShop.AboutScreen;
+import IceCreamShop.HelpScreen;
 import IceCreamShop.LoginUser;
 import IceCreamShop.SalesScreen;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
+import javax.swing.border.MatteBorder;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -67,7 +73,7 @@ public class Employee_MainScreen extends JFrame {
 		
 		// ====================================================================
 		setTitle("ICE CREAM SHOP");
-		setForeground(Color.GRAY);
+		setForeground(new Color(153, 255, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_MainScreen.class.getResource("/images/ice-cream-shop.png")));
 		setResizable(false);
 			
@@ -91,19 +97,20 @@ public class Employee_MainScreen extends JFrame {
 		setBounds(100, 100, 550, 400);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 204, 255));
+		contentPane.setBackground(new Color(153, 255, 204));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		
 		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Developer.setBackground(new Color(255, 228, 181));
+		Developer.setBackground(Color.WHITE);
 		Developer.setBounds(0, 323, 411, 48);
 		contentPane.add(Developer);
 		Developer.setLayout(null);
 		
 				JLabel lblSystemDevelopedBy = new JLabel("Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
+				lblSystemDevelopedBy.setBackground(new Color(210, 180, 140));
 				lblSystemDevelopedBy.setFont(new Font("Cambria Math", Font.BOLD, 11));
 				lblSystemDevelopedBy.setBounds(0, 0, 411, 48);
 				Developer.add(lblSystemDevelopedBy);
@@ -112,12 +119,13 @@ public class Employee_MainScreen extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBackground(new Color(255, 222, 173));
+		panel_2.setBackground(Color.WHITE);
 		panel_2.setBounds(410, 346, 133, 25);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel lbHour = new JLabel("");
+		lbHour.setBackground(Color.WHITE);
 		lbHour.setHorizontalAlignment(SwingConstants.CENTER);
 		lbHour.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		lbHour.setBounds(0, 0, 133, 23);
@@ -129,7 +137,7 @@ public class Employee_MainScreen extends JFrame {
 		contentPane.add(Data);
 		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		Data.setHorizontalAlignment(SwingConstants.CENTER);
-		Data.setBackground(new Color(255, 228, 181));
+		Data.setBackground(Color.WHITE);
 		Data.setEditable(false);
 		Data.setFont(new Font("Cambria Math", Font.BOLD, 14));
 		Data.setColumns(10);
@@ -167,32 +175,6 @@ public class Employee_MainScreen extends JFrame {
 			}
 		});
 
-		JButton btnLogout = new JButton("   SAIR");
-		btnLogout.setBackground(Color.WHITE);
-		btnLogout.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		btnLogout.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		btnLogout.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/turn-on.png")));
-		btnLogout.setBounds(201, 201, 151, 65);
-		contentPane.add(btnLogout);
-
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 544, 36);
-		contentPane.add(menuBar);
-		menuBar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-
-		JMenu mnAjuda = new JMenu("AJUDA");
-		mnAjuda.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/help_question_16768 (1).png")));
-		menuBar.add(mnAjuda);
-
-		JMenuItem mntmExibirAjuda = new JMenuItem("EXIBIR AJUDA");
-		mntmExibirAjuda.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		mnAjuda.add(mntmExibirAjuda);
-
-		JMenuItem mntmSobreOIce = new JMenuItem("SOBRE O ICE CREAM SHOP");
-		mntmSobreOIce.setFont(new Font("Cambria Math", Font.BOLD, 15));
-		mnAjuda.add(mntmSobreOIce);
-
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setForeground(Color.BLACK);
 		separator_1.setOrientation(SwingConstants.VERTICAL);
@@ -215,9 +197,64 @@ public class Employee_MainScreen extends JFrame {
 		JButton btnSales = new JButton("VENDA");
 		btnSales.setFont(new Font("Cambria Math", Font.BOLD, 16));
 		btnSales.setBorder(new LineBorder(Color.BLACK, 1, true));
-		btnSales.setBounds(201, 113, 151, 65);
+		btnSales.setBounds(201, 158, 151, 65);
 		btnSales.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/goods.png")));
 		contentPane.add(btnSales);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setForeground(new Color(255, 255, 255));
+		label_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		label_1.setBounds(0, 0, 543, 37);
+		contentPane.add(label_1);
+		
+		JLabel lblAjuda = new JLabel("AJUDA");
+		lblAjuda.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					HelpScreen frame = new HelpScreen();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}	
+				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				setCursor(Cursor.HAND_CURSOR);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				setCursor(Cursor.DEFAULT_CURSOR);
+			}
+		});
+		lblAjuda.setForeground(Color.WHITE);
+		lblAjuda.setBorder(new MatteBorder(0, 0, 0, 2, (Color) new Color(0, 0, 0)));
+		lblAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 22));
+		lblAjuda.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAjuda.setBounds(0, 0, 133, 37);
+		contentPane.add(lblAjuda);
+		
+		JLabel lblSair = new JLabel("SAIR");
+		lblSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
+		lblSair.setForeground(Color.WHITE);
+		lblSair.setFont(new Font("Segoe UI Black", Font.BOLD, 22));
+		lblSair.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSair.setBounds(134, 0, 100, 37);
+		contentPane.add(lblSair);
+		
+		JLabel label = new JLabel("");
+		label.setBackground(new Color(255, 204, 102));
+		label.setBounds(0, 0, 543, 323);
+		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/images/wallt.jpg")));
+		contentPane.add(label);
+		
+		
 		btnSales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -227,30 +264,6 @@ public class Employee_MainScreen extends JFrame {
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-			}
-		});
-		
-		
-		mntmSobreOIce.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					AboutScreen frame = new AboutScreen();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-
-		btnLogout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					LoginUser frame = new LoginUser();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				dispose();
 			}
 		});
 

@@ -87,7 +87,7 @@ public class Employee_Registration extends JFrame {
 //		});
 			
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(204, 255, 204));
+		contentPane.setBackground(new Color(153, 255, 204));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -95,13 +95,13 @@ public class Employee_Registration extends JFrame {
 		JPanel pnCima = new JPanel();
 		pnCima.setBounds(0, 0, 594, 51);
 		pnCima.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnCima.setBackground(new Color(255, 222, 173));
+		pnCima.setBackground(Color.WHITE);
 		contentPane.add(pnCima);
 		
 		JPanel pnBaixo = new JPanel();
 		pnBaixo.setBounds(0, 570, 594, 51);
 		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnBaixo.setBackground(new Color(255, 222, 173));
+		pnBaixo.setBackground(Color.WHITE);
 		contentPane.add(pnBaixo);
 		pnBaixo.setLayout(null);
 		
@@ -121,7 +121,7 @@ public class Employee_Registration extends JFrame {
 		
 		JPanel pnEspecial = new JPanel();
 		pnEspecial.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pnEspecial.setBounds(79, 75, 471, 415);
+		pnEspecial.setBounds(65, 75, 471, 415);
 		pnEspecial.setBackground(new Color(204, 255, 204));
 		contentPane.add(pnEspecial);
 		pnEspecial.setLayout(null);
