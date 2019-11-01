@@ -22,7 +22,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
@@ -30,6 +29,10 @@ import javax.swing.border.MatteBorder;
 import Client.Client_MainScreen;
 import IceCreamShop.HelpScreen;
 import IceCreamShop.SalesScreen;
+import java.awt.SystemColor;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -38,8 +41,6 @@ public class Employee_MainScreen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField Data;
-	private final JPanel Developer = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -95,61 +96,7 @@ public class Employee_MainScreen extends JFrame {
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
-		Developer.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Developer.setBackground(Color.WHITE);
-		Developer.setBounds(0, 323, 411, 48);
-		contentPane.add(Developer);
-		Developer.setLayout(null);
-		
-				JLabel lblSystemDevelopedBy = new JLabel("Developed by Adailton Moura da Silva and Bruno Silva Albuquerque");
-				lblSystemDevelopedBy.setBackground(new Color(210, 180, 140));
-				lblSystemDevelopedBy.setFont(new Font("Cambria Math", Font.BOLD, 11));
-				lblSystemDevelopedBy.setBounds(0, 0, 411, 48);
-				Developer.add(lblSystemDevelopedBy);
-				lblSystemDevelopedBy.setForeground(new Color(0, 0, 0));
-				lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(410, 346, 133, 25);
-		contentPane.add(panel_2);
-		panel_2.setLayout(null);
-		
-		JLabel lbHour = new JLabel("");
-		lbHour.setBackground(Color.WHITE);
-		lbHour.setHorizontalAlignment(SwingConstants.CENTER);
-		lbHour.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		lbHour.setBounds(0, 0, 133, 23);
-		panel_2.add(lbHour);
 
-		Data = new JTextField();
-		Data.setForeground(new Color(0, 0, 0));
-		Data.setBounds(410, 323, 133, 24);
-		contentPane.add(Data);
-		Data.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		Data.setHorizontalAlignment(SwingConstants.CENTER);
-		Data.setBackground(Color.WHITE);
-		Data.setEditable(false);
-		Data.setFont(new Font("Cambria Math", Font.BOLD, 14));
-		Data.setColumns(10);
-		Data.setText(finalDate);
-		
-		 Thread th = new Thread(new Runnable() { //cria uma thread
-		        public void run() {
-		            while(true) { //roda indefinidamente
-		                Date data = Calendar.getInstance().getTime();
-		                DateFormat h = DateFormat.getTimeInstance();
-		                lbHour.setText(h.format(data));     
-		                try {
-		                    Thread.sleep(1000); //espera 1 segundo para fazer a nova evolução
-		                } catch(InterruptedException ex){
-		                }
-		            }
-		        }
-		    }); th.start();
 
 		JButton btnClients = new JButton("CLIENTES");
 		btnClients.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -195,60 +142,28 @@ public class Employee_MainScreen extends JFrame {
 		btnSales.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/goods.png")));
 		contentPane.add(btnSales);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setForeground(new Color(255, 255, 255));
-		label_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		label_1.setBounds(0, 0, 543, 37);
-		contentPane.add(label_1);
-		
-		JLabel lblAjuda = new JLabel("AJUDA");
-		lblAjuda.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					HelpScreen frame = new HelpScreen();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}	
-				
-			}
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				setCursor(Cursor.HAND_CURSOR);
-			}
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setCursor(Cursor.DEFAULT_CURSOR);
-			}
-		});
-		lblAjuda.setForeground(Color.WHITE);
-		lblAjuda.setBorder(new MatteBorder(0, 0, 0, 2, (Color) new Color(0, 0, 0)));
-		lblAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 22));
-		lblAjuda.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAjuda.setBounds(0, 0, 133, 37);
-		contentPane.add(lblAjuda);
-		
-		JLabel lblSair = new JLabel("SAIR");
-		lblSair.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-			}
-		});
-		lblSair.setForeground(Color.WHITE);
-		lblSair.setFont(new Font("Segoe UI Black", Font.BOLD, 22));
-		lblSair.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSair.setBounds(134, 0, 100, 37);
-		contentPane.add(lblSair);
+				JLabel lblSystemDevelopedBy = new JLabel("\u00A9Developed by @ada.ilton and @_bru.no");
+				lblSystemDevelopedBy.setBounds(0, 314, 543, 36);
+				contentPane.add(lblSystemDevelopedBy);
+				lblSystemDevelopedBy.setBackground(new Color(210, 180, 140));
+				lblSystemDevelopedBy.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+				lblSystemDevelopedBy.setForeground(Color.BLACK);
+				lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JLabel label = new JLabel("");
+		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		label.setBackground(new Color(255, 204, 102));
-		label.setBounds(0, 0, 543, 323);
+		label.setBounds(0, 31, 543, 319);
 		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/images/wallt.jpg")));
 		contentPane.add(label);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		menuBar.setBounds(0, 0, 543, 28);
+		contentPane.add(menuBar);
+		
+		JMenu mnAjuda = new JMenu("AJUDA");
+		menuBar.add(mnAjuda);
 		
 		
 		btnSales.addActionListener(new ActionListener() {
