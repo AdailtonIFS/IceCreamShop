@@ -29,6 +29,7 @@ import javax.swing.border.LineBorder;
 import Administrator.AdministratorMainScreen;
 import Client.Client_Registration;
 import Employees.Employee_MainScreen;
+import javax.swing.border.MatteBorder;
 
 public class LoginUser extends JFrame {
 
@@ -62,11 +63,11 @@ public class LoginUser extends JFrame {
 	 */
 	public LoginUser() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginUser.class.getResource("/images/privacy.png")));
-		setBackground(Color.BLACK);
+		setBackground(Color.WHITE);
 		setTitle("MAIN SCREEN\r\n");
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 400, 350);
+		setBounds(100, 100, 482, 405);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		//bloquearFrame
@@ -86,49 +87,17 @@ public class LoginUser extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JCheckBox DarkTheme = new JCheckBox("DARK");
-		DarkTheme.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-		DarkTheme.setBackground(Color.WHITE);
-		DarkTheme.setBounds(8, 243, 67, 25);
-		contentPane.add(DarkTheme);
-		
-		JLabel lblKey = new JLabel("PASSWORD");
-		lblKey.setBounds(110, 140, 204, 25);
-		contentPane.add(lblKey);
-		lblKey.setForeground(Color.BLACK);
-		lblKey.setFont(new Font("Cambria Math", Font.BOLD, 17));
-		lblKey.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(110, 170, 204, 25);
-		contentPane.add(passwordField);
-		passwordField.setBorder(new LineBorder(Color.BLACK, 1, true));
-		
-		JLabel lblLogin = new JLabel("LOGIN");
-		lblLogin.setBounds(110, 62, 204, 25);
-		contentPane.add(lblLogin);
-		lblLogin.setForeground(Color.BLACK);
-		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLogin.setFont(new Font("Cambria Math", Font.BOLD, 17));
-		
-		txtFLogin = new JTextField();
-		txtFLogin.setBounds(110, 98, 204, 25);
-		contentPane.add(txtFLogin);
-		txtFLogin.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		txtFLogin.setBackground(Color.WHITE);
-		txtFLogin.setColumns(10);
-		
 		JPanel pnCima = new JPanel();
 		pnCima.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnCima.setBounds(0, 0, 394, 38);
-		pnCima.setBackground(new Color(255, 222, 173));
+		pnCima.setBounds(0, 0, 475, 38);
+		pnCima.setBackground(Color.WHITE);
 		pnCima.setLayout(null);
 		contentPane.add(pnCima);
 		
 		JPanel pnBaixo = new JPanel();
 		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnBaixo.setBounds(0, 281, 394, 40);
-		pnBaixo.setBackground(new Color(255, 222, 173));
+		pnBaixo.setBounds(0, 334, 475, 40);
+		pnBaixo.setBackground(Color.WHITE);
 		pnBaixo.setLayout(null);
 		contentPane.add(pnBaixo);
 		
@@ -140,110 +109,134 @@ public class LoginUser extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-			
-
 			}
 		});
 		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panel.setBounds(52, 61, 225, 230);
+		panel.setBackground(new Color(0, 191, 255));
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
 		
 		JButton btnEntrar = new JButton("ENTRAR");
-		btnEntrar.setBounds(151, 226, 89, 23);
-		contentPane.add(btnEntrar);
+		btnEntrar.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnEntrar.setForeground(Color.BLACK);
+		btnEntrar.setFont(new Font("DejaVu Sans Condensed", Font.BOLD, 12));
+		btnEntrar.setBounds(66, 180, 89, 23);
+		panel.add(btnEntrar);
 		
-		JLabel lblChave = new JLabel("");
-		lblChave.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblChave.setBounds(80, 93, 30, 34);
-		lblChave.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/key.png")));
-		contentPane.add(lblChave);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(65, 135, 140, 20);
+		panel.add(passwordField);
+		passwordField.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		JLabel lblCadeado = new JLabel("");
-		lblCadeado.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblCadeado.setBounds(80, 166, 30,34);
-		lblCadeado.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/lock.png")));	
-		contentPane.add(lblCadeado);
+		lblCadeado.setBounds(25, 129, 30, 34);
+		panel.add(lblCadeado);
+		lblCadeado.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblCadeado.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/lock.png")));
 		
-		JLabel lblWallpaper = new JLabel("");
-		lblWallpaper.setBounds(0, 36, 394, 247);
-		contentPane.add(lblWallpaper);
-//		lblWallpaper.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/wallpaper.jpg")));
+		JLabel lblChave = new JLabel("");
+		lblChave.setBounds(25, 84, 30, 34);
+		panel.add(lblChave);
+		lblChave.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblChave.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/key.png")));
 		
-		btnEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				ArrayList<String> valores = new ArrayList<>();
-				boolean l = false;
-				boolean p = false;
-				
-				try {
-				
-					valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
-					
-					String senha = new String(passwordField.getPassword());
-					
-				for(int i = 0; i < valores.size();i++) {
-				System.out.println(valores.get(i));
-				}
-					
-					for(int i = 9; i < valores.size();i++) {
-							
-					if(valores.get(i).equals(senha)) {
-						p = true;
-						break;
-					}	
-						i+=9;
-					}
-					
-					
-					for(int i = 8; i < valores.size();i++) {
+		txtFLogin = new JTextField();
+		txtFLogin.setText("Login");
+		txtFLogin.setBounds(65, 91, 140, 20);
+		panel.add(txtFLogin);
+		txtFLogin.setBorder(new LineBorder(new Color(0, 0, 0)));
+		txtFLogin.setBackground(Color.WHITE);
+		txtFLogin.setColumns(10);
 		
-					if(valores.get(i).equals(txtFLogin.getText())) {
-					System.out.println("ACHOU");
-					l = true;	
-					posicao = i;
-					break;
-					
-					}
-	
-					i+=9;
-					}
-					
-					if(l == true && p == true ) {
-						dispose();
+		JLabel lblLogin = new JLabel("SIGN IN");
+		lblLogin.setBackground(Color.WHITE);
+		lblLogin.setBounds(48, 11, 140, 34);
+		panel.add(lblLogin);
+		lblLogin.setForeground(Color.WHITE);
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Segoe UI Black", Font.BOLD, 27));
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setBackground(Color.WHITE);
+		label_1.setForeground(Color.WHITE);
+		label_1.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(255, 255, 255)));
+		label_1.setBounds(48, 40, 140, 14);
+		panel.add(label_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		lblNewLabel.setBounds(10, 65, 206, 154);
+		panel.add(lblNewLabel);
+				
+				btnEntrar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						ArrayList<String> valores = new ArrayList<>();
+						boolean l = false;
+						boolean p = false;
+						
 						try {
-							AdministratorMainScreen frame = new AdministratorMainScreen();
-							frame.setVisible(true);
-						} catch (Exception e1) {
+						
+							valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+							
+							String senha = new String(passwordField.getPassword());
+							
+						for(int i = 0; i < valores.size();i++) {
+						System.out.println(valores.get(i));
+						}
+							
+							for(int i = 9; i < valores.size();i++) {
+									
+							if(valores.get(i).equals(senha)) {
+								p = true;
+								break;
+							}	
+								i+=9;
+							}
+							
+							
+							for(int i = 8; i < valores.size();i++) {
+				
+							if(valores.get(i).equals(txtFLogin.getText())) {
+							System.out.println("ACHOU");
+							l = true;	
+							posicao = i;
+							break;
+							
+							}
+			
+							i+=9;
+							}
+							
+							if(l == true && p == true ) {
+								dispose();
+								try {
+									AdministratorMainScreen frame = new AdministratorMainScreen();
+									frame.setVisible(true);
+								} catch (Exception e1) {
+									e1.printStackTrace();
+								}
+								
+							}
+							else{
+								JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 						
 					}
-					else{
-						JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
-					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
-		});
+				});
 		
-		DarkTheme.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(DarkTheme.isSelected()) {
-					contentPane.setBackground(Color.BLACK);
-					lblLogin.setForeground(SystemColor.menu);
-					lblKey.setForeground(SystemColor.menu);
-	
-				}
-				else {
-					contentPane.setBackground(new Color(153, 204, 255));
-					lblLogin.setForeground(Color.BLACK);
-					lblKey.setForeground(Color.BLACK);
-				}
-				
-			}
-		});
+		JLabel lblWallpaper = new JLabel("");
+		lblWallpaper.setBounds(0, 36, 475, 300);
+		lblWallpaper.setIcon(new ImageIcon(LoginUser.class.getResource("/images/entrada.jpg")));
+		contentPane.add(lblWallpaper);
 		
 		
 		

@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,24 +20,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 import Client.Client_MainScreen;
-import IceCreamShop.AboutScreen;
 import IceCreamShop.HelpScreen;
-import IceCreamShop.LoginUser;
 import IceCreamShop.SalesScreen;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.SystemColor;
-import javax.swing.border.MatteBorder;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -219,10 +213,12 @@ public class Employee_MainScreen extends JFrame {
 				}	
 				
 			}
+			@SuppressWarnings("deprecation")
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				setCursor(Cursor.HAND_CURSOR);
 			}
+			@SuppressWarnings("deprecation")
 			@Override
 			public void mouseExited(MouseEvent e) {
 				setCursor(Cursor.DEFAULT_CURSOR);
