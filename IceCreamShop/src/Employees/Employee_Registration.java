@@ -3,7 +3,12 @@ package Employees;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,16 +22,6 @@ import javax.swing.border.SoftBevelBorder;
 import com.toedter.calendar.JMonthChooser;
 import com.toedter.calendar.JYearChooser;
 import com.toedter.components.JSpinField;
-
-import Client.Client_Registration;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
 
 public class Employee_Registration extends JFrame {
 
@@ -71,7 +66,7 @@ public class Employee_Registration extends JFrame {
 	public Employee_Registration() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 650);
+		setBounds(100, 100, 600, 600);
 		setLocationRelativeTo(null); // centralizarFrame
 		setResizable(false); // bloquearMaximizar
 		
@@ -92,37 +87,11 @@ public class Employee_Registration extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel pnCima = new JPanel();
-		pnCima.setBounds(0, 0, 594, 51);
-		pnCima.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnCima.setBackground(Color.WHITE);
-		contentPane.add(pnCima);
-		
-		JPanel pnBaixo = new JPanel();
-		pnBaixo.setBounds(0, 570, 594, 51);
-		pnBaixo.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		pnBaixo.setBackground(Color.WHITE);
-		contentPane.add(pnBaixo);
-		pnBaixo.setLayout(null);
-		
-		JLabel label = new JLabel("");
-		label.setBounds(21, 11, 24, 24);
-		label.setIcon(new ImageIcon(Client_Registration.class.getResource("/images/back.png")));
-		pnBaixo.add(label);
-		
-		
-		label.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-			}
-		});
-		
 		
 		JPanel pnEspecial = new JPanel();
 		pnEspecial.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pnEspecial.setBounds(65, 75, 471, 415);
-		pnEspecial.setBackground(new Color(204, 255, 204));
+		pnEspecial.setBounds(63, 34, 468, 453);
+		pnEspecial.setBackground(new Color(255, 250, 250));
 		contentPane.add(pnEspecial);
 		pnEspecial.setLayout(null);
 		
@@ -146,14 +115,14 @@ public class Employee_Registration extends JFrame {
 		
 		pnDadosPessoais = new JPanel();
 		pnDadosPessoais.setBorder(new LineBorder(Color.BLACK, 1, true));
-		pnDadosPessoais.setBounds(0, 0, 471, 25);
+		pnDadosPessoais.setBounds(0, 0, 468, 25);
 		pnEspecial.add(pnDadosPessoais);
 		pnDadosPessoais.setLayout(null);
 		
 		lblDadosPessoais = new JLabel("Dados Pessoais");
 		lblDadosPessoais.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDadosPessoais.setFont(new Font("Courier New", Font.PLAIN, 13));
-		lblDadosPessoais.setBounds(0, 0, 471, 25);
+		lblDadosPessoais.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		lblDadosPessoais.setBounds(0, 0, 468, 25);
 		pnDadosPessoais.add(lblDadosPessoais);
 		
 		txtEmail = new JTextField();
@@ -177,11 +146,12 @@ public class Employee_Registration extends JFrame {
 		pnEspecial.add(txtTelefone);
 		
 		lblDataNascimento = new JLabel("Data de Nascimento");
-		lblDataNascimento.setFont(new Font("Cambria Math", Font.BOLD, 17));
+		lblDataNascimento.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblDataNascimento.setBounds(37, 120, 187, 16);
 		pnEspecial.add(lblDataNascimento);
 		
 		JSpinField spinField = new JSpinField();
+		spinField.getSpinner().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		spinField.setMaximum(31);
 		spinField.setMinimum(1);
 		spinField.setBorder(new LineBorder(Color.BLACK, 1, true));
@@ -189,11 +159,13 @@ public class Employee_Registration extends JFrame {
 		pnEspecial.add(spinField);
 		
 		JMonthChooser monthChooser = new JMonthChooser();
+		monthChooser.getComboBox().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		monthChooser.setBorder(new LineBorder(Color.BLACK, 1, true));
-		monthChooser.setBounds(187, 147, 104, 25);
+		monthChooser.setBounds(183, 149, 116, 25);
 		pnEspecial.add(monthChooser);
 		
 		JYearChooser yearChooser = new JYearChooser();
+		yearChooser.getSpinner().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 		yearChooser.setBorder(new LineBorder(Color.BLACK, 1, true));
 		yearChooser.setStartYear(2019);
 		yearChooser.setMaximum(2019);
@@ -201,7 +173,7 @@ public class Employee_Registration extends JFrame {
 		pnEspecial.add(yearChooser);
 		
 		lblGnero = new JLabel("G\u00EAnero");
-		lblGnero.setFont(new Font("Cambria Math", Font.BOLD, 17));
+		lblGnero.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblGnero.setBounds(36, 182, 87, 16);
 		pnEspecial.add(lblGnero);
 		
@@ -272,7 +244,8 @@ public class Employee_Registration extends JFrame {
 		
 		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(37, 241, 130, 20);
+		comboBox.setFont(new Font("Segoe UI", Font.BOLD, 15));
+		comboBox.setBounds(37, 241, 130, 27);
 		pnEspecial.add(comboBox);
 		comboBox.addItem("Simples");
 		comboBox.addItem("Composto");
@@ -280,8 +253,13 @@ public class Employee_Registration extends JFrame {
 		JButton SALVAR = new JButton("SALVAR");
 		SALVAR.setBorder(new LineBorder(Color.BLACK, 1, true));
 		SALVAR.setFont(new Font("Cambria Math", Font.BOLD, 16));
-		SALVAR.setBounds(241, 501, 114, 41);
+		SALVAR.setBounds(240, 501, 114, 41);
 		contentPane.add(SALVAR);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/images/entrada.jpg")));
+		label.setBounds(0, 0, 594, 615);
+		contentPane.add(label);
 		SALVAR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

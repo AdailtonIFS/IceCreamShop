@@ -7,10 +7,10 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,17 +27,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import Administrator.AdministratorMainScreen;
-import Client.Client_Registration;
-import Employees.Employee_MainScreen;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import java.awt.SystemColor;
-import javax.swing.UIManager;
-import javax.swing.JButton;
 
 public class LoginUser extends JFrame {
 
@@ -82,10 +77,9 @@ public class LoginUser extends JFrame {
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginUser.class.getResource("/images/privacy.png")));
 		setBackground(Color.WHITE);
-		setTitle("MAIN SCREEN\r\n");
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 482, 405);
+		setBounds(100, 100, 500, 400);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		//bloquearFrame
@@ -108,7 +102,7 @@ public class LoginUser extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setForeground(new Color(95, 158, 160));
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBounds(102, 47, 271, 282);
+		panel.setBounds(111, 41, 271, 282);
 		panel.setBackground(new Color(245, 245, 245));
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -208,6 +202,64 @@ public class LoginUser extends JFrame {
 		});
 		
 		JButton btnEntrar = new JButton("ENTRAR");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ArrayList<String> valores = new ArrayList<>();
+				boolean l = false;
+				boolean p = false;
+				
+				try {
+				
+					valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+					
+					String senha = new String(passwordField.getPassword());
+					
+				for(int i = 0; i < valores.size();i++) {
+				System.out.println(valores.get(i));
+				}
+					
+					for(int i = 9; i < valores.size();i++) {
+							
+					if(valores.get(i).equals(senha)) {
+						p = true;
+						break;
+					}	
+						i+=9;
+					}
+					
+					
+					for(int i = 8; i < valores.size();i++) {
+		
+					if(valores.get(i).equals(txtFLogin.getText())) {
+					System.out.println("ACHOU");
+					l = true;	
+					posicao = i;
+					break;
+					
+					}
+			
+					i+=9;
+					}
+					
+					if(l == true && p == true ) {
+						dispose();
+						try {
+							AdministratorMainScreen frame = new AdministratorMainScreen();
+							frame.setVisible(true);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnEntrar.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		btnEntrar.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnEntrar.setBounds(83, 230, 105, 27);
@@ -230,19 +282,19 @@ public class LoginUser extends JFrame {
 		
 		JLabel lbBorda = new JLabel("");
 		lbBorda.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		lbBorda.setBounds(22, 67, 228, 204);
+		lbBorda.setBounds(21, 67, 228, 204);
 		panel.add(lbBorda);
 		
 		JLabel lblTitle = new JLabel("Ice Cream Shop");
 		lblTitle.setForeground(new Color(95, 158, 160));
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setBounds(55, 24, 150, 32);
+		lblTitle.setBounds(60, 24, 150, 32);
 		lblTitle.setFont(dropthegame1);
 		panel.add(lblTitle);
 		
 		JLabel lblWallpaper = new JLabel("");
 		lblWallpaper.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblWallpaper.setBounds(0, 0, 476, 376);
+		lblWallpaper.setBounds(0, 0, 494, 365);
 		lblWallpaper.setIcon(new ImageIcon(LoginUser.class.getResource("/images/entrada.jpg")));
 		contentPane.add(lblWallpaper);
 		
