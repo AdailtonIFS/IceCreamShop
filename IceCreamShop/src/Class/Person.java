@@ -1,12 +1,16 @@
 package Class;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.InputMismatchException;
 
 import javax.swing.JOptionPane;
+
+import org.jsoup.HttpStatusException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class Person{
 	
@@ -187,25 +191,52 @@ public class Person{
     		}
     		
     		
-			public static void registerClient(String tabela, ArrayList <String> valores) throws SQLException {
-				
-			Connection conn = DataBase.DB.getConnection();
-			String sql;
-			Statement statement = conn.createStatement();
-
-			sql = String.format("insert into %s values (", tabela);
-
-			for (String valor : valores) {
-				sql += "'" +valor + "',";
-			}
-
-			sql = sql.substring(0, sql.length() - 1) + ")"
-					+ "";
-
-			statement.executeUpdate(sql);
-			DataBase.DB.closeStatement(statement);
 			
-			}
+		   
+			
+			public String ConsultEndereco(String CEP) throws IOException {
+
+		        //***************************************************
+		        try{
+
+		        Document doc = Jsoup.connect("http://www.qualocep.com/busca-cep/"+CEP)
+		                  .timeout(120000)
+		                  .get();
+		        Elements urlPesquisa = doc.select("span[itemprop=streetAddress]");
+		        for (Element urlEndereco : urlPesquisa) {
+		                return urlEndereco.text();
+		        }
+
+		        } catch (SocketTimeoutException e) {
+
+		        } catch (HttpStatusException w) {
+
+		        }
+		        return CEP;
+		    }
+
+		    public String Consultbairro(String CEP) throws IOException {
+
+		        //***************************************************
+		        try{
+
+		        Document doc = Jsoup.connect("http://www.qualocep.com/busca-cep/"+CEP)
+		                  .timeout(120000)
+		                  .get();
+		        Elements urlPesquisa = doc.select("td:gt(1)");
+		        for (Element urlBairro : urlPesquisa) {
+		                return urlBairro.text();
+		        }
+
+		        } catch (SocketTimeoutException e) {
+
+		        } catch (HttpStatusException w) {
+
+		        }
+		        return CEP;
+		    }
+
+			
 	   
 
 	}

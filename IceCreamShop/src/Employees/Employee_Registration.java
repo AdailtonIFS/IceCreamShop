@@ -65,7 +65,7 @@ public class Employee_Registration extends JFrame {
 	@SuppressWarnings("unchecked")
 	public Employee_Registration() {
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		setLocationRelativeTo(null); // centralizarFrame
 		setResizable(false); // bloquearMaximizar
@@ -90,7 +90,7 @@ public class Employee_Registration extends JFrame {
 		
 		JPanel pnEspecial = new JPanel();
 		pnEspecial.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pnEspecial.setBounds(63, 34, 468, 453);
+		pnEspecial.setBounds(63, 35, 468, 453);
 		pnEspecial.setBackground(new Color(255, 250, 250));
 		contentPane.add(pnEspecial);
 		pnEspecial.setLayout(null);
@@ -197,7 +197,7 @@ public class Employee_Registration extends JFrame {
 		pnEndereco.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Endere\u00E7o");
-		lblNewLabel.setFont(new Font("Courier New", Font.PLAIN, 13));
+		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(0, 0, 471, 25);
 		pnEndereco.add(lblNewLabel);
@@ -258,7 +258,7 @@ public class Employee_Registration extends JFrame {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/images/entrada.jpg")));
-		label.setBounds(0, 0, 594, 615);
+		label.setBounds(0, 0, 594, 565);
 		contentPane.add(label);
 		SALVAR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

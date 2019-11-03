@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,16 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import Employees.Employee_Configuration;
 import Employees.Employee_Registration;
 import IceCreamShop.HelpScreen;
-
-import javax.swing.JMenuItem;
-import javax.swing.border.MatteBorder;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -86,23 +87,17 @@ public class AdministratorMainScreen extends JFrame {
 		mnFuncionrios.setBorder(new LineBorder(new Color(0, 0, 0)));
 		menuBar.add(mnFuncionrios);
 		
-		JMenuItem mntmCadastrarFuncionrios = new JMenuItem("  CADASTRAR");
-		mntmCadastrarFuncionrios.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
+		JMenuItem mntmPesquisar = new JMenuItem(" CONFIGURAR");
+		mntmPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				try {
-					Employee_Registration frame = new Employee_Registration();
+					Employee_Configuration frame = new Employee_Configuration();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}	
 			}
 		});
-		mntmCadastrarFuncionrios.setBorder(new LineBorder(new Color(0, 0, 0)));
-		mntmCadastrarFuncionrios.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/more.png")));
-		mnFuncionrios.add(mntmCadastrarFuncionrios);
-		
-		JMenuItem mntmPesquisar = new JMenuItem("  PESQUISAR");
 		mntmPesquisar.setBorder(new LineBorder(new Color(0, 0, 0)));
 		mntmPesquisar.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/gear.png")));
 		mnFuncionrios.add(mntmPesquisar);
@@ -160,22 +155,28 @@ public class AdministratorMainScreen extends JFrame {
 	                try {
 	                    
 	                    for(int i = 0; i<12; i++) {
-	                    	Thread.sleep(1100); //espera 1,1 segundo para fazer a nova evolução
-	                    	if(i == 3) {
+	                    	Thread.sleep(1000); //espera 1,1 segundo para fazer a nova evolução
+	                    	if(i == 2) {
 	                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete02.jpg")));
 	                    	}
 	                    	else 
-	                    		if(i == 6) {
+	                    		if(i == 5) {
 		                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete03.jpg")));
 	                		}
 	                    		else
-	                    			if(i == 9) {
+	                    			if(i == 7) {
 	    		                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete04.jpg")));
 
 	                    			}
-	                    }
+	                    			else
+	                    				if(i == 10) {
+	                    					label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete01.jpg")));
+	                    				}
+	                    	
+	                    }//Fim do for
 	                   
 	                } catch(InterruptedException ex){
+	                	ex.printStackTrace();
 	                }
 	            }
 	        }

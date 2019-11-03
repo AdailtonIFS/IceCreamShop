@@ -1,4 +1,4 @@
-create table administrator (
+create table employeeAdvanced (
 
 	Name varchar(45)not null,
 	CPF char(14) not null primary key,
@@ -13,15 +13,16 @@ create table administrator (
 	Password varchar(20) not null
 );
 
-create table Client(
-	Name varchar(45)not null,
-	CPF char(14) not null primary key,
-	Phone char(14) null,
-	Adress varchar(45) null,
-	CEP char(9) null,
-	Sex varchar(15) not null,
-	DataNascimento char(10) not null,
-	Email varchar(60) null
+
+create table client(
+				Name varchar(45)not null,
+				CPF char(14) not null primary key,
+				Phone char(14) null,
+				Adress varchar(45) null,
+				CEP char(9) null,
+				DataNascimento char(10) not null,
+				Email varchar(60) null,
+				Sex varchar(15) not null
 );
 
 
@@ -35,9 +36,7 @@ create table employee (
 	Sex varchar(15) not null,
 	DataNascimento char(10) not null,
 	Salar decimal  not null,
-	Office varchar(20) not null,
-	Login varchar(20) not null,
-	Password varchar(20) not null
+	Office varchar(20) not null
 );
 
 create table IceCream (
@@ -49,3 +48,6 @@ create table IceCream (
 	Cod varchar(10) not null primary key
 
 );
+
+insert into employeeAdvanced
+values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','Indiferente','18/10/2019','0','Administrador','admin','admin');

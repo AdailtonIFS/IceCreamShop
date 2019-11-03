@@ -127,7 +127,7 @@ public class LoginUser extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				ArrayList<String> valores = new ArrayList<>();
+				ArrayList<Object> valores = new ArrayList<>();
 				boolean l = false;
 				boolean p = false;
 				
