@@ -59,8 +59,9 @@ public class Client_Configuration extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public Client_Configuration() {
+	public Client_Configuration() throws SQLException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Client_Configuration.class.getResource("/images/gear.png")));
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -250,13 +251,20 @@ public class Client_Configuration extends JFrame {
 				list.setBounds(10, 24, 276, 403);
 				panel.add(list);
 				
+				
+				
+					int quantidade = DataBase.Functions.countQuantiy(tabela);
+				
+				
+				if(quantidade > 0) {
 				for(int i = 0; i < valores.size(); i++) {
 					
 				list.add((String) valores.get(i));
 						
 				i+=7;
 				}
-		
+			}
+				
 		
 	}
 }

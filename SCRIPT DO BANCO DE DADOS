@@ -15,18 +15,16 @@ create table employeeAdvanced (
 
 
 create table client(
-				Name varchar(45)not null,
-				Id int not null,
-				CPF char(14) not null,
-				Phone char(14) null,
-				Adress varchar(45) null,
-				CEP char(9) null,
-				DataNascimento char(10) not null,
-				Email varchar(60) null,
-				Sex varchar(15) not null,
-				
-				CONSTRAINT pk_CE primary key(id,CPF)
-				
+
+	Name varchar(45)not null,
+	CPF char(14) not null,
+	Phone char(14) null,
+	Adress varchar(45) null,
+	CEP char(9) null,
+	DataNascimento char(10) not null,
+	Email varchar(60) null,
+	Sex varchar(15) not null
+
 );
 
 

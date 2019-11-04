@@ -87,6 +87,8 @@ public class Opening extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		String music = "sorvete";
+				
 		
 		JLabel lblBemVindo = new JLabel("BEM VINDO");
 		lblBemVindo.setBackground(Color.WHITE);

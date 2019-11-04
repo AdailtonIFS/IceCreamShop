@@ -8,25 +8,21 @@ import java.util.ArrayList;
 
 public class Functions {
 	
-	public static ResultSet countQuantiy(String tabela) {
+	public static int countQuantiy(String tabela) throws SQLException {
 
 		Connection conn = DataBase.DB.getConnection();
-		ResultSet rs = null;
-		try {
-			rs = conn.createStatement().executeQuery("select count from"+tabela);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Statement statement = conn.createStatement();
+	
+		int resultado = 0;
+		
+		ResultSet rs = statement.executeQuery("select count (*) from "+tabela);
+
+		
+		if(rs.next()) {
+			resultado = rs.getInt(1);
 		}
-		
-		
-		return rs;	
+		return resultado;
 	}
-	
-	
-	
-	
-	
 	
 	
 	
@@ -38,14 +34,10 @@ public class Functions {
 		ArrayList<String> valores = new ArrayList <String> ();
 //		ArrayList<Employee> employees = new ArrayList<>();
 
-		ResultSet rs = statement.executeQuery("select * from "+tabela);
+		ResultSet rs = statement.executeQuery("select * from "+tabela+"order by name");
 		
 		while(rs.next()) {
-//			employees.add(new Employee(rs.getString(1), rs.getString(2), rs.getString(3),
-//										rs.getString(4), rs.getString(5), rs.getString(6), 
-//										rs.getString(7), Double.parseDouble(rs.getString(8)), 
-//										rs.getString(9)));
-			
+
 			valores.add(rs.getString("name"));
 			valores.add(rs.getString("cpf"));
 			valores.add(rs.getString("phone"));
