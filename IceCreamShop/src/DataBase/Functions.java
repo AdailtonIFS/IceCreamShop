@@ -8,6 +8,30 @@ import java.util.ArrayList;
 
 public class Functions {
 	
+	public static ResultSet countQuantiy(String tabela) {
+
+		Connection conn = DataBase.DB.getConnection();
+		ResultSet rs = null;
+		try {
+			rs = conn.createStatement().executeQuery("select count from"+tabela);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return rs;	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static ArrayList<String> searchEmployeeAdvanced(String tabela) throws SQLException {
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
@@ -40,13 +64,29 @@ public class Functions {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static ArrayList<Object> searchClient(String tabela) throws SQLException {
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
 		ArrayList<Object> valores = new ArrayList <Object> ();
 //		ArrayList<Employee> employees = new ArrayList<>();
 
-		ResultSet rs = statement.executeQuery("select * from "+tabela);
+		ResultSet rs = statement.executeQuery("select * from "+tabela +"order by name");
 		
 		while(rs.next()) {
 			
@@ -98,5 +138,7 @@ public class Functions {
 		DataBase.DB.closeStatement(statement);
 		
 		}
+	
+	
 
 }

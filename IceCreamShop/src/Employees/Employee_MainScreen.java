@@ -89,7 +89,7 @@ public class Employee_MainScreen extends JFrame {
 		JLabel label = new JLabel("");
 		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		label.setBackground(new Color(255, 204, 102));
-		label.setBounds(0, 40, 594, 490);
+		label.setBounds(0, 40, 594, 497);
 		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete01.jpg")));
 		contentPane.add(label);
 		
@@ -104,18 +104,22 @@ public class Employee_MainScreen extends JFrame {
 	                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete02.jpg")));
 	                    	}
 	                    	else 
-	                    		if(i == 5) {
+	                    		if(i == 4) {
 		                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete03.jpg")));
 	                		}
 	                    		else
-	                    			if(i == 7) {
+	                    			if(i == 6) {
 	    		                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete04.jpg")));
 
 	                    			}
 	                    			else
-	                    				if(i == 10) {
-	                    					label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete01.jpg")));
+	                    				if(i == 8) {
+	                    					label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete05.jpg")));
 	                    				}
+	                    				else
+	                    					if(i == 10) {
+		                    					label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete01.jpg")));	
+	                    					}
 	                    	
 	                    }//Fim do for
 	                   
@@ -165,15 +169,15 @@ public class Employee_MainScreen extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(0, 530, 594, 35);
+		panel.setBounds(0, 536, 594, 35);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblSystemDevelopedBy = new JLabel("\u00A9Developed by ");
-		lblSystemDevelopedBy.setBounds(0, 0, 203, 32);
+		lblSystemDevelopedBy.setBounds(0, 0, 182, 32);
 		panel.add(lblSystemDevelopedBy);
 		lblSystemDevelopedBy.setBackground(new Color(210, 180, 140));
-		lblSystemDevelopedBy.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+		lblSystemDevelopedBy.setFont(new Font("Segoe UI Black", Font.BOLD, 15));
 		lblSystemDevelopedBy.setForeground(Color.BLACK);
 		lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.RIGHT);
 		
@@ -195,11 +199,11 @@ public class Employee_MainScreen extends JFrame {
 		});
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/instagram.png")));
-		label_1.setBounds(206, 0, 44, 32);
+		label_1.setBounds(192, 0, 44, 32);
 		panel.add(label_1);
 		
 		JLabel lbladailton = new JLabel("@_ada.ilton   &");
-		lbladailton.setBounds(242, 0, 155, 32);
+		lbladailton.setBounds(234, -1, 155, 32);
 		panel.add(lbladailton);
 		lbladailton.setHorizontalAlignment(SwingConstants.CENTER);
 		lbladailton.setFont(new Font("Segoe UI Black", Font.BOLD, 17));

@@ -200,7 +200,7 @@ public class Person{
 		        try{
 
 		        Document doc = Jsoup.connect("http://www.qualocep.com/busca-cep/"+CEP)
-		                  .timeout(120000)
+		                  .timeout(100000)
 		                  .get();
 		        Elements urlPesquisa = doc.select("span[itemprop=streetAddress]");
 		        for (Element urlEndereco : urlPesquisa) {
@@ -221,7 +221,7 @@ public class Person{
 		        try{
 
 		        Document doc = Jsoup.connect("http://www.qualocep.com/busca-cep/"+CEP)
-		                  .timeout(120000)
+		                  .timeout(100000)
 		                  .get();
 		        Elements urlPesquisa = doc.select("td:gt(1)");
 		        for (Element urlBairro : urlPesquisa) {
