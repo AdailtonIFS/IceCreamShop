@@ -4,7 +4,8 @@
 				import java.awt.Cursor;
 				import java.awt.EventQueue;
 				import java.awt.Font;
-				import java.awt.Toolkit;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
 				import java.awt.event.ActionEvent;
 				import java.awt.event.ActionListener;
 				import java.awt.event.FocusAdapter;
@@ -35,6 +36,7 @@
 				
 				import Class.Client;
 				import Class.Person;
+import IceCreamShop.LoginUser;
 				
 				
 				public class Client_Registration extends JFrame {
@@ -571,21 +573,23 @@
 					String cep = txtFCep.getText().replaceAll("-", "");
 					Person p = new Person();
 					
-						try {
-							if(!p.Consultbairro(cep).equals(cep) && !p.ConsultEndereco(cep).equals(cep)) {
-							txtBairro.setForeground(Color.BLACK);
-							txtFEndereco.setForeground(Color.BLACK);
-							txtBairro.setText(p.Consultbairro(cep));
-							txtFEndereco.setText(p.ConsultEndereco(cep));
-							
-							}else {
-								JOptionPane.showMessageDialog(null, "Cep inválido","Aviso",2);
+					
+							try {
+								if(!p.Consultbairro(cep).equals(cep) && !p.ConsultEndereco(cep).equals(cep)) {
+								txtBairro.setForeground(Color.BLACK);
+								txtFEndereco.setForeground(Color.BLACK);
+								txtBairro.setText(p.Consultbairro(cep));
+								txtFEndereco.setText(p.ConsultEndereco(cep));
+								
+								}else {
+									JOptionPane.showMessageDialog(null, "Cep inválido","Aviso",2);
+								}
+							} catch (HeadlessException | IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
 					
-						} catch (IOException e) {
-							JOptionPane.showMessageDialog(null, "Não foi possível estabelecer um conexão com a internt","Aviso",2);	
-						} // fim do Catch
-	
+					
 						
 					}// Se o cep não for válido
 						
@@ -738,6 +742,7 @@
 							
 				Cl.setName(txtFNome.getText());
 				valores.add(Cl.getName());
+				valores.add(LoginUser.cpf);
 				Cl.setCPF(txtFCPF.getText());
 				valores.add(Cl.getCPF());
 				Cl.setPhone(txtFTelefone.getText());
@@ -807,7 +812,8 @@
 					DataBase.Functions.register(tabela, valores);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null, "Não foi possível adquirir conexão com o Banco de Dados");
+
+					e1.printStackTrace();
 				}
 						
 				

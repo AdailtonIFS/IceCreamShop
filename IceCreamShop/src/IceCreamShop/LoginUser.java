@@ -43,6 +43,7 @@ public class LoginUser extends JFrame {
 	private JTextField txtFLogin;
 	private JPasswordField passwordField;
 	public static int posicao;
+	public static String cpf;
 
 	/**
 	 * Launch the application.
@@ -133,7 +134,7 @@ public class LoginUser extends JFrame {
 				
 				try {
 				
-					valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+					valores.addAll(DataBase.Functions.searchEmployee("employee"));
 					
 					String senha = new String(passwordField.getPassword());
 					
@@ -141,7 +142,7 @@ public class LoginUser extends JFrame {
 				System.out.println(valores.get(i));
 				}
 					
-					for(int i = 9; i < valores.size();i++) {
+					for(int i = 11; i < valores.size();i++) {
 							
 					if(valores.get(i).equals(senha)) {
 						p = true;
@@ -151,12 +152,13 @@ public class LoginUser extends JFrame {
 					}
 					
 					
-					for(int i = 8; i < valores.size();i++) {
+					for(int i = 10; i < valores.size();i++) {
 		
 					if(valores.get(i).equals(txtFLogin.getText())) {
 					System.out.println("ACHOU");
 					l = true;	
 					posicao = i;
+					cpf = (String) valores.get(i-9);
 					break;
 					
 					}
@@ -210,7 +212,7 @@ public class LoginUser extends JFrame {
 				
 				try {
 				
-					valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+					valores.addAll(DataBase.Functions.searchEmployee("employee"));
 					
 					String senha = new String(passwordField.getPassword());
 					

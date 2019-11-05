@@ -128,7 +128,7 @@ public class Employee_MainScreen extends JFrame {
 	                }
 	            }
 	        }
-	    }); th.start();
+	    }); th.start(); 
 
 		
 		JMenuBar menuBar = new JMenuBar();

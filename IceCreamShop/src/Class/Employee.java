@@ -5,6 +5,9 @@ public class Employee extends Person {
 	
 	private Double Salar;//ATRIBUTO SALÁRIO
 	private String Office;//ATRIBUTO CARGO
+	private String Login;
+	private String Password;
+	
 	
 	public Double getSalar() {
 		return Salar;
@@ -18,15 +21,34 @@ public class Employee extends Person {
 	public void setOffice(String office) {
 		Office = office;
 	}
+	public String getLogin() {
+		return Login;	 
+	}
+
+	public void setLogin(String login) {
+		Login = login;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+	
+	
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Employee(String name, String cPF, String phone, String adress, String cEP, String sex,
-			String dataNascimento, Double salar, String office) {
+			String dataNascimento, Double salar, String office,String login,String password) {
 		super(name, cPF, phone, adress, cEP, sex, dataNascimento);
 		this.setSalar(salar);
 		this.setOffice(office);
+		this.setLogin(login);
+		this.setPassword(password);
 	}
 
 	

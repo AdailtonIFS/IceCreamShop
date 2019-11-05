@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+
+import javax.swing.JOptionPane;
+
 import java.io.FileInputStream;
 
 public class DB {
@@ -22,7 +25,7 @@ public class DB {
 					conn = DriverManager.getConnection(url, props);
 				}
 				catch (SQLException e) {
-					throw new DbException(e.getMessage());
+					JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o Banco de Dados","",1);
 				}
 			}
 			return conn;

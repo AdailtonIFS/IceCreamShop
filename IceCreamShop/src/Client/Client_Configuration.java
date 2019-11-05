@@ -184,12 +184,20 @@ public class Client_Configuration extends JFrame {
 		txtFCep.setColumns(10);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setMnemonic('a');
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String tabela = "client";
+				int quantidade = 0;
+				try {
+					quantidade = DataBase.Functions.countQuantiy(tabela);
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
 				String chavePrimaria = "cpf";
 				String valor = txtFCpf.getText();
+				if(quantidade > 0) {
 				
 				try {
 					DataBase.Functions.delete(tabela, chavePrimaria, valor);
@@ -197,7 +205,11 @@ public class Client_Configuration extends JFrame {
 
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados");
+					JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com o banco de dados","Aviso",2);
+				}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Não há clientes cadastrados","Aviso",2);
 				}
 			}
 		});
@@ -225,7 +237,16 @@ public class Client_Configuration extends JFrame {
 				list.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-					
+						
+						int quantidade = 0;
+						try {
+							quantidade = DataBase.Functions.countQuantiy(tabela);
+						} catch (SQLException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
+						
+						if(quantidade > 0) {
 						int indice  = list.getSelectedIndex();
 						
 						txtFCpf.setText((String) valores.get(indice+1));
@@ -244,7 +265,10 @@ public class Client_Configuration extends JFrame {
 						txtFGnero.setText((String) valores.get(indice+7));
 						txtFLogradouro.setText((String) valores.get(indice+3));
 						txtFCep.setText((String) valores.get(indice+4));
-						
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Não há clientes cadastrados","Aviso",2);
+						}
 					}
 				});
 				list.setFont(new Font("Segoe UI", Font.BOLD, 15));

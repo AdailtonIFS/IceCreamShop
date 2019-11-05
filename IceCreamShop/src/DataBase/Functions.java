@@ -27,25 +27,26 @@ public class Functions {
 	
 	
 	
-	
-	public static ArrayList<String> searchEmployeeAdvanced(String tabela) throws SQLException {
+	public static ArrayList<String> searchEmployee(String tabela) throws SQLException {
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
 		ArrayList<String> valores = new ArrayList <String> ();
-//		ArrayList<Employee> employees = new ArrayList<>();
+		String sql = String.format("select * from %s order by name",tabela);
 
-		ResultSet rs = statement.executeQuery("select * from "+tabela+"order by name");
+		ResultSet rs = statement.executeQuery(sql);
 		
 		while(rs.next()) {
 
 			valores.add(rs.getString("name"));
 			valores.add(rs.getString("cpf"));
 			valores.add(rs.getString("phone"));
+			valores.add(rs.getString("adress"));
 			valores.add(rs.getString("cep"));
 			valores.add(rs.getString("sex"));
-			valores.add(rs.getString("datanascimento"));
+			valores.add(rs.getString("borndate"));
 			valores.add(rs.getString("salar"));
 			valores.add(rs.getString("office"));
+			valores.add(rs.getString("type"));
 			valores.add(rs.getString("login"));
 			valores.add(rs.getString("password"));
 		}
@@ -76,9 +77,9 @@ public class Functions {
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
 		ArrayList<Object> valores = new ArrayList <Object> ();
-//		ArrayList<Employee> employees = new ArrayList<>();
+		String sql = String.format("select * from %s order by name",tabela);
 
-		ResultSet rs = statement.executeQuery("select * from "+tabela +"order by name");
+		ResultSet rs = statement.executeQuery(sql);
 		
 		while(rs.next()) {
 			

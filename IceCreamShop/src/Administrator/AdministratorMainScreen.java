@@ -140,12 +140,12 @@ public class AdministratorMainScreen extends JFrame {
 		String finalDate = formatador.format(data);
 		
 		ArrayList<String> valores = new ArrayList<String>();
-		valores.addAll(DataBase.Functions.searchEmployeeAdvanced("employeeAdvanced"));
+		valores.addAll(DataBase.Functions.searchEmployee("employee"));
 		
 		JLabel label = new JLabel("");
 		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		label.setBackground(new Color(255, 204, 102));
-		label.setBounds(0, 35, 594, 530);
+		label.setBounds(0, 35, 594, 496);
 		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete01.jpg")));
 		contentPane.add(label);
 		

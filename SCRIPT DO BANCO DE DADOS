@@ -1,4 +1,4 @@
-create table employeeAdvanced (
+create table employee(
 
 	Name varchar(45)not null,
 	CPF char(14) not null primary key,
@@ -9,14 +9,16 @@ create table employeeAdvanced (
 	DataNascimento char(10) not null,
 	Salar decimal  not null,
 	Office varchar(20) not null,
-	Login varchar(20) not null,
-	Password varchar(20) not null
+	Type varchar(20) not null,
+	Login varchar(20) null,
+	Password varchar(20) null
 );
 
 
 create table client(
 
 	Name varchar(45)not null,
+	CPF_FUN char (14) not null references employee(CPF),
 	CPF char(14) not null,
 	Phone char(14) null,
 	Adress varchar(45) null,
@@ -27,22 +29,9 @@ create table client(
 
 );
 
-
-create table employee (
-
-	Name varchar(45)not null,
-	CPF char(14) not null primary key,
-	Phone char(14) null,
-	Adress varchar(45) null,
-	CEP char(9) null,
-	Sex varchar(15) not null,
-	DataNascimento char(10) not null,
-	Salar decimal  not null,
-	Office varchar(20) not null
-);
-
 create table IceCream (
-
+	
+	CPF_CLI char (14) not null references employee(CPF),
 	Flavor varchar(20) not null,
 	Price decimal not null,
 	Description varchar(40) null,
@@ -51,5 +40,5 @@ create table IceCream (
 
 );
 
-insert into employeeAdvanced
-values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','Indiferente','18/10/2019','0','Administrador','admin','admin');
+insert into employee
+values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','Indiferente','18/10/2019','0','Administrador','A','admin','admin');
