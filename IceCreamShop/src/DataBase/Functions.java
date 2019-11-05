@@ -27,10 +27,11 @@ public class Functions {
 	
 	
 	
-	public static ArrayList<String> searchEmployee(String tabela) throws SQLException {
+	public static ArrayList<Object> searchEmployee(String tabela) throws SQLException {
+		
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
-		ArrayList<String> valores = new ArrayList <String> ();
+		ArrayList<Object> valores = new ArrayList <Object> ();
 		String sql = String.format("select * from %s order by name",tabela);
 
 		ResultSet rs = statement.executeQuery(sql);
@@ -44,7 +45,7 @@ public class Functions {
 			valores.add(rs.getString("cep"));
 			valores.add(rs.getString("sex"));
 			valores.add(rs.getString("borndate"));
-			valores.add(rs.getString("salar"));
+			valores.add(rs.getDouble("salar"));
 			valores.add(rs.getString("office"));
 			valores.add(rs.getString("type"));
 			valores.add(rs.getString("login"));

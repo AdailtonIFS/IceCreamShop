@@ -32,6 +32,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
 import Administrator.AdministratorMainScreen;
+import Employees.Employee_MainScreen;
 
 public class LoginUser extends JFrame {
 
@@ -206,7 +207,7 @@ public class LoginUser extends JFrame {
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<String> valores = new ArrayList<>();
+				ArrayList<Object> valores = new ArrayList<>();
 				boolean l = false;
 				boolean p = false;
 				
@@ -220,7 +221,7 @@ public class LoginUser extends JFrame {
 				System.out.println(valores.get(i));
 				}
 					
-					for(int i = 9; i < valores.size();i++) {
+					for(int i = 11; i < valores.size();i++) {
 							
 					if(valores.get(i).equals(senha)) {
 						p = true;
@@ -230,7 +231,7 @@ public class LoginUser extends JFrame {
 					}
 					
 					
-					for(int i = 8; i < valores.size();i++) {
+					for(int i = 10; i < valores.size();i++) {
 		
 					if(valores.get(i).equals(txtFLogin.getText())) {
 					System.out.println("ACHOU");
@@ -245,12 +246,24 @@ public class LoginUser extends JFrame {
 					
 					if(l == true && p == true ) {
 						dispose();
+						if(valores.get(9).equals("A")&&(valores.get(8).equals("Administrador"))) {
+							dispose();
 						try {
 							AdministratorMainScreen frame = new AdministratorMainScreen();
 							frame.setVisible(true);
 						} catch (Exception e1) {
 							e1.printStackTrace();
+							}
 						}
+						else { 
+							try {
+								Employee_MainScreen frame = new Employee_MainScreen();
+								frame.setVisible(true);
+
+							} catch (Exception e) {
+								e.printStackTrace();
+							}	
+						}						
 						
 					}
 					else{

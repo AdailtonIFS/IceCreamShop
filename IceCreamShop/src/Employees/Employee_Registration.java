@@ -808,7 +808,7 @@ import Class.Person;
 						ArrayList<Object> valores = new ArrayList<Object>();
 						
 						if(!txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF") && !txtFCargo.getText().equalsIgnoreCase("Cargo") 
-				&&(rdbtnA.isSelected()== true && rdbtnNewRadioButton.isSelected() == true) &&!txtFTelefone.getText().equalsIgnoreCase("Telefone") && !txtFEndereco.getText().equalsIgnoreCase("Logradouro")
+				&&(rdbtnA.isSelected()== true || rdbtnNewRadioButton.isSelected() == true) &&!txtFTelefone.getText().equalsIgnoreCase("Telefone") && !txtFEndereco.getText().equalsIgnoreCase("Logradouro")
 				&& !txtNmero.getText().equalsIgnoreCase("Número") && !txtBairro.getText().equalsIgnoreCase("Bairro")  
 				&& !txtFCep.getText().equalsIgnoreCase("CEP") && DateN.getDate() != null && !txtFSalario.getText().equalsIgnoreCase("Salário") ) {
 				
@@ -826,22 +826,6 @@ import Class.Person;
 				valores.add(Em.getAdress());
 				Em.setCEP(txtFCep.getText());
 				valores.add(Em.getCEP());
-				
-				SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
-				String result = out.format(DateN.getDate()); 
-				
-				Em.setDataNascimento(result);
-				valores.add(Em.getDataNascimento());
-				
-				Em.setSalar(Double.parseDouble(txtFSalario.getText()));
-				valores.add(Em.getSalar());
-				
-				Em.setOffice(txtFCargo.getText());
-				valores.add(Em.getOffice());
-				
-						// end get the information
-				
-				
 				
 				//									gettando the sex
 						
@@ -865,8 +849,46 @@ import Class.Person;
 						
 				//									end gettar sex		
 			
+				
+				
+				SimpleDateFormat out = new SimpleDateFormat("dd/MM/yyyy");
+				String result = out.format(DateN.getDate()); 
+				
+				Em.setDataNascimento(result);
+				valores.add(Em.getDataNascimento());
+				
+				Em.setSalar(Double.parseDouble(txtFSalario.getText()));
+				valores.add(Em.getSalar());
+				
+				Em.setOffice(txtFCargo.getText());
+				valores.add(Em.getOffice());
+				if(rdbtnA.isSelected() == true) {
+					Em.setType(rdbtnA.getText());
+					valores.add(Em.getType());
+					try {
+						Employee_Registration_LoginandPass frame = new Employee_Registration_LoginandPass();
+						frame.setVisible(true);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+				else
+					if(rdbtnNewRadioButton.isSelected() == true){
+						Em.setType(rdbtnNewRadioButton.getText());
+						valores.add(Em.getType());
+					}
+				
+				valores.add(Employee_Registration_LoginandPass.login);
+				valores.add(Employee_Registration_LoginandPass.Senha);
+				
+						// end get the information
+			
 						
+						for(int i = 0; i < valores.size(); i++) {
+							System.out.println(valores.get(i));
+						}
 						
+					
 				JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso","AVISO",1);
 					
 					// Caso o usuario preencha tudo corretamente

@@ -139,7 +139,7 @@ public class AdministratorMainScreen extends JFrame {
 		@SuppressWarnings("unused")
 		String finalDate = formatador.format(data);
 		
-		ArrayList<String> valores = new ArrayList<String>();
+		ArrayList<Object> valores = new ArrayList<Object>();
 		valores.addAll(DataBase.Functions.searchEmployee("employee"));
 		
 		JLabel label = new JLabel("");
