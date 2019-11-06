@@ -10,6 +10,8 @@ import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
@@ -21,7 +23,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -110,16 +111,16 @@ public class Employee_Registration extends JFrame {
 		setResizable(false); // bloquearMaximizar
 		setUndecorated(true);
 
-		// //bloquearFrame
-		// this.addComponentListener(new ComponentAdapter() {
-		//
-		// public void componentMoved(ComponentEvent e) {
-		//
-		// setEnabled(false);
-		//
-		// setEnabled(true);
-		// }
-		// });
+//		 bloquearFrame
+		 this.addComponentListener(new ComponentAdapter() {
+		
+		 public void componentMoved(ComponentEvent e) {
+		
+		 setEnabled(false);
+		
+		 setEnabled(true);
+		 	}
+		 });
 
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 204, 255));
@@ -170,7 +171,7 @@ public class Employee_Registration extends JFrame {
 		rdbtnFeminino.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JTextField txtGnero = new JTextField();
-		txtGnero.setBorder(new LineBorder(new Color(0, 0, 0)));
+		txtGnero.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		txtGnero.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -180,6 +181,7 @@ public class Employee_Registration extends JFrame {
 
 						txtGnero.setText("");
 						txtGnero.setForeground(Color.black);
+						txtGnero.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 					}
 
@@ -192,9 +194,10 @@ public class Employee_Registration extends JFrame {
 
 					txtGnero.setText("Gênero");
 					txtGnero.setForeground(new Color(128, 128, 128));
-					txtGnero.setBorder(new LineBorder(Color.BLACK, 1, true));
 
 				}
+				txtGnero.setBorder(new LineBorder(Color.BLACK, 2, true));
+
 			}// fimAcao
 		});
 
@@ -217,7 +220,7 @@ public class Employee_Registration extends JFrame {
 		txtFNome.setForeground(new Color(128, 128, 128));
 		txtFNome.setText("Nome");
 		txtFNome.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFNome.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtFNome.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		txtFNome.setColumns(10);
 		pnEspecial.add(txtFNome);
 		// =================================__ACÃO__NO__txtField===============================
@@ -231,7 +234,7 @@ public class Employee_Registration extends JFrame {
 					txtFNome.setForeground(Color.black);
 
 				}
-				txtFNome.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFNome.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -243,7 +246,7 @@ public class Employee_Registration extends JFrame {
 					txtFNome.setForeground(new Color(128, 128, 128));
 
 				}
-				txtFNome.setBorder(new LineBorder(Color.BLACK, 1, true));
+				txtFNome.setBorder(new LineBorder(Color.BLACK, 2, true));
 
 			}// fimAcao
 		});
@@ -257,7 +260,7 @@ public class Employee_Registration extends JFrame {
 		txtFCPF.setForeground(new Color(128, 128, 128));
 		txtFCPF.setText("CPF");
 		txtFCPF.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFCPF.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtFCPF.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		pnEspecial.add(txtFCPF);
 		// =================================__Ação__no__CampoCPF==============================
 
@@ -268,7 +271,7 @@ public class Employee_Registration extends JFrame {
 				txtFCPF.setForeground(Color.BLACK);
 				txtFCPF.setText("");
 				ftmCPF.install(txtFCPF);
-				txtFCPF.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFCPF.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -280,7 +283,7 @@ public class Employee_Registration extends JFrame {
 					txtFCPF.setForeground(new Color(128, 128, 128));
 					txtFCPF.setText("CPF");
 				}
-				txtFCPF.setBorder(new LineBorder(Color.BLACK, 1, true));
+				txtFCPF.setBorder(new LineBorder(Color.BLACK, 2, true));
 
 			}// fimAcao
 		});
@@ -296,7 +299,7 @@ public class Employee_Registration extends JFrame {
 		txtFSalario.setText("Sal\u00E1rio");
 		txtFSalario.setHorizontalAlignment(SwingConstants.LEFT);
 		txtFSalario.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFSalario.setBorder(new LineBorder(Color.BLACK));
+		txtFSalario.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 
 		txtFSalario.setColumns(10);
 		pnEspecial.add(txtFSalario);
@@ -309,7 +312,7 @@ public class Employee_Registration extends JFrame {
 					txtFSalario.setText("");
 					txtFSalario.setForeground(Color.BLACK);
 				}
-				txtFSalario.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFSalario.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 
 			}// fimAcao
@@ -322,7 +325,7 @@ public class Employee_Registration extends JFrame {
 					txtFSalario.setForeground(new Color(128, 128, 128));
 					
 				}
-				txtFSalario.setBorder(new LineBorder(Color.BLACK));
+				txtFSalario.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 
 			}// fimAcao
 		});
@@ -337,7 +340,7 @@ public class Employee_Registration extends JFrame {
 		txtFTelefone.setForeground(new Color(128, 128, 128));
 		txtFTelefone.setText("Telefone");
 		txtFTelefone.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFTelefone.setBorder(new LineBorder(Color.BLACK));
+		txtFTelefone.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		pnEspecial.add(txtFTelefone);
 		// =================================__Ação__no__CampoTelefone=============================
 
@@ -348,7 +351,7 @@ public class Employee_Registration extends JFrame {
 				txtFTelefone.setForeground(Color.BLACK);
 				txtFTelefone.setText("");
 				ftmTelefone.install(txtFTelefone);
-				txtFTelefone.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFTelefone.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -362,7 +365,7 @@ public class Employee_Registration extends JFrame {
 					txtFTelefone.setText("Telefone");
 
 				}
-				txtFTelefone.setBorder(new LineBorder(Color.BLACK));
+				txtFTelefone.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 
 			}// fimAcao
 		});
@@ -376,7 +379,7 @@ public class Employee_Registration extends JFrame {
 		txtFEndereco.setForeground(new Color(128, 128, 128));
 		txtFEndereco.setText("Logradouro");
 		txtFEndereco.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		txtFEndereco.setColumns(10);
 		pnEspecial.add(txtFEndereco);
 		// =================================__Ação__no__CampoEndereco=============================
@@ -389,7 +392,7 @@ public class Employee_Registration extends JFrame {
 					txtFEndereco.setText("");
 					txtFEndereco.setForeground(Color.BLACK);
 				}
-				txtFEndereco.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFEndereco.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -402,7 +405,7 @@ public class Employee_Registration extends JFrame {
 					txtFEndereco.setText("Logradouro");
 
 				}
-				txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+				txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 
 			}// fimAcao
 		});
@@ -414,7 +417,7 @@ public class Employee_Registration extends JFrame {
 		// ==================================__Campo_Bairro__===================================
 		txtBairro = new JTextField();
 		txtBairro.setBounds(342, 472, 210, 25);
-		txtBairro.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtBairro.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		txtBairro.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtBairro.setForeground(new Color(128, 128, 128));
 		txtBairro.setText("Bairro");
@@ -429,7 +432,7 @@ public class Employee_Registration extends JFrame {
 					txtBairro.setText("");
 					txtBairro.setForeground(Color.BLACK);
 				}
-				txtBairro.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtBairro.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 
 			}// fimAcao
@@ -443,7 +446,7 @@ public class Employee_Registration extends JFrame {
 					txtBairro.setText("Bairro");
 
 				}
-				txtBairro.setBorder(new LineBorder(Color.BLACK, 1, true));
+				txtBairro.setBorder(new LineBorder(Color.BLACK, 2, true));
 
 			}// fimAcao
 		});
@@ -455,11 +458,12 @@ public class Employee_Registration extends JFrame {
 		// ==================================__Campo_CEP__===================================
 
 		JFormattedTextField txtFCep = new JFormattedTextField();
+		txtFCep.setColumns(10);
 		txtFCep.setBounds(43, 434, 210, 25);
 		txtFCep.setForeground(new Color(128, 128, 128));
 		txtFCep.setText("CEP");
 		txtFCep.setFont(new Font("Dialog", Font.PLAIN, 16));
-		txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		pnEspecial.add(txtFCep);
 
 		// =================================__Ação__no__CampoCEP=============================
@@ -470,7 +474,7 @@ public class Employee_Registration extends JFrame {
 				txtFCep.setForeground(Color.BLACK);
 				txtFCep.setText("");
 				ftmCEP.install(txtFCep);
-				txtFCep.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFCep.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -483,7 +487,7 @@ public class Employee_Registration extends JFrame {
 					txtFCep.setText("CEP");
 
 				}
-				txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+				txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 
 			}// fimAcao
 		});
@@ -496,7 +500,7 @@ public class Employee_Registration extends JFrame {
 		txtNmero = new JTextField();
 		txtNmero.setBounds(283, 473, 33, 36);
 		pnEspecial.add(txtNmero);
-		txtNmero.setBorder(new LineBorder(Color.BLACK, 1, true));
+		txtNmero.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		txtNmero.setForeground(new Color(128, 128, 128));
 		txtNmero.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtNmero.setHorizontalAlignment(SwingConstants.CENTER);
@@ -514,7 +518,7 @@ public class Employee_Registration extends JFrame {
 					txtNmero.setText("");
 					txtNmero.setForeground(Color.BLACK);
 				}
-				txtNmero.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtNmero.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}// fimAcao
 
@@ -527,7 +531,7 @@ public class Employee_Registration extends JFrame {
 					txtNmero.setText("n°");
 
 				}
-				txtNmero.setForeground(new Color(128, 128, 128));
+				txtNmero.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 
 			}// fimAcao
 		});
@@ -561,7 +565,7 @@ public class Employee_Registration extends JFrame {
 		lblEndereco.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
 
 		JDateChooser DateN = new JDateChooser();
-		DateN.setBorder(new LineBorder(new Color(0, 0, 0)));
+		DateN.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		DateN.setBounds(197, 218, 206, 22);
 		pnEspecial.add(DateN);
 
@@ -618,7 +622,7 @@ public class Employee_Registration extends JFrame {
 		// fechar
 
 		txtFCargo = new JTextField();
-		txtFCargo.setBorder(new LineBorder(Color.BLACK));
+		txtFCargo.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		txtFCargo.setFont(new Font("Dialog", Font.PLAIN, 16));
 		txtFCargo.setText("Cargo");
 		txtFCargo.setBounds(43, 126, 210, 25);
@@ -636,7 +640,7 @@ public class Employee_Registration extends JFrame {
 					txtFCargo.setForeground(Color.BLACK);
 
 				}
-				txtFCargo.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFCargo.setBorder(new LineBorder(new Color(26,115, 232), 2, true));
 
 			}
 
@@ -648,7 +652,7 @@ public class Employee_Registration extends JFrame {
 					txtFCargo.setText("Cargo");
 
 				}
-				txtFCargo.setBorder(new LineBorder(Color.BLACK));
+				txtFCargo.setBorder(new LineBorder(Color.BLACK,2,true));
 
 			}
 		});

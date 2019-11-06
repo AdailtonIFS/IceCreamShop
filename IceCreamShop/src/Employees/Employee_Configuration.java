@@ -2,6 +2,9 @@ package Employees;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.List;
 
 import javax.swing.JFormattedTextField;
@@ -22,6 +25,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
 public class Employee_Configuration extends JFrame {
 
@@ -60,6 +65,16 @@ public class Employee_Configuration extends JFrame {
 	 */
 	public Employee_Configuration() throws SQLException {
 		
+		Font dropthegame1 = null;
+		
+		try {
+			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("AquateScript_PERSONAL_USE_ONLY.ttf")).deriveFont(50f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
+		} catch(IOException | FontFormatException e){
+			
+		}
+		
 		this.addComponentListener(new ComponentAdapter() {
 
 				public void componentMoved(ComponentEvent e) {
@@ -80,7 +95,7 @@ public class Employee_Configuration extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(12, 27, 243, 472);
+		panel.setBounds(12, 120, 243, 379);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -101,42 +116,42 @@ public class Employee_Configuration extends JFrame {
 			}
 		});
 		
-		list.setBounds(10, 10, 223, 454);
+		list.setBounds(10, 10, 223, 359);
 		panel.add(list);
 
 
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNome.setBounds(278, 30, 119, 16);
+		lblNome.setBounds(292, 169, 119, 16);
 		contentPane.add(lblNome);
 		
 		txtFNome = new JTextField();
-		txtFNome.setBounds(409, 27, 161, 22);
+		txtFNome.setBounds(423, 166, 161, 22);
 		contentPane.add(txtFNome);
 		txtFNome.setColumns(10);
 		
 		JLabel lblCPF = new JLabel("CPF:");
 		lblCPF.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCPF.setBounds(278, 62, 119, 16);
+		lblCPF.setBounds(292, 201, 119, 16);
 		contentPane.add(lblCPF);
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(409, 59, 161, 22);
+		formattedTextField.setBounds(423, 198, 161, 22);
 		contentPane.add(formattedTextField);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblEmail.setBounds(278, 91, 119, 16);
+		lblEmail.setBounds(292, 230, 119, 16);
 		contentPane.add(lblEmail);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTelefone.setBounds(278, 120, 119, 16);
+		lblTelefone.setBounds(292, 259, 119, 16);
 		contentPane.add(lblTelefone);
 		
 		textField = new JTextField();
-		textField.setBounds(409, 88, 161, 22);
+		textField.setBounds(423, 227, 161, 22);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -156,80 +171,94 @@ public class Employee_Configuration extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(409, 117, 161, 22);
+		formattedTextField_1.setBounds(423, 256, 161, 22);
 		contentPane.add(formattedTextField_1);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento:\r\n");
 		lblDataDeNascimento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDataDeNascimento.setBounds(278, 155, 119, 16);
+		lblDataDeNascimento.setBounds(292, 294, 119, 16);
 		contentPane.add(lblDataDeNascimento);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(409, 152, 161, 22);
+		textField_1.setBounds(423, 291, 161, 22);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblGnero = new JLabel("G\u00EAnero:");
 		lblGnero.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGnero.setBounds(278, 184, 119, 16);
+		lblGnero.setBounds(292, 323, 119, 16);
 		contentPane.add(lblGnero);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(409, 181, 161, 22);
+		textField_2.setBounds(423, 320, 161, 22);
 		contentPane.add(textField_2);
 		
 		JLabel lblTipo = new JLabel("Tipo:");
 		lblTipo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTipo.setBounds(278, 219, 119, 16);
+		lblTipo.setBounds(292, 358, 119, 16);
 		contentPane.add(lblTipo);
 		
 		@SuppressWarnings("rawtypes")
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(409, 216, 161, 22);
+		comboBox.setBounds(423, 355, 161, 22);
 		contentPane.add(comboBox);
 		
 		JLabel lblLogradouro = new JLabel("Logradouro:");
 		lblLogradouro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblLogradouro.setBounds(278, 248, 119, 16);
+		lblLogradouro.setBounds(292, 387, 119, 16);
 		contentPane.add(lblLogradouro);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(409, 245, 161, 22);
+		textField_3.setBounds(423, 384, 161, 22);
 		contentPane.add(textField_3);
 		
 		JLabel lblBairro = new JLabel("Bairro:");
 		lblBairro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblBairro.setBounds(278, 277, 119, 16);
+		lblBairro.setBounds(292, 416, 119, 16);
 		contentPane.add(lblBairro);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(409, 274, 161, 22);
+		textField_4.setBounds(423, 413, 161, 22);
 		contentPane.add(textField_4);
 		
 		JLabel lblCep = new JLabel("CEP:");
 		lblCep.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCep.setBounds(278, 306, 119, 16);
+		lblCep.setBounds(292, 445, 119, 16);
 		contentPane.add(lblCep);
 		
 		JFormattedTextField formattedTextField_2 = new JFormattedTextField();
-		formattedTextField_2.setBounds(409, 303, 161, 22);
+		formattedTextField_2.setBounds(423, 442, 161, 22);
 		contentPane.add(formattedTextField_2);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(409, 338, 161, 22);
+		textField_5.setBounds(423, 477, 161, 22);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero:");
 		lblNmero.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNmero.setBounds(278, 341, 119, 16);
+		lblNmero.setBounds(292, 480, 119, 16);
 		contentPane.add(lblNmero);
 		
 		JButton btnDemitir = new JButton("DEMITIR");
 		btnDemitir.setBounds(430, 515, 97, 25);
 		contentPane.add(btnDemitir);
+		
+		JPanel panelCima = new JPanel();
+		panelCima.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panelCima.setBounds(0, 0, 594, 98);
+		panelCima.setBackground(new Color(28, 189, 127));
+		contentPane.add(panelCima);
+		panelCima.setLayout(null);
+		
+		JLabel label = new JLabel("Ice Cream Shop");
+		label.setBounds(0, 0, 594, 98);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(Color.WHITE);
+		label.setFont(dropthegame1);
+		panelCima.add(label);
 	}
 }

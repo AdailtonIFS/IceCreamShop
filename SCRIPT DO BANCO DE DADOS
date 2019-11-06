@@ -5,7 +5,7 @@ create table employee(
 	Phone char(14) null,
 	Adress varchar(45) null,
 	CEP char(9) null,
-	DataNascimento char(10) not null,
+	borndate char(10) not null,
 	Salar decimal  not null,
 	Office varchar(20) not null,
 	Sex varchar(15) not null,
@@ -23,7 +23,7 @@ create table client(
 	Phone char(14) null,
 	Adress varchar(45) null,
 	CEP char(9) null,
-	DataNascimento char(10) not null,
+	borndate char(10) not null,
 	Email varchar(60) null,
 	Sex varchar(15) not null
 

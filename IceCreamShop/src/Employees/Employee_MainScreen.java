@@ -6,6 +6,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -16,19 +19,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
-import Client.Client_Configuration;
-import IceCreamShop.LoginUser;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 
 import Class.Objetos;
+import Client.Client_Configuration;
+import IceCreamShop.LoginUser;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -96,12 +91,12 @@ public class Employee_MainScreen extends JFrame {
 			
 				
 				menuBar = new JMenuBar();
+				menuBar.setBackground(Color.BLACK);
 				menuBar.setBorder(new LineBorder(Color.WHITE, 2));
 				menuBar.setBounds(0, 0, 600, 46);
-				menuBar.setOpaque(false);
 				contentPane.add(menuBar);
 				
-				mnClientes = new JMenu("CLIENTES");
+				mnClientes = new JMenu("Clientes");
 				mnClientes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnClientes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnClientes.setForeground(Color.WHITE);
@@ -122,21 +117,22 @@ public class Employee_MainScreen extends JFrame {
 					}
 				});
 				
-				mnSorvetes = new JMenu("SORVETES");
+				mnSorvetes = new JMenu("Sorvetes");
 				mnSorvetes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnSorvetes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnSorvetes.setForeground(Color.WHITE);
 				mnSorvetes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
 				menuBar.add(mnSorvetes);
 				
-				mnAjuda = new JMenu("AJUDA");
+				mnAjuda = new JMenu("Ajuda");
 				mnAjuda.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnAjuda.setForeground(Color.WHITE);
 				mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/question.png")));
 				menuBar.add(mnAjuda);
 				
-				mnSair = new JMenu("SAIR");
+				mnSair = new JMenu("Sair");
+				mnSair.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/cancel.png")));
 				mnSair.setForeground(Color.WHITE);
 				mnSair.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				menuBar.add(mnSair);
@@ -163,7 +159,8 @@ public class Employee_MainScreen extends JFrame {
 		Objetos.slides(label);
 		
 		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBackground(Color.BLACK);
+		panel.setBorder(new LineBorder(Color.WHITE));
 		panel.setBounds(0, 565, 600, 35);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -173,7 +170,7 @@ public class Employee_MainScreen extends JFrame {
 		panel.add(lblSystemDevelopedBy);
 		lblSystemDevelopedBy.setBackground(new Color(210, 180, 140));
 		lblSystemDevelopedBy.setFont(new Font("Segoe UI Black", Font.BOLD, 15));
-		lblSystemDevelopedBy.setForeground(Color.BLACK);
+		lblSystemDevelopedBy.setForeground(Color.WHITE);
 		lblSystemDevelopedBy.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel label_1 = new JLabel("");
@@ -196,6 +193,7 @@ public class Employee_MainScreen extends JFrame {
 		panel.add(label_1);
 		
 		JLabel lbladailton = new JLabel("@_ada.ilton   &");
+		lbladailton.setForeground(Color.WHITE);
 		lbladailton.setBounds(234, -1, 155, 32);
 		panel.add(lbladailton);
 		lbladailton.setHorizontalAlignment(SwingConstants.CENTER);
@@ -221,8 +219,9 @@ public class Employee_MainScreen extends JFrame {
 		panel.add(label_2);
 		
 		JLabel lblbruno = new JLabel("@__bruno");
+		lblbruno.setForeground(Color.WHITE);
 		lblbruno.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
-		lblbruno.setBounds(445, -1, 155, 32);
+		lblbruno.setBounds(445, -1, 155, 33);
 		panel.add(lblbruno);
 
 	}

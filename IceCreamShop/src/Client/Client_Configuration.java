@@ -233,7 +233,7 @@ public class Client_Configuration extends JFrame {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(Client_Configuration.class.getResource("/images/entrada.jpg")));
-		label.setBounds(0, 0, 594, 565);
+		label.setBounds(0, 0, 594, 571);
 		contentPane.add(label);
 		
 		//ArrayList use getInformations of DataBase

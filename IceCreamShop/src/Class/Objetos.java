@@ -1,13 +1,7 @@
 package Class;
 
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.text.ParseException;
-
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.text.MaskFormatter;
 
 import Employees.Employee_MainScreen;
 

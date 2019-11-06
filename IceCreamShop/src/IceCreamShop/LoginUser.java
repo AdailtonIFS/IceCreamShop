@@ -29,6 +29,7 @@ import javax.swing.border.MatteBorder;
 
 import Administrator.AdministratorMainScreen;
 import Employees.Employee_MainScreen;
+import javax.swing.ImageIcon;
 
 public class LoginUser extends JFrame {
 
@@ -276,6 +277,11 @@ public class LoginUser extends JFrame {
 		lblSair.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSair.setBounds(0, 0, 284, 29);
 		btnSair.add(lblSair);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(LoginUser.class.getResource("/images/locked.png")));
+		label.setBounds(401, 25, 24, 31);
+		panel.add(label);
 		
 		JLabel lbBorda = new JLabel("");
 		lbBorda.setBounds(17, 13, 419, 300);
