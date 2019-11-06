@@ -20,9 +20,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import Class.Objetos;
 import Employees.Employee_Configuration;
 import Employees.Employee_Registration;
 import IceCreamShop.HelpScreen;
+import IceCreamShop.LoginUser;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -55,7 +58,6 @@ public class AdministratorMainScreen extends JFrame {
 	 * @throws SQLException 
 	 */
 	public AdministratorMainScreen() throws SQLException {
-		setTitle("TELA PRINCIPAL");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
 		setLocationRelativeTo(null);
@@ -134,13 +136,30 @@ public class AdministratorMainScreen extends JFrame {
 		mnAjuda.setBorder(new LineBorder(new Color(0, 0, 0)));
 		menuBar.add(mnAjuda);
 		
+		JMenuItem mntmSair = new JMenuItem("SAIR");
+		mntmSair.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				dispose();
+				try {
+					LoginUser frame = new LoginUser();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		menuBar.add(mntmSair);
+		
 		Date data = new Date();
 		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 		@SuppressWarnings("unused")
 		String finalDate = formatador.format(data);
 		
 		ArrayList<Object> valores = new ArrayList<Object>();
-		valores.addAll(DataBase.Functions.searchEmployee("employee"));
+		valores.addAll(DataBase.Functions.buscarDadosFuncionario("employee"));
 		
 		JLabel label = new JLabel("");
 		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -149,39 +168,11 @@ public class AdministratorMainScreen extends JFrame {
 		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete01.jpg")));
 		contentPane.add(label);
 		
-		Thread th = new Thread(new Runnable() { //cria uma thread
-	        public void run() {
-	            while(true) { //roda indefinidamente
-	                try {
-	                    
-	                    for(int i = 0; i<12; i++) {
-	                    	Thread.sleep(1000); //espera 1,1 segundo para fazer a nova evolução
-	                    	if(i == 2) {
-	                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete02.jpg")));
-	                    	}
-	                    	else 
-	                    		if(i == 5) {
-		                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete03.jpg")));
-	                		}
-	                    		else
-	                    			if(i == 7) {
-	    		                		label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete04.jpg")));
-
-	                    			}
-	                    			else
-	                    				if(i == 10) {
-	                    					label.setIcon(new ImageIcon(Employee_Registration.class.getResource("/imagesAdministrator/sorvete01.jpg")));
-	                    				}
-	                    	
-	                    }//Fim do for
-	                   
-	                } catch(InterruptedException ex){
-	                	ex.printStackTrace();
-	                }
-	            }
-	        }
-	    }); th.start();
-
+		/*
+		 * 
+		 * Efeito de apresentação de slides
+		 */
+		Objetos.slides(label);
 		
 		
 		

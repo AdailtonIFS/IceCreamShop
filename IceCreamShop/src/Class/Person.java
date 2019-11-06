@@ -178,7 +178,7 @@ public class Person{
           
     		public static boolean clicarCancelar (String palavra) {
     				
-    				Object[] options = { "SIM", "NÃO" };//CRIANDO UM OBJETO DE OPÇÕES
+    				String[] options = { "SIM", "NÃO" };//CRIANDO UM OBJETO DE OPÇÕES
     				int Cancel = JOptionPane.showOptionDialog(null, "TEM CERTEZA QUE DESEJA "+palavra, "                   CONFIRMAÇÃO", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION , null, options, options[0]);//JOptionPane DE CONFIRMAÇÃO
 		
 								if(Cancel == JOptionPane.YES_OPTION) {//RESPOSTA SIM

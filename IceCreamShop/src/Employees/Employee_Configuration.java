@@ -14,9 +14,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Employee_Configuration extends JFrame {
 
@@ -51,10 +56,23 @@ public class Employee_Configuration extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public Employee_Configuration() {
+	public Employee_Configuration() throws SQLException {
+		
+		this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+			}
+		});
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 600);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,13 +85,27 @@ public class Employee_Configuration extends JFrame {
 		panel.setLayout(null);
 		
 		//ArrayList de valores do meu banco
+		String tabela = "employee";
 		ArrayList<Object> valores = new ArrayList<Object>();
-		
+		try {
+			valores.add(DataBase.Functions.buscarDadosFuncionario(tabela));
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		List list = new List();
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
+		
 		list.setBounds(10, 10, 223, 454);
 		panel.add(list);
-		
+
+
+
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNome.setBounds(278, 30, 119, 16);

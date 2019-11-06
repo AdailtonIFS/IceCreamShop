@@ -1,16 +1,15 @@
 package IceCreamShop;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -18,8 +17,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,7 +24,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
@@ -70,7 +66,7 @@ public class LoginUser extends JFrame {
 		Font dropthegame1 = null;
 		
 		try {
-			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("AquateScript_PERSONAL_USE_ONLY.ttf")).deriveFont(25f);
+			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("AquateScript_PERSONAL_USE_ONLY.ttf")).deriveFont(50f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
 		} catch(IOException | FontFormatException e){
@@ -81,9 +77,10 @@ public class LoginUser extends JFrame {
 		setBackground(Color.WHITE);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 500, 400);
+		setBounds(100, 100, 454, 401);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setUndecorated(true);
 		//bloquearFrame
 			this.addComponentListener(new ComponentAdapter() {
 
@@ -102,216 +99,202 @@ public class LoginUser extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setForeground(new Color(95, 158, 160));
+		panel.setForeground(Color.BLACK);
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBounds(111, 41, 271, 282);
+		panel.setBounds(0, 75, 454, 326);
 		panel.setBackground(new Color(245, 245, 245));
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(65, 184, 140, 20);
+		passwordField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				passwordField.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				passwordField.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+
+			}
+		});
+		passwordField.setBounds(85, 142, 284, 27);
 		panel.add(passwordField);
-		passwordField.setBorder(new LineBorder(new Color(0, 0, 0)));
+		passwordField.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		
 		txtFLogin = new JTextField();
-		txtFLogin.setBorder(new LineBorder(Color.BLACK, 1, true));
-		txtFLogin.setBounds(65, 120, 140, 20);
+		txtFLogin.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		txtFLogin.setBounds(85, 71, 284, 27);
 		txtFLogin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		txtFLogin.setForeground(new Color(128, 128, 128));
 		txtFLogin.setColumns(10);
 		panel.add(txtFLogin);
-		
-		JLabel lblLog = new JLabel("ENTRAR");
-		lblLog.setForeground(UIManager.getColor("Button.darkShadow"));
-		lblLog.setBackground(UIManager.getColor("Button.darkShadow"));
-		lblLog.addMouseListener(new MouseAdapter() {
+		txtFLogin.addFocusListener(new FocusAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				ArrayList<Object> valores = new ArrayList<>();
-				boolean l = false;
-				boolean p = false;
-				
-				try {
-				
-					valores.addAll(DataBase.Functions.searchEmployee("employee"));
-					
-					String senha = new String(passwordField.getPassword());
-					
-				for(int i = 0; i < valores.size();i++) {
-				System.out.println(valores.get(i));
-				}
-					
-					for(int i = 11; i < valores.size();i++) {
-							
-					if(valores.get(i).equals(senha)) {
-						p = true;
-						break;
-					}	
-						i+=9;
-					}
-					
-					
-					for(int i = 10; i < valores.size();i++) {
-		
-					if(valores.get(i).equals(txtFLogin.getText())) {
-					System.out.println("ACHOU");
-					l = true;	
-					posicao = i;
-					cpf = (String) valores.get(i-9);
-					break;
-					
-					}
-			
-					i+=9;
-					}
-					
-					if(l == true && p == true ) {
-						dispose();
-						try {
-							AdministratorMainScreen frame = new AdministratorMainScreen();
-							frame.setVisible(true);
-						} catch (Exception e1) {
-							e1.printStackTrace();
-						}
-						
-					}
-					else{
-						JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
-					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				
+			public void focusGained(FocusEvent arg0) {
+				txtFLogin.setBorder(new LineBorder(new Color(26,115, 232), 1, true));
+				txtFLogin.setForeground(Color.BLACK);
 				
 			}
-			@SuppressWarnings("deprecation")
 			@Override
-			public void mouseEntered(MouseEvent e) {
-
-				setCursor(Cursor.HAND_CURSOR);
-			}
-		
-			
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setCursor(Cursor.DEFAULT_CURSOR);
-
+			public void focusLost(FocusEvent e) {
+				txtFLogin.setBorder(new LineBorder(Color.BLACK, 2, true));
 			}
 		});
 		
-		JButton btnEntrar = new JButton("ENTRAR");
-		btnEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<Object> valores = new ArrayList<>();
-				boolean l = false;
-				boolean p = false;
-				
-				try {
-				
-					valores.addAll(DataBase.Functions.searchEmployee("employee"));
-					
-					String senha = new String(passwordField.getPassword());
-					
-				for(int i = 0; i < valores.size();i++) {
-				System.out.println(valores.get(i));
-				}
-					
-					for(int i = 11; i < valores.size();i++) {
-							
-					if(valores.get(i).equals(senha)) {
-						p = true;
-						break;
-					}	
-						i+=9;
-					}
-					
-					
-					for(int i = 10; i < valores.size();i++) {
+		JPanel btnLogin = new JPanel();
+		btnLogin.setBackground(Color.GRAY);
+		btnLogin.setForeground(Color.BLACK);
+		btnLogin.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnLogin.setBounds(85, 199, 284, 31);
+		panel.add(btnLogin);
+		btnLogin.setLayout(null);
 		
-					if(valores.get(i).equals(txtFLogin.getText())) {
-					System.out.println("ACHOU");
-					l = true;	
-					posicao = i;
-					break;
-					
-					}
+		JLabel lblLogin = new JLabel("LOGIN");
+		lblLogin.setForeground(Color.WHITE);
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setBounds(0, 0, 284, 31);
+		lblLogin.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+		btnLogin.add(lblLogin);
+		lblLogin.setBackground(Color.WHITE);
+		
+		lblLogin.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				btnLogin.setBackground(Color.WHITE);
+				lblLogin.setForeground(Color.GRAY);
+				lblLogin.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+				setCursor(HAND_CURSOR);
+			}
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ArrayList<Object> valores = new ArrayList<>();
+				
+				String senha = new String( passwordField.getPassword());
+				String tabela = "employee";
+				try {
+					valores.addAll(DataBase.Functions.validarLogin(tabela, txtFLogin.getText(), senha));
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+		
 			
-					i+=9;
-					}
-					
-					if(l == true && p == true ) {
+				if(!txtFLogin.getText().isEmpty() && !passwordField.getText().isEmpty()) {
+				if(valores.size() >0) {
+					cpf = (String) valores.get(2);
+					if(valores.get(0).equals("Administrador") && valores.get(1).equals("A")) {
 						dispose();
-						if(valores.get(9).equals("A")&&(valores.get(8).equals("Administrador"))) {
-							dispose();
 						try {
 							AdministratorMainScreen frame = new AdministratorMainScreen();
 							frame.setVisible(true);
 						} catch (Exception e1) {
 							e1.printStackTrace();
-							}
 						}
-						else { 
+					}
+					
+					else
+						if(!valores.get(0).equals("Administrador") && !valores.get(0).equals("Gerente")  && valores.get(1).equals("A")) {
+							dispose();
 							try {
 								Employee_MainScreen frame = new Employee_MainScreen();
 								frame.setVisible(true);
 
-							} catch (Exception e) {
-								e.printStackTrace();
+							} catch (Exception e1) {
+								e1.printStackTrace();
 							}	
-						}						
-						
-					}
-					else{
-						JOptionPane.showMessageDialog(null, "Usuário ou Senha incorreto","Aviso",2);
-					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+						}
+					
 				}
+					else {
+							JOptionPane.showMessageDialog(null, "Credenciais Inválidas", "Aviso",2);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos","",2);
+				}
+				
 			}
+			
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnLogin.setBackground(Color.GRAY);
+				lblLogin.setForeground(Color.WHITE);
+				lblLogin.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+				setCursor(DEFAULT_CURSOR);
+			}
+			
 		});
-		btnEntrar.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		btnEntrar.setBorder(new LineBorder(new Color(0, 0, 0)));
-		btnEntrar.setBounds(83, 230, 105, 27);
-		panel.add(btnEntrar);
-		lblLog.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLog.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.BLACK));
-		lblLog.setBounds(88, 230, 10, 10);
-		lblLog.setIcon(null);
-		panel.add(lblLog);
+	
 		
+	
 		JLabel lblNewLabel = new JLabel("Senha");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblNewLabel.setBounds(65, 161, 62, 18);
+		lblNewLabel.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+		lblNewLabel.setBounds(57, 111, 312, 32);
 		panel.add(lblNewLabel);
 		
 		JLabel lblUsurio = new JLabel("Usu\u00E1rio");
-		lblUsurio.setFont(new Font("Segoe UI", Font.BOLD, 15));
-		lblUsurio.setBounds(65, 99, 62, 18);
+		lblUsurio.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+		lblUsurio.setBounds(57, 40, 312, 27);
 		panel.add(lblUsurio);
 		
+		JPanel btnSair = new JPanel();
+		btnSair.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		btnSair.setBackground(new Color(220,80,53));
+		btnSair.setBounds(85, 251, 284, 32);
+		panel.add(btnSair);
+		btnSair.setLayout(null);
+		
+		JLabel lblSair = new JLabel("SAIR");
+		lblSair.addMouseListener(new MouseAdapter() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblSair.setForeground(new Color(220,80,53));
+				btnSair.setBackground(Color.WHITE);
+				lblSair.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+				setCursor(HAND_CURSOR);
+			}
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblSair.setForeground(Color.WHITE);
+				btnSair.setBackground(new Color(220,80,53));
+				lblSair.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+				setCursor(DEFAULT_CURSOR);
+
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
+		lblSair.setForeground(Color.WHITE);
+		lblSair.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+		lblSair.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSair.setBounds(0, 0, 284, 29);
+		btnSair.add(lblSair);
+		
 		JLabel lbBorda = new JLabel("");
-		lbBorda.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		lbBorda.setBounds(21, 67, 228, 204);
+		lbBorda.setBounds(17, 13, 419, 300);
 		panel.add(lbBorda);
+		lbBorda.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		
+		JPanel panelCima = new JPanel();
+		panelCima.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panelCima.setBackground(new Color(28, 189, 127));
+		panelCima.setBounds(0, 0, 454, 76);
+		contentPane.add(panelCima);
+		panelCima.setLayout(null);
 		
 		JLabel lblTitle = new JLabel("Ice Cream Shop");
-		lblTitle.setForeground(new Color(95, 158, 160));
+		lblTitle.setBounds(0, 0, 454, 76);
+		panelCima.add(lblTitle);
+		lblTitle.setForeground(Color.WHITE);
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setBounds(60, 24, 150, 32);
 		lblTitle.setFont(dropthegame1);
-		panel.add(lblTitle);
-		
-		JLabel lblWallpaper = new JLabel("");
-		lblWallpaper.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		lblWallpaper.setBounds(0, 0, 494, 365);
-		lblWallpaper.setIcon(new ImageIcon(LoginUser.class.getResource("/images/entrada.jpg")));
-		contentPane.add(lblWallpaper);
 		
 		
 		

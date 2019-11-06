@@ -55,7 +55,7 @@ import IceCreamShop.LoginUser;
 				private JTextField txtFEmail;
 				private JTextField txtBairro;
 				private JTextField txtNmero;
-				
+				public static boolean atualizar = false;
 				/*
 				 * Modificar a tela, as cores o tamanho, jradiobutton,jcombobox e etc...
 				 * 
@@ -83,17 +83,16 @@ import IceCreamShop.LoginUser;
 				
 				public Client_Registration() throws ParseException {
 				
-				
-					setIconImage(Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
+					// =================mascarasCampos================
+					ftmTelefone = new MaskFormatter("(##)#####-####");
+					ftmCPF = new MaskFormatter("###.###.###-##");
+					ftmCEP = new MaskFormatter("#####-###");
+					// ===============================================
+					
+					Client Cl = new Client(); //instanciarClasseClient
+					
+				setIconImage(Toolkit.getDefaultToolkit().getImage(Client_Registration.class.getResource("/images/internet.png")));
 				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-				
-				// =================mascarasCampos================
-				ftmTelefone = new MaskFormatter("(##)#####-####");
-				ftmCPF = new MaskFormatter("###.###.###-##");
-				ftmCEP = new MaskFormatter("#####-###");
-				// ===============================================
-				
-				Client Cl = new Client(); //instanciarClasseClient
 				
 				setTitle("CADASTRO DE CLIENTES"); // tituloPagina
 				setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -758,7 +757,6 @@ import IceCreamShop.LoginUser;
 				
 				Cl.setDataNascimento(result);
 				valores.add(Cl.getDataNascimento());
-				
 				Cl.setEmail(txtFEmail.getText());				
 				valores.add(Cl.getEmail());
 				
@@ -790,9 +788,15 @@ import IceCreamShop.LoginUser;
 						
 						
 				JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso","AVISO",1);
-					
+					atualizar = true;
 					// Caso o usuario preencha tudo corretamente
 						dispose();
+						try {
+							Client_Configuration frame = new Client_Configuration();
+							frame.setVisible(true);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
 				}
 				
 				else {

@@ -7,6 +7,8 @@ import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -70,6 +72,16 @@ public class Client_Configuration extends JFrame {
 		setLocationRelativeTo(null);
 		
 		
+		this.addComponentListener(new ComponentAdapter() {
+
+				public void componentMoved(ComponentEvent e) {
+
+				setEnabled(false);
+
+				setEnabled(true);
+			}
+		});
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -91,6 +103,7 @@ public class Client_Configuration extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
+					dispose();
 					Client_Registration frame = new Client_Registration();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -228,7 +241,7 @@ public class Client_Configuration extends JFrame {
 				String tabela  = "client";
 				
 				try {
-					valores.addAll(DataBase.Functions.searchClient(tabela));
+					valores.addAll(DataBase.Functions.buscarDadosCliente(tabela));
 				} catch (SQLException e) {
 					JOptionPane.showMessageDialog(null, "Não foi possível conectar ao Banco de Dados","AVISO",2);
 				}
@@ -272,8 +285,9 @@ public class Client_Configuration extends JFrame {
 					}
 				});
 				list.setFont(new Font("Segoe UI", Font.BOLD, 15));
-				list.setBounds(10, 24, 276, 403);
+				list.setBounds(10, 32, 276, 395);
 				panel.add(list);
+				
 				
 				
 				
@@ -289,6 +303,8 @@ public class Client_Configuration extends JFrame {
 				}
 			}
 				
+
+		
 		
 	}
 }

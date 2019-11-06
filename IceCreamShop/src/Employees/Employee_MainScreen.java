@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Client.Client_Configuration;
+import IceCreamShop.LoginUser;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -25,6 +26,9 @@ import java.io.IOException;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.MatteBorder;
+
+import Class.Objetos;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -33,7 +37,11 @@ public class Employee_MainScreen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
+	private JMenuBar menuBar;
+	private JMenu mnClientes;
+	private JMenu mnSorvetes;
+	private JMenu mnAjuda;
+	private JMenu mnSair;
 	/**
 	 * Launch the application.
 	 * 
@@ -58,118 +66,105 @@ public class Employee_MainScreen extends JFrame {
 	 */
 	public Employee_MainScreen() {
 		
-		// ====================================================================
-		setTitle("ICE CREAM SHOP");
-		setForeground(new Color(153, 255, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_MainScreen.class.getResource("/images/ice-cream-shop.png")));
-		setResizable(false);
-			
-		this.addComponentListener(new ComponentAdapter() {
+				// ====================================================================
+				setTitle("ICE CREAM SHOP");
+				
+				setForeground(new Color(153, 255, 0));
+				setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_MainScreen.class.getResource("/images/ice-cream-shop.png")));
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				setBounds(100, 100, 600, 600);
+				setLocationRelativeTo(null);
+				setUndecorated(true);
 
-				public void componentMoved(ComponentEvent e) {
+				
+				this.addComponentListener(new ComponentAdapter() {
+					
+					public void componentMoved(ComponentEvent e) {
+	
+					setEnabled(false);
 
-				setEnabled(false);
-
-				setEnabled(true);
+					setEnabled(true);
 				}
-		});
-		
-		
+			});
+				
+				
+				contentPane = new JPanel();
+				contentPane.setBackground(new Color(153, 255, 204));
+				contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+				setContentPane(contentPane);
+				contentPane.setLayout(null);
+			
+				
+				menuBar = new JMenuBar();
+				menuBar.setBorder(new LineBorder(Color.WHITE, 2));
+				menuBar.setBounds(0, 0, 600, 46);
+				menuBar.setOpaque(false);
+				contentPane.add(menuBar);
+				
+				mnClientes = new JMenu("CLIENTES");
+				mnClientes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
+				mnClientes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
+				mnClientes.setForeground(Color.WHITE);
+				mnClientes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/client.png")));
+				menuBar.add(mnClientes);
+				
+				mnClientes.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent arg0) {
+						
 
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 600);
-		setLocationRelativeTo(null);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(153, 255, 204));
-		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+						try {
+							Client_Configuration frame = new Client_Configuration();
+							frame.setVisible(true);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
+				
+				mnSorvetes = new JMenu("SORVETES");
+				mnSorvetes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
+				mnSorvetes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
+				mnSorvetes.setForeground(Color.WHITE);
+				mnSorvetes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
+				menuBar.add(mnSorvetes);
+				
+				mnAjuda = new JMenu("AJUDA");
+				mnAjuda.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
+				mnAjuda.setForeground(Color.WHITE);
+				mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
+				mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/question.png")));
+				menuBar.add(mnAjuda);
+				
+				mnSair = new JMenu("SAIR");
+				mnSair.setForeground(Color.WHITE);
+				mnSair.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
+				menuBar.add(mnSair);
+				mnSair.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+					dispose();
+					try {
+						LoginUser frame = new LoginUser();
+						frame.setVisible(true);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+					}
+				});
 		
 		JLabel label = new JLabel("");
 		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		label.setBackground(new Color(255, 204, 102));
-		label.setBounds(0, 40, 594, 497);
+		label.setBounds(0, 0, 600, 565);
 		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete01.jpg")));
 		contentPane.add(label);
 		
-		Thread th = new Thread(new Runnable() { //cria uma thread
-	        public void run() {
-	            while(true) { //roda indefinidamente
-	                try {
-	                    
-	                    for(int i = 0; i<12; i++) {
-	                    	Thread.sleep(1000); //espera 1,1 segundo para fazer a nova evolução
-	                    	if(i == 2) {
-	                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete02.jpg")));
-	                    	}
-	                    	else 
-	                    		if(i == 4) {
-		                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete03.jpg")));
-	                		}
-	                    		else
-	                    			if(i == 6) {
-	    		                		label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete04.jpg")));
-
-	                    			}
-	                    			else
-	                    				if(i == 8) {
-	                    					label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete05.jpg")));
-	                    				}
-	                    				else
-	                    					if(i == 10) {
-		                    					label.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/imagesAdministrator/sorvete01.jpg")));	
-	                    					}
-	                    	
-	                    }//Fim do for
-	                   
-	                } catch(InterruptedException ex){
-	                	ex.printStackTrace();
-	                }
-	            }
-	        }
-	    }); th.start(); 
-
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		menuBar.setBounds(0, 0, 594, 46);
-		contentPane.add(menuBar);
-		
-		JMenu mnClientes = new JMenu("CLIENTES");
-		mnClientes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/client.png")));
-		menuBar.add(mnClientes);
-		
-		JMenuItem mntmConfigurar = new JMenuItem("CONFIGURAR");
-		mntmConfigurar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				try {
-					Client_Configuration frame = new Client_Configuration();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		mntmConfigurar.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/gear.png")));
-		mnClientes.add(mntmConfigurar);
-		
-		JMenu mnSorvetes = new JMenu("SORVETES");
-		mnSorvetes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
-		menuBar.add(mnSorvetes);
-		
-		JMenuItem mntmConfigurar_1 = new JMenuItem("CONFIGURAR");
-		mntmConfigurar_1.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/gear.png")));
-		mnSorvetes.add(mntmConfigurar_1);
-		
-		JMenu mnAjuda = new JMenu("AJUDA");
-		mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/question.png")));
-		menuBar.add(mnAjuda);
+		Objetos.slides(label);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(0, 536, 594, 35);
+		panel.setBounds(0, 565, 600, 35);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -193,8 +188,6 @@ public class Employee_MainScreen extends JFrame {
 					JOptionPane.showMessageDialog(null, "Não foi possível estabelecer conexão com a internet");
 
 				}
-
-//				https://www.instagram.com/_ada.ilton/
 			}
 		});
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -224,12 +217,12 @@ public class Employee_MainScreen extends JFrame {
 		});
 		label_2.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/instagram.png")));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
-		label_2.setBounds(399, 0, 44, 32);
+		label_2.setBounds(401, 0, 44, 32);
 		panel.add(label_2);
 		
 		JLabel lblbruno = new JLabel("@__bruno");
 		lblbruno.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
-		lblbruno.setBounds(439, 0, 155, 32);
+		lblbruno.setBounds(445, -1, 155, 32);
 		panel.add(lblbruno);
 
 	}

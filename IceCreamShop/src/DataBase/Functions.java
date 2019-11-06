@@ -8,6 +8,18 @@ import java.util.ArrayList;
 
 public class Functions {
 	
+	/*
+	 * Classe com o objetivo de armazenar as
+	 * funções que uso para manipular o Banco de Dados
+	 */
+	
+	
+	/*
+	 * 
+	 * Função de contagem de registros 
+	 * do meu Banco de Dados.
+	 * 
+	 */
 	public static int countQuantiy(String tabela) throws SQLException {
 
 		Connection conn = DataBase.DB.getConnection();
@@ -24,10 +36,42 @@ public class Functions {
 		return resultado;
 	}
 	
+	/*
+	 * 
+	 * Função para logar no sistema 
+	 * 
+	 */
+	
+	public static ArrayList<Object> validarLogin(String tabela,String login, String senha) throws SQLException {
+		
+		Connection conn = DataBase.DB.getConnection();
+		Statement statement = conn.createStatement();
+		ArrayList<Object> valores = new ArrayList <Object> ();
+		String sql = String.format("select office,type,cpf from %s where login = '%s' and password = '%s'",tabela,login,senha);
+
+		ResultSet rs = statement.executeQuery(sql);
+		
+		while(rs.next()) {
+			
+			valores.add(rs.getString("office"));
+			valores.add(rs.getString("type"));
+			valores.add(rs.getString("cpf"));
+		}
+		
+		return valores;
+		
+		}
 	
 	
 	
-	public static ArrayList<Object> searchEmployee(String tabela) throws SQLException {
+	/*
+	 * 
+	 * Função que busca os
+	 * dados dos funcionários
+	 * no Banco de Dados
+	 *
+	 */
+	public static ArrayList<Object> buscarDadosFuncionario(String tabela) throws SQLException {
 		
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
@@ -36,45 +80,37 @@ public class Functions {
 
 		ResultSet rs = statement.executeQuery(sql);
 		
-		while(rs.next()) {
-
-			valores.add(rs.getString("name"));
-			valores.add(rs.getString("cpf"));
-			valores.add(rs.getString("phone"));
-			valores.add(rs.getString("adress"));
-			valores.add(rs.getString("cep"));
-			valores.add(rs.getString("sex"));
-			valores.add(rs.getString("borndate"));
-			valores.add(rs.getDouble("salar"));
-			valores.add(rs.getString("office"));
-			valores.add(rs.getString("type"));
-			valores.add(rs.getString("login"));
-			valores.add(rs.getString("password"));
-		}
+			while(rs.next()) {
+					valores.add(rs.getString("name"));
+					valores.add(rs.getString("cpf"));
+					valores.add(rs.getString("phone"));
+					valores.add(rs.getString("adress"));
+					valores.add(rs.getString("cep"));
+					valores.add(rs.getString("borndate"));
+					valores.add(rs.getString("salar"));
+					valores.add(rs.getString("office"));
+					valores.add(rs.getString("sex"));
+					valores.add(rs.getString("type"));
+					valores.add(rs.getString("login"));
+					valores.add(rs.getString("password"));
+			}
 		
 		return valores;
 		
-		}//searchCommitments final;
+	}
 	
 	
+	/*
+	 * 
+	 * Função que busca os
+	 * dados dos clientes
+	 * no Banco de Dados
+	 *
+	 */
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static ArrayList<Object> searchClient(String tabela) throws SQLException {
+	public static ArrayList<Object> buscarDadosCliente(String tabela) throws SQLException {
+		
 		Connection conn = DataBase.DB.getConnection();
 		Statement statement = conn.createStatement();
 		ArrayList<Object> valores = new ArrayList <Object> ();
@@ -89,14 +125,22 @@ public class Functions {
 			valores.add(rs.getString("phone"));
 			valores.add(rs.getString("adress"));
 			valores.add(rs.getString("cep"));
-			valores.add(rs.getString("datanascimento"));
+			valores.add(rs.getString("borndate"));
 			valores.add(rs.getString("email"));
 			valores.add(rs.getString("sex"));
 		}
 		
 		return valores;
 		
-		}//searchCommitments final;
+		}
+	
+	/*
+	 * 
+	 * Função que deleta
+	 * um registro
+	 * no Banco de Dados
+	 *
+	 */
 	
 	public static void delete(String tabela, String chavePrimaria, String valor) throws SQLException {
 		
@@ -111,7 +155,12 @@ public class Functions {
 	}	
 	
 	
-	
+	/*
+	 * 
+	 * Função que registra
+	 * no Banco de Dados
+	 *
+	 */
 	
 	public static void register(String tabela, ArrayList<Object> valores) throws SQLException {
 		
