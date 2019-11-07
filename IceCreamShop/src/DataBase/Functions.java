@@ -58,6 +58,7 @@ public class Functions {
 			valores.add(rs.getString("cpf"));
 		}
 		
+
 		return valores;
 		
 		}
