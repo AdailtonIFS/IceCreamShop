@@ -64,7 +64,6 @@ public class Opening extends JFrame {
 			e.getMessage();
 		}
 		
-		setBackground(Color.WHITE);
 		setForeground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 400);
@@ -84,7 +83,8 @@ public class Opening extends JFrame {
 		
 		
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(28, 189, 127));	
+		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 						
@@ -114,7 +114,7 @@ public class Opening extends JFrame {
 		contentPane.add(lblEntrada);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(-53, -10, 557, 400);
+		label.setBounds(10, 13, 428, 374);
 		label.setIcon(new ImageIcon(Opening.class.getResource("/images/open-image.jpg")));
 		contentPane.add(label);
 					
