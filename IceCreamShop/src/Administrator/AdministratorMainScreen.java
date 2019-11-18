@@ -2,6 +2,7 @@ package Administrator;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -17,9 +18,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Class.Objetos;
@@ -27,11 +28,6 @@ import Employees.Employee_Configuration;
 import Employees.Employee_Registration;
 import IceCreamShop.HelpScreen;
 import IceCreamShop.LoginUser;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
-import javax.swing.SwingConstants;
 
 public class AdministratorMainScreen extends JFrame {
 
@@ -85,7 +81,7 @@ public class AdministratorMainScreen extends JFrame {
 		contentPane.setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setOpaque(false);
+		menuBar.setBackground(Color.BLACK);
 		menuBar.setBorder(new LineBorder(Color.WHITE));
 		menuBar.setBounds(0, 0, 600, 37);
 		contentPane.add(menuBar);
@@ -225,12 +221,14 @@ public class AdministratorMainScreen extends JFrame {
 		Objetos.slides(label);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
 		panel.setBorder(new LineBorder(Color.BLACK));
 		panel.setBounds(0, 563, 600, 37);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel label_1 = new JLabel("@_ada.ilton   &");
+		label_1.setForeground(Color.WHITE);
 		label_1.setBounds(229, 0, 141, 37);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
@@ -240,7 +238,7 @@ public class AdministratorMainScreen extends JFrame {
 		label_2.setBounds(0, 0, 182, 37);
 		panel.add(label_2);
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setForeground(Color.BLACK);
+		label_2.setForeground(Color.WHITE);
 		label_2.setFont(new Font("Segoe UI Black", Font.BOLD, 15));
 		label_2.setBackground(new Color(210, 180, 140));
 		
@@ -305,6 +303,7 @@ public class AdministratorMainScreen extends JFrame {
 		panel.add(label_4);
 		
 		JLabel label_5 = new JLabel("@__bruno");
+		label_5.setForeground(Color.WHITE);
 		label_5.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
 		label_5.setBounds(423, 0, 177, 37);
 		panel.add(label_5);

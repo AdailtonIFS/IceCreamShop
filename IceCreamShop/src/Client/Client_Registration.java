@@ -1,47 +1,45 @@
 				package Client;
 				
 				import java.awt.Color;
-				import java.awt.Cursor;
-				import java.awt.EventQueue;
-				import java.awt.Font;
+import java.awt.Cursor;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
-				import java.awt.event.ActionEvent;
-				import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
-				import java.awt.event.FocusEvent;
-				import java.awt.event.MouseAdapter;
-				import java.awt.event.MouseEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.net.NetworkInterface;
 import java.sql.SQLException;
-				import java.text.ParseException;
-				import java.text.SimpleDateFormat;
-				import java.util.ArrayList;
-				
-				import javax.swing.ImageIcon;
-				import javax.swing.JButton;
-				import javax.swing.JFormattedTextField;
-				import javax.swing.JFrame;
-				import javax.swing.JLabel;
-				import javax.swing.JOptionPane;
-				import javax.swing.JPanel;
-				import javax.swing.JRadioButton;
-				import javax.swing.JSeparator;
-				import javax.swing.JTextField;
-				import javax.swing.SwingConstants;
-				import javax.swing.border.LineBorder;
-				import javax.swing.text.MaskFormatter;
-				
-				import com.toedter.calendar.JDateChooser;
-				
-				import Class.Client;
-				import Class.Person;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import javax.swing.text.MaskFormatter;
+
+import com.toedter.calendar.JDateChooser;
+
+import Class.Client;
+import Class.Person;
 import IceCreamShop.LoginUser;
 				
 				

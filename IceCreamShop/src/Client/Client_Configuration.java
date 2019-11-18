@@ -5,8 +5,6 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.List;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -17,8 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,7 +22,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import com.toedter.calendar.JDateChooser;
@@ -70,7 +65,6 @@ public class Client_Configuration extends JFrame {
 		setBounds(100, 100, 600, 650);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setUndecorated(true);
 		
 		this.addComponentListener(new ComponentAdapter() {
 
@@ -240,12 +234,12 @@ public class Client_Configuration extends JFrame {
 				label.setBounds(0, 0, 600, 81);
 				panel_1.add(label);
 				
-				JPanel panel_2 = new JPanel();
-				panel_2.setLayout(null);
-				panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-				panel_2.setBackground(new Color(220, 80, 53));
-				panel_2.setBounds(25, 609, 119, 28);
-				contentPane.add(panel_2);
+				JPanel btnExcluir = new JPanel();
+				btnExcluir.setLayout(null);
+				btnExcluir.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+				btnExcluir.setBackground(new Color(220, 80, 53));
+				btnExcluir.setBounds(25, 582, 119, 28);
+				contentPane.add(btnExcluir);
 				
 				JLabel lblExcluir = new JLabel("Excluir");
 				lblExcluir.addMouseListener(new MouseAdapter() {
@@ -277,22 +271,35 @@ public class Client_Configuration extends JFrame {
 							JOptionPane.showMessageDialog(null, "Não há clientes cadastrados","Aviso",2);
 						}
 					}
+					@Override
+					public void mouseEntered(MouseEvent arg0) {
+						lblExcluir.setForeground(new Color(220,80,53));
+						btnExcluir.setBackground(Color.white);
+						lblExcluir.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						lblExcluir.setForeground(Color.WHITE);
+						btnExcluir.setBackground(new Color(220,80,53));
+						lblExcluir.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+						
+					}
 				});
 				lblExcluir.setHorizontalAlignment(SwingConstants.CENTER);
 				lblExcluir.setForeground(Color.WHITE);
 				lblExcluir.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
 				lblExcluir.setBounds(0, 0, 119, 28);
-				panel_2.add(lblExcluir);
+				btnExcluir.add(lblExcluir);
 				
-				JPanel panel_3 = new JPanel();
-				panel_3.setLayout(null);
-				panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-				panel_3.setBackground(Color.GRAY);
-				panel_3.setBounds(469, 609, 119, 28);
-				contentPane.add(panel_3);
+				JPanel btnCadastrar = new JPanel();
+				btnCadastrar.setLayout(null);
+				btnCadastrar.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+				btnCadastrar.setBackground(Color.GRAY);
+				btnCadastrar.setBounds(465, 582, 119, 28);
+				contentPane.add(btnCadastrar);
 				
-				JLabel label_1 = new JLabel("Cadastrar");
-				label_1.addMouseListener(new MouseAdapter() {
+				JLabel lblCadastrar = new JLabel("Cadastrar");
+				lblCadastrar.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						try {
@@ -303,12 +310,24 @@ public class Client_Configuration extends JFrame {
 							e1.printStackTrace();
 						}
 					}
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						lblCadastrar.setForeground(Color.GRAY);
+						btnCadastrar.setBackground(Color.WHITE);
+						lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						lblCadastrar.setForeground(Color.WHITE);
+						btnCadastrar.setBackground(Color.GRAY);
+						lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+					}
 				});
-				label_1.setHorizontalAlignment(SwingConstants.CENTER);
-				label_1.setForeground(Color.WHITE);
-				label_1.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
-				label_1.setBounds(0, 0, 119, 28);
-				panel_3.add(label_1);
+				lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
+				lblCadastrar.setForeground(Color.WHITE);
+				lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+				lblCadastrar.setBounds(0, 0, 119, 28);
+				btnCadastrar.add(lblCadastrar);
 				
 				
 				
