@@ -6,7 +6,17 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.awt.List;
+import java.awt.Toolkit;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,18 +25,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
 
 public class Employee_Configuration extends JFrame {
 
@@ -35,11 +33,10 @@ public class Employee_Configuration extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtFNome;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField;
 	private JTextField textField_4;
 	private JTextField textField_5;
 
@@ -64,6 +61,7 @@ public class Employee_Configuration extends JFrame {
 	 * @throws SQLException 
 	 */
 	public Employee_Configuration() throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Employee_Configuration.class.getResource("/images/gear.png")));
 		
 		Font dropthegame1 = null;
 		
@@ -96,7 +94,7 @@ public class Employee_Configuration extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(12, 120, 243, 379);
+		panel.setBounds(25, 141, 549, 139);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -117,136 +115,77 @@ public class Employee_Configuration extends JFrame {
 			}
 		});
 		
-		list.setBounds(10, 10, 223, 359);
+		list.setBounds(10, 10, 529, 119);
 		panel.add(list);
-
-
-
-		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNome.setBounds(292, 169, 119, 16);
-		contentPane.add(lblNome);
-		
-		txtFNome = new JTextField();
-		txtFNome.setBounds(423, 166, 161, 22);
-		contentPane.add(txtFNome);
-		txtFNome.setColumns(10);
 		
 		JLabel lblCPF = new JLabel("CPF:");
-		lblCPF.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCPF.setBounds(292, 201, 119, 16);
+		lblCPF.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblCPF.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCPF.setBounds(25, 304, 180, 20);
 		contentPane.add(lblCPF);
 		
 		JFormattedTextField formattedTextField = new JFormattedTextField();
-		formattedTextField.setBounds(423, 198, 161, 22);
+		formattedTextField.setBorder(new LineBorder(Color.BLACK));
+		formattedTextField.setBounds(25, 335, 178, 22);
 		contentPane.add(formattedTextField);
 		
-		JLabel lblEmail = new JLabel("Email:");
-		lblEmail.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblEmail.setBounds(292, 230, 119, 16);
-		contentPane.add(lblEmail);
-		
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTelefone.setBounds(292, 259, 119, 16);
+		lblTelefone.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblTelefone.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTelefone.setBounds(213, 335, 178, 16);
 		contentPane.add(lblTelefone);
 		
-		textField = new JTextField();
-		textField.setBounds(423, 227, 161, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					Employee_Registration frame = new Employee_Registration();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-			}
-		});
-		btnCadastrar.setBounds(92, 515, 97, 25);
-		contentPane.add(btnCadastrar);
-		
-		JFormattedTextField formattedTextField_1 = new JFormattedTextField();
-		formattedTextField_1.setBounds(423, 256, 161, 22);
-		contentPane.add(formattedTextField_1);
+		JFormattedTextField txtPhone = new JFormattedTextField();
+		txtPhone.setBorder(new LineBorder(Color.BLACK));
+		txtPhone.setBounds(209, 362, 178, 22);
+		contentPane.add(txtPhone);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento:\r\n");
-		lblDataDeNascimento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDataDeNascimento.setBounds(292, 294, 119, 16);
+		lblDataDeNascimento.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblDataDeNascimento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDataDeNascimento.setBounds(394, 304, 180, 16);
 		contentPane.add(lblDataDeNascimento);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(423, 291, 161, 22);
+		textField_1.setBorder(new LineBorder(Color.BLACK));
+		textField_1.setBounds(394, 335, 178, 22);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblGnero = new JLabel("G\u00EAnero:");
-		lblGnero.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGnero.setBounds(292, 323, 119, 16);
+		lblGnero.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblGnero.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGnero.setBounds(396, 368, 178, 16);
 		contentPane.add(lblGnero);
 		
 		textField_2 = new JTextField();
+		textField_2.setBorder(new LineBorder(Color.BLACK));
 		textField_2.setColumns(10);
-		textField_2.setBounds(423, 320, 161, 22);
+		textField_2.setBounds(394, 395, 180, 22);
 		contentPane.add(textField_2);
 		
-		JLabel lblTipo = new JLabel("Tipo:");
-		lblTipo.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTipo.setBounds(292, 358, 119, 16);
-		contentPane.add(lblTipo);
-		
-		@SuppressWarnings("rawtypes")
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(423, 355, 161, 22);
-		contentPane.add(comboBox);
-		
-		JLabel lblLogradouro = new JLabel("Logradouro:");
-		lblLogradouro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblLogradouro.setBounds(292, 387, 119, 16);
+		JLabel lblLogradouro = new JLabel("Endere\u00E7o");
+		lblLogradouro.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblLogradouro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogradouro.setBounds(25, 368, 178, 16);
 		contentPane.add(lblLogradouro);
 		
 		textField_3 = new JTextField();
+		textField_3.setBorder(new LineBorder(Color.BLACK));
 		textField_3.setColumns(10);
-		textField_3.setBounds(423, 384, 161, 22);
+		textField_3.setBounds(25, 395, 178, 22);
 		contentPane.add(textField_3);
 		
-		JLabel lblBairro = new JLabel("Bairro:");
-		lblBairro.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblBairro.setBounds(292, 416, 119, 16);
-		contentPane.add(lblBairro);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(423, 413, 161, 22);
-		contentPane.add(textField_4);
-		
 		JLabel lblCep = new JLabel("CEP:");
-		lblCep.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCep.setBounds(292, 445, 119, 16);
+		lblCep.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblCep.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCep.setBounds(209, 401, 181, 16);
 		contentPane.add(lblCep);
 		
 		JFormattedTextField formattedTextField_2 = new JFormattedTextField();
-		formattedTextField_2.setBounds(423, 442, 161, 22);
+		formattedTextField_2.setBorder(new LineBorder(Color.BLACK));
+		formattedTextField_2.setBounds(209, 428, 178, 22);
 		contentPane.add(formattedTextField_2);
-		
-		textField_5 = new JTextField();
-		textField_5.setBounds(423, 477, 161, 22);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
-		
-		JLabel lblNmero = new JLabel("N\u00FAmero:");
-		lblNmero.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNmero.setBounds(292, 480, 119, 16);
-		contentPane.add(lblNmero);
-		
-		JButton btnDemitir = new JButton("DEMITIR");
-		btnDemitir.setBounds(430, 515, 97, 25);
-		contentPane.add(btnDemitir);
 		
 		JPanel panelCima = new JPanel();
 		panelCima.setBorder(new LineBorder(new Color(0, 0, 0), 2));
@@ -261,5 +200,135 @@ public class Employee_Configuration extends JFrame {
 		label.setForeground(Color.WHITE);
 		label.setFont(dropthegame1);
 		panelCima.add(label);
+		
+		JLabel lblSalrio = new JLabel("Sal\u00E1rio");
+		lblSalrio.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSalrio.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblSalrio.setBounds(27, 428, 178, 20);
+		contentPane.add(lblSalrio);
+		
+		textField = new JTextField();
+		textField.setBorder(new LineBorder(Color.BLACK));
+		textField.setBounds(25, 459, 178, 22);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblCargo = new JLabel("Cargo:");
+		lblCargo.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblCargo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCargo.setBounds(209, 461, 178, 25);
+		contentPane.add(lblCargo);
+		
+		textField_4 = new JTextField();
+		textField_4.setBorder(new LineBorder(Color.BLACK));
+		textField_4.setBounds(209, 492, 178, 22);
+		contentPane.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JLabel lblTipo = new JLabel("Tipo:");
+		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTipo.setFont(new Font("Segoe UI", Font.BOLD, 17));
+		lblTipo.setBounds(394, 428, 180, 18);
+		contentPane.add(lblTipo);
+		
+		textField_5 = new JTextField();
+		textField_5.setBorder(new LineBorder(Color.BLACK));
+		textField_5.setBounds(394, 459, 178, 22);
+		contentPane.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JPanel btnCadastrar = new JPanel();
+		btnCadastrar.setBorder(new LineBorder(Color.BLACK));
+		btnCadastrar.setBackground(Color.GRAY);
+		btnCadastrar.setBounds(465, 535, 119, 27);
+		contentPane.add(btnCadastrar);
+		btnCadastrar.setLayout(null);
+		
+		JLabel lblCadastrar = new JLabel("Cadastrar");
+		lblCadastrar.setBounds(0, 0, 119, 27);
+		btnCadastrar.add(lblCadastrar);
+		lblCadastrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Employee_Registration frame = new Employee_Registration();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblCadastrar.setForeground(Color.GRAY);
+				btnCadastrar.setBackground(Color.WHITE);
+				lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblCadastrar.setForeground(Color.WHITE);
+				btnCadastrar.setBackground(Color.GRAY);
+				lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+			}
+		});
+		lblCadastrar.setFont(new Font("Segoe UI Black", Font.PLAIN, 17));
+		lblCadastrar.setForeground(Color.WHITE);
+		lblCadastrar.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JPanel btnExcluir = new JPanel();
+		btnExcluir.setBorder(new LineBorder(Color.BLACK));
+		btnExcluir.setBounds(12, 535, 119, 27);
+		btnExcluir.setBackground(new Color(220, 80, 53));
+		contentPane.add(btnExcluir);
+		btnExcluir.setLayout(null);
+		
+		JLabel lblExcluir = new JLabel("Excluir");
+		lblExcluir.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblExcluir.setForeground(new Color(220,80,53));
+				btnExcluir.setBackground(Color.white);
+				lblExcluir.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblExcluir.setForeground(Color.WHITE);
+				btnExcluir.setBackground(new Color(220,80,53));
+				lblExcluir.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
+			}
+		});
+		lblExcluir.setForeground(Color.WHITE);
+		lblExcluir.setFont(new Font("Segoe UI Black", Font.PLAIN, 17));
+		lblExcluir.setHorizontalAlignment(SwingConstants.CENTER);
+		lblExcluir.setBounds(0, 0, 119, 27);
+		btnExcluir.add(lblExcluir);
+		
+		JLabel label_1 = new JLabel("");
+		label_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+			dispose();
+				
+			}
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				setCursor(HAND_CURSOR);
+			}
+			@SuppressWarnings("deprecation")
+			@Override
+			public void mouseExited(MouseEvent e) {
+				setCursor(DEFAULT_CURSOR);
+			}
+		});
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		label_1.setIcon(new ImageIcon(Employee_Configuration.class.getResource("/images/hand.png")));
+		label_1.setBounds(508, 102, 37, 35);
+		contentPane.add(label_1);
 	}
 }

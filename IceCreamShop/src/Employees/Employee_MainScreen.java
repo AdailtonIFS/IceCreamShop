@@ -24,6 +24,9 @@ import javax.swing.border.MatteBorder;
 import Class.Objetos;
 import Client.Client_Configuration;
 import IceCreamShop.LoginUser;
+import IceCreamShop.SalesScreen;
+
+import javax.swing.JSeparator;
 
 public class Employee_MainScreen extends JFrame {
 
@@ -96,7 +99,7 @@ public class Employee_MainScreen extends JFrame {
 				menuBar.setBounds(0, 0, 600, 46);
 				contentPane.add(menuBar);
 				
-				mnClientes = new JMenu("Clientes");
+				mnClientes = new JMenu("CLIENTES");
 				mnClientes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnClientes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnClientes.setForeground(Color.WHITE);
@@ -117,21 +120,21 @@ public class Employee_MainScreen extends JFrame {
 					}
 				});
 				
-				mnSorvetes = new JMenu("Sorvetes");
+				mnSorvetes = new JMenu("SORVETES");
 				mnSorvetes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnSorvetes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnSorvetes.setForeground(Color.WHITE);
 				mnSorvetes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
 				menuBar.add(mnSorvetes);
 				
-				mnAjuda = new JMenu("Ajuda");
+				mnAjuda = new JMenu("AJUDA");
 				mnAjuda.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnAjuda.setForeground(Color.WHITE);
 				mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/question.png")));
 				menuBar.add(mnAjuda);
 				
-				mnSair = new JMenu("Sair");
+				mnSair = new JMenu("SAIR");
 				mnSair.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/cancel.png")));
 				mnSair.setForeground(Color.WHITE);
 				mnSair.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
@@ -148,6 +151,38 @@ public class Employee_MainScreen extends JFrame {
 					}
 					}
 				});
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(191, 256, 238, 2);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(191, 374, 233, 2);
+		contentPane.add(separator_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(Color.BLACK));
+		panel_1.setBounds(212, 269, 201, 94);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("VENDA");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					SalesScreen frame = new SalesScreen();
+					frame.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		lblNewLabel.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/coins.png")));
+		lblNewLabel.setFont(new Font("Segoe UI Black", Font.BOLD, 21));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 0, 201, 94);
+		panel_1.add(lblNewLabel);
 		
 		JLabel label = new JLabel("");
 		label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));

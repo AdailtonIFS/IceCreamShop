@@ -143,7 +143,7 @@ public class HelpScreen extends JFrame {
 				
 				JLabel wallpaper = new JLabel("");
 				wallpaper.setIcon(new ImageIcon(HelpScreen.class.getResource("/images/entrada.jpg")));
-				wallpaper.setBounds(0, 0, 594, 565);
+				wallpaper.setBounds(0, 0, 594, 571);
 				contentPane.add(wallpaper);
 		
 				

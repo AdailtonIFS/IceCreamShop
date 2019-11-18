@@ -11,13 +11,13 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
 
 public class Opening extends JFrame {
 
@@ -56,7 +56,7 @@ public class Opening extends JFrame {
 		Font dropthegame = null;
 		
 		try {
-			dropthegame = Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")).deriveFont(82f);
+			dropthegame = Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")).deriveFont(55f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
 		} catch(IOException | FontFormatException e){
@@ -65,7 +65,7 @@ public class Opening extends JFrame {
 		
 		setForeground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 400);
+		setBounds(100, 100, 437, 430);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setUndecorated(true);
@@ -82,39 +82,48 @@ public class Opening extends JFrame {
 		
 		
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(28, 189, 127));	
-		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		setBackground(Color.WHITE);
+		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-						
-		
-		JLabel lblBemVindo = new JLabel("BEM VINDO");
-		lblBemVindo.setBackground(Color.WHITE);
-		lblBemVindo.setForeground(Color.WHITE);
-		lblBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBemVindo.setBounds(0, 97, 450, 105);
-		lblBemVindo.setFont(dropthegame);
-		contentPane.add(lblBemVindo);
 		
 	 	JProgressBar progressBar = new JProgressBar();
+	 	progressBar.setOpaque(true);
 		progressBar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		progressBar.setStringPainted(true);
-		progressBar.setForeground(new Color(0, 0, 0));
+		progressBar.setBackground(new Color(28, 189, 127));
 		progressBar.setBackground(Color.WHITE);
 		progressBar.setIndeterminate(true);
-		progressBar.setBounds(24, 278, 402, 36);
+		progressBar.setBounds(203, 242, 30, 36);
 		contentPane.add(progressBar);
 		
 		JLabel lblEntrada = new JLabel("");
-		lblEntrada.setForeground(Color.WHITE);
+		lblEntrada.setForeground(Color.BLACK);
 		lblEntrada.setFont(new Font("Cambria Math", Font.BOLD, 17));
 		lblEntrada.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEntrada.setBounds(-3, 346, 453, 16);
+		lblEntrada.setBounds(0, 273, 400, 16);
 		contentPane.add(lblEntrada);
 		
+		JPanel panelCima = new JPanel();
+		panelCima.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		panelCima.setBackground(new Color(28, 189, 127));
+
+		panelCima.setBounds(0, 0, 437, 86);
+		contentPane.add(panelCima);
+		panelCima.setLayout(null);
+		
+		
+		JLabel lblBemVindo = new JLabel("BEM VINDO");
+		lblBemVindo.setForeground(Color.WHITE);
+		lblBemVindo.setBounds(0, 0, 437, 86);
+		panelCima.add(lblBemVindo);
+		lblBemVindo.setBackground(Color.WHITE);
+		lblBemVindo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblBemVindo.setFont(dropthegame);
+		
 		JLabel label = new JLabel("");
-		label.setBounds(10, 13, 428, 374);
-		label.setIcon(new ImageIcon(Opening.class.getResource("/images/open-image.jpg")));
+		label.setIcon(new ImageIcon(Opening.class.getResource("/images/068a78627d7840d2d861d68ffb1a89f6.gif")));
+		label.setBounds(0, 86, 437, 344);
 		contentPane.add(label);
 					
 			new Thread (){
@@ -125,15 +134,12 @@ public class Opening extends JFrame {
 						try {
 							 sleep(30);
 							    if(i == 25) {
-							    	lblEntrada.setText("CARREGANDO O CÓDIGO...");
 							    }
 							    else
 							    	if(i == 50) {
-							    		lblEntrada.setText("CARREGANDO BANCO DE DADOS...");
 							    	}
 							    	else
 							    		if(i == 75) {
-								    		lblEntrada.setText("ENTRANDO...");
 
 							    		}
 							    progressBar.setValue(i);

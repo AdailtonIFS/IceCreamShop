@@ -25,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.ImageIcon;
 
 public class Client_Configuration extends JFrame {
 
@@ -82,65 +83,69 @@ public class Client_Configuration extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBounds(25, 107, 544, 230);
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(25, 119, 544, 218);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblCpf.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCpf.setBounds(25, 372, 180, 16);
+		lblCpf.setBounds(25, 386, 180, 16);
 		contentPane.add(lblCpf);
 		
 		JFormattedTextField txtFCpf = new JFormattedTextField();
+		txtFCpf.setEditable(false);
 		txtFCpf.setBorder(new LineBorder(Color.BLACK));
-		txtFCpf.setBounds(25, 400, 178, 22);
+		txtFCpf.setBounds(25, 413, 178, 22);
 		contentPane.add(txtFCpf);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setBounds(217, 372, 180, 16);
+		lblEmail.setBounds(211, 359, 180, 16);
 		contentPane.add(lblEmail);
 		
 		txtFEmail = new JTextField();
+		txtFEmail.setEditable(false);
 		txtFEmail.setBorder(new LineBorder(Color.BLACK));
-		txtFEmail.setBounds(208, 400, 178, 22);
+		txtFEmail.setBounds(211, 386, 178, 22);
 		contentPane.add(txtFEmail);
 		txtFEmail.setColumns(10);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblTelefone.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTelefone.setBounds(25, 435, 180, 16);
+		lblTelefone.setBounds(25, 451, 180, 16);
 		contentPane.add(lblTelefone);
 		
 		JFormattedTextField txtFPhone = new JFormattedTextField();
+		txtFPhone.setEditable(false);
 		txtFPhone.setBorder(new LineBorder(Color.BLACK));
-		txtFPhone.setBounds(25, 464, 178, 22);
+		txtFPhone.setBounds(25, 478, 178, 22);
 		contentPane.add(txtFPhone);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento:");
 		lblDataDeNascimento.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDataDeNascimento.setFont(new Font("Segoe UI", Font.BOLD, 17));
-		lblDataDeNascimento.setBounds(206, 435, 180, 16);
+		lblDataDeNascimento.setBounds(211, 419, 180, 16);
 		contentPane.add(lblDataDeNascimento);
 		
 		JDateChooser DateN = new JDateChooser();
 		DateN.setBorder(new LineBorder(new Color(0, 0, 0)));
-		DateN.setBounds(208, 464, 178, 22);
+		DateN.setBounds(211, 445, 178, 22);
 		contentPane.add(DateN);
 		
 		JLabel lblSexo = new JLabel("G\u00EAnero:");
 		lblSexo.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblSexo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSexo.setBounds(208, 499, 180, 16);
+		lblSexo.setBounds(211, 478, 180, 16);
 		contentPane.add(lblSexo);
 		
 		txtFGnero = new JTextField();
+		txtFGnero.setEditable(false);
 		txtFGnero.setBorder(new LineBorder(Color.BLACK));
-		txtFGnero.setBounds(206, 528, 180, 22);
+		txtFGnero.setBounds(211, 505, 180, 22);
 		contentPane.add(txtFGnero);
 		txtFGnero.setColumns(10);
 		
@@ -151,20 +156,22 @@ public class Client_Configuration extends JFrame {
 		contentPane.add(lblLogradouro);
 		
 		txtFLogradouro = new JTextField();
+		txtFLogradouro.setEditable(false);
 		txtFLogradouro.setBorder(new LineBorder(Color.BLACK));
-		txtFLogradouro.setBounds(391, 400, 178, 22);
+		txtFLogradouro.setBounds(398, 413, 178, 22);
 		contentPane.add(txtFLogradouro);
 		txtFLogradouro.setColumns(10);
 		
 		JLabel lblBairro = new JLabel("CEP");
 		lblBairro.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblBairro.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBairro.setBounds(389, 435, 180, 16);
+		lblBairro.setBounds(396, 451, 178, 16);
 		contentPane.add(lblBairro);
 		
 		txtFCep = new JTextField();
+		txtFCep.setEditable(false);
 		txtFCep.setBorder(new LineBorder(Color.BLACK));
-		txtFCep.setBounds(391, 464, 178, 22);
+		txtFCep.setBounds(398, 478, 178, 22);
 		contentPane.add(txtFCep);
 		txtFCep.setColumns(10);
 		
@@ -217,7 +224,7 @@ public class Client_Configuration extends JFrame {
 					}
 				});
 				list.setFont(new Font("Segoe UI", Font.BOLD, 15));
-				list.setBounds(10, 10, 524, 210);
+				list.setBounds(10, 10, 524, 198);
 				panel.add(list);
 				
 				JPanel panel_1 = new JPanel();
@@ -328,6 +335,28 @@ public class Client_Configuration extends JFrame {
 				lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
 				lblCadastrar.setBounds(0, 0, 119, 28);
 				btnCadastrar.add(lblCadastrar);
+				
+				JLabel label_1 = new JLabel("");
+				label_1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						dispose();
+					}
+					@SuppressWarnings("deprecation")
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						setCursor(HAND_CURSOR);
+					}
+					@SuppressWarnings("deprecation")
+					@Override
+					public void mouseExited(MouseEvent e) {
+						setCursor(DEFAULT_CURSOR);
+					}
+				});
+				label_1.setHorizontalAlignment(SwingConstants.CENTER);
+				label_1.setIcon(new ImageIcon(Client_Configuration.class.getResource("/images/hand.png")));
+				label_1.setBounds(509, 86, 35, 28);
+				contentPane.add(label_1);
 				
 				
 				

@@ -20,6 +20,8 @@ public class Functions {
 	 * do meu Banco de Dados.
 	 * 
 	 */
+	
+	
 	public static int countQuantiy(String tabela) throws SQLException {
 
 		Connection conn = DataBase.DB.getConnection();
@@ -62,6 +64,32 @@ public class Functions {
 		return valores;
 		
 		}
+	
+	
+	public static boolean cadastroSistema(String tabela,String cpf) throws SQLException {
+		
+		Connection conn = DataBase.DB.getConnection();
+		Statement statement = conn.createStatement();
+		ArrayList<Object> valores = new ArrayList <Object> ();
+		String sql = String.format("select cpf from %s where cpf = '%s' ",tabela,cpf);
+
+		ResultSet rs = statement.executeQuery(sql);
+		boolean b= false;
+		
+		while(rs.next()) {
+			
+			valores.add(rs.getString("cpf"));
+		}
+		for (int i = 0; i < valores.size(); i++) {
+			if(valores.get(i) == cpf) {
+				b = true;
+			}
+		}
+		return b;
+		
+		
+		}
+	
 	
 	
 	

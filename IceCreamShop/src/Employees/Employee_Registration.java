@@ -18,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -701,9 +702,23 @@ public class Employee_Registration extends JFrame {
 				lblCadastrar.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
+						String cp = txtFCPF.getText().replace(".", "");
+						String cpf = cp.replace("-", "");
+					
+						
+						boolean b = false;
 						
 						
-						if (!txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF")
+						try {
+							b = DataBase.Functions.cadastroSistema("employee", txtFCPF.getText());
+						} catch (SQLException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
+						if(b == false){
+						
+						
+						if (Person.isCPF(cpf) == true && !txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF")
 								&& !txtFCargo.getText().equalsIgnoreCase("Cargo")
 								&& (rdbtnA.isSelected() == true || rdbtnNewRadioButton.isSelected() == true)
 								&& !txtFTelefone.getText().equalsIgnoreCase("Telefone")
@@ -791,7 +806,10 @@ public class Employee_Registration extends JFrame {
 							// Caso o usuario deixe algo sem preencher
 		
 						}
-		
+						}else {
+							JOptionPane.showMessageDialog(null, "Funcionário já cadastrado", "AVISO", 2);
+	
+						}
 						
 						
 					}

@@ -117,29 +117,6 @@ public class AdministratorMainScreen extends JFrame {
 		mnFuncionrios.setBorder(new LineBorder(Color.WHITE));
 		menuBar.add(mnFuncionrios);
 		
-	
-		
-		JMenu mnAdministradores = new JMenu("ADMINISTRADORES ");
-		mnAdministradores.addMouseListener(new MouseAdapter() {
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				setCursor(HAND_CURSOR);
-
-			}
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setCursor(DEFAULT_CURSOR);
-
-			}
-		});
-		mnAdministradores.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
-		mnAdministradores.setForeground(Color.WHITE);
-		mnAdministradores.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/man.png")));
-		mnAdministradores.setBorder(new LineBorder(Color.WHITE));
-		menuBar.add(mnAdministradores);
-		
 		JMenu mnAjuda = new JMenu("AJUDA ");
 		mnAjuda.setForeground(Color.WHITE);
 		mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 17));

@@ -180,7 +180,7 @@ import IceCreamShop.LoginUser;
 										rdbtnFeminino.setHorizontalAlignment(SwingConstants.CENTER);
 										
 				JTextField txtGnero = new JTextField();
-				txtGnero.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtGnero.setBorder(new LineBorder(new Color(0, 0, 0)));
 				txtGnero.addFocusListener(new FocusAdapter() {
 					@Override
 					public void focusGained(FocusEvent arg0) {
@@ -227,7 +227,7 @@ import IceCreamShop.LoginUser;
 				txtFNome.setForeground(new Color(128, 128, 128));
 				txtFNome.setText("Nome");
 				txtFNome.setFont(new Font("Dialog", Font.PLAIN, 16));
-				txtFNome.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtFNome.setBorder(new LineBorder(new Color(0, 0, 0)));
 				txtFNome.setColumns(10);
 				pnEspecial.add(txtFNome);
 				//=================================__ACÃO__NO__txtField===============================	
@@ -265,7 +265,7 @@ import IceCreamShop.LoginUser;
 				txtFCPF.setForeground(new Color(128, 128, 128));
 				txtFCPF.setText("CPF");
 				txtFCPF.setFont(new Font("Dialog", Font.PLAIN, 16));
-				txtFCPF.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtFCPF.setBorder(new LineBorder(new Color(0, 0, 0)));
 				pnEspecial.add(txtFCPF);							
 				//=================================__Ação__no__CampoCPF==============================
 				
@@ -301,7 +301,7 @@ import IceCreamShop.LoginUser;
 				txtFEmail.setText("Email");
 				txtFEmail.setHorizontalAlignment(SwingConstants.LEFT);
 				txtFEmail.setFont(new Font("Dialog", Font.PLAIN, 16));
-				txtFEmail.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtFEmail.setBorder(new LineBorder(new Color(0, 0, 0)));
 				txtFEmail.setColumns(10);
 				pnEspecial.add(txtFEmail);
 				//=================================__Ação__no__CampoEmail==============================	
@@ -338,7 +338,7 @@ import IceCreamShop.LoginUser;
 				txtFTelefone.setForeground(new Color(128, 128, 128));
 				txtFTelefone.setText("Telefone");
 				txtFTelefone.setFont(new Font("Dialog", Font.PLAIN, 16));
-				txtFTelefone.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtFTelefone.setBorder(new LineBorder(new Color(0, 0, 0)));
 				pnEspecial.add(txtFTelefone);
 				//=================================__Ação__no__CampoTelefone=============================			
 				
@@ -371,13 +371,12 @@ import IceCreamShop.LoginUser;
 							
 				//----------------------------------------------------------------------------------------------------------------
 					//==================================__Campo_Endereco__===================================	
-							txtFEndereco = new JTextField();// CAMPO DO ENDERECO
-							txtFEndereco.setEditable(false);
+							txtFEndereco = new JTextField();
 							txtFEndereco.setBounds(43, 429, 210, 25);
 							txtFEndereco.setForeground(new Color(128, 128, 128));
 							txtFEndereco.setText("Logradouro");
 							txtFEndereco.setFont(new Font("Dialog", Font.PLAIN, 16));
-							txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+							txtFEndereco.setBorder(new LineBorder(new Color(0, 0, 0)));
 							txtFEndereco.setColumns(10);
 							pnEspecial.add(txtFEndereco);
 							//=================================__Ação__no__CampoEndereco=============================		
@@ -413,9 +412,8 @@ import IceCreamShop.LoginUser;
 				//----------------------------------------------------------------------------------------------------------------
 				//==================================__Campo_Bairro__===================================
 											txtBairro = new JTextField();
-											txtBairro.setEditable(false);
 											txtBairro.setBounds(342, 429, 210, 25);
-											txtBairro.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+											txtBairro.setBorder(new LineBorder(new Color(0, 0, 0)));
 											txtBairro.setFont(new Font("Dialog", Font.PLAIN, 16));
 											txtBairro.setForeground(new Color(128, 128, 128));
 											txtBairro.setText("Bairro");
@@ -459,7 +457,7 @@ import IceCreamShop.LoginUser;
 				txtFCep.setForeground(new Color(128, 128, 128));
 				txtFCep.setText("CEP");
 				txtFCep.setFont(new Font("Dialog", Font.PLAIN, 16));
-				txtFCep.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtFCep.setBorder(new LineBorder(new Color(0, 0, 0)));
 				pnEspecial.add(txtFCep);
 				
 				//=================================__Ação__no__CampoCEP=============================	
@@ -496,7 +494,7 @@ import IceCreamShop.LoginUser;
 				txtNmero = new JTextField();
 				txtNmero.setBounds(283, 431, 33, 36);
 				pnEspecial.add(txtNmero);
-				txtNmero.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+				txtNmero.setBorder(new LineBorder(new Color(0, 0, 0)));
 				txtNmero.setForeground(new Color(128, 128, 128));
 				txtNmero.setFont(new Font("Dialog", Font.PLAIN, 16));
 				txtNmero.setHorizontalAlignment(SwingConstants.CENTER);
@@ -561,7 +559,7 @@ import IceCreamShop.LoginUser;
 				lblEndereco.setFont(new Font("Segoe UI", Font.BOLD, 15));
 				
 				JDateChooser DateN = new JDateChooser();
-				DateN.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+				DateN.setBorder(new LineBorder(new Color(0, 0, 0)));
 				DateN.setBounds(195, 169, 210, 25);
 				pnEspecial.add(DateN);
 				
@@ -612,7 +610,7 @@ import IceCreamShop.LoginUser;
 							pnEspecial.add(separator_3);
 							
 							JPanel panel_1 = new JPanel();
-							panel_1.setBorder(new LineBorder(Color.BLACK, 2));
+							panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 							panel_1.setOpaque(false);
 							panel_1.setBounds(283, 373, 33, 36);
 							pnEspecial.add(panel_1);
@@ -687,8 +685,21 @@ import IceCreamShop.LoginUser;
 								@Override
 								public void mouseClicked(MouseEvent e) {
 									ArrayList<Object> valores = new ArrayList<Object>();
+									String cp = txtFCPF.getText().replace(".", "");
+									String cpf = cp.replace("-", "");
 									
-									if(!txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF") 
+									
+									boolean b = false;
+									
+									
+									try {
+										b = DataBase.Functions.cadastroSistema("Client", txtFCPF.getText());
+									} catch (SQLException e2) {
+										// TODO Auto-generated catch block
+										e2.printStackTrace();
+									}
+									if(b == false){
+									if(Person.isCPF(cpf) == true && !txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF") 
 							&& !txtFTelefone.getText().equalsIgnoreCase("Telefone") && !txtFEndereco.getText().equalsIgnoreCase("Logradouro")
 							&& !txtNmero.getText().equalsIgnoreCase("Número") && !txtBairro.getText().equalsIgnoreCase("Bairro")  
 							&& !txtFCep.getText().equalsIgnoreCase("CEP") && DateN.getDate() != null && !txtFEmail.getText().equalsIgnoreCase("Email") ) {
@@ -781,6 +792,13 @@ import IceCreamShop.LoginUser;
 								
 								
 								}
+									else {
+									JOptionPane.showMessageDialog(null, "Cliente já cadastrado","AVISO",2);
+
+									}
+										
+									
+									}
 							});
 							lblCadastrar.setForeground(Color.WHITE);
 							lblCadastrar.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
