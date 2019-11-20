@@ -24,9 +24,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import Class.Objetos;
-import Employees.Employee_Configuration;
 import Employees.Employee_Registration;
-import IceCreamShop.HelpScreen;
 import IceCreamShop.LoginUser;
 
 public class AdministratorMainScreen extends JFrame {
@@ -91,7 +89,7 @@ public class AdministratorMainScreen extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Employee_Configuration frame = new Employee_Configuration();
+					Employee_Registration frame = new Employee_Registration();
 					frame.setVisible(true);
 				} catch (Exception e1) {
 					e1.printStackTrace();
@@ -116,37 +114,6 @@ public class AdministratorMainScreen extends JFrame {
 		mnFuncionrios.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/employee.png")));
 		mnFuncionrios.setBorder(new LineBorder(Color.WHITE));
 		menuBar.add(mnFuncionrios);
-		
-		JMenu mnAjuda = new JMenu("AJUDA ");
-		mnAjuda.setForeground(Color.WHITE);
-		mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 17));
-		mnAjuda.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					HelpScreen frame = new HelpScreen();
-					frame.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				
-			}
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				setCursor(HAND_CURSOR);
-
-			}
-			@SuppressWarnings("deprecation")
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setCursor(DEFAULT_CURSOR);
-
-			}
-		});
-		mnAjuda.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/question.png")));
-		mnAjuda.setBorder(new LineBorder(Color.WHITE));
-		menuBar.add(mnAjuda);
 		
 		JMenu mnSair = new JMenu("SAIR");
 		mnSair.setIcon(new ImageIcon(AdministratorMainScreen.class.getResource("/images/cancel.png")));

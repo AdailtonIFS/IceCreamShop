@@ -31,7 +31,6 @@ create table client(
 
 create table IceCream (
 	
-	CPF_CLI char (14) not null references employee(CPF),
 	Flavor varchar(20) not null,
 	Price decimal not null,
 	Description varchar(40) null,

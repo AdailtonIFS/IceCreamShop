@@ -23,6 +23,7 @@ import javax.swing.border.MatteBorder;
 
 import Class.Objetos;
 import Client.Client_Configuration;
+import IceCream.IceCreamRegistration;
 import IceCreamShop.LoginUser;
 import IceCreamShop.SalesScreen;
 
@@ -38,7 +39,6 @@ public class Employee_MainScreen extends JFrame {
 	private JMenuBar menuBar;
 	private JMenu mnClientes;
 	private JMenu mnSorvetes;
-	private JMenu mnAjuda;
 	private JMenu mnSair;
 	/**
 	 * Launch the application.
@@ -121,18 +121,23 @@ public class Employee_MainScreen extends JFrame {
 				});
 				
 				mnSorvetes = new JMenu("SORVETES");
+				mnSorvetes.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						
+						try {
+							IceCreamRegistration frame = new IceCreamRegistration();
+							frame.setVisible(true);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
 				mnSorvetes.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
 				mnSorvetes.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 				mnSorvetes.setForeground(Color.WHITE);
 				mnSorvetes.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/ice-cream.png")));
 				menuBar.add(mnSorvetes);
-				
-				mnAjuda = new JMenu("AJUDA");
-				mnAjuda.setBorder(new MatteBorder(0, 0, 0, 1, (Color) Color.WHITE));
-				mnAjuda.setForeground(Color.WHITE);
-				mnAjuda.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
-				mnAjuda.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/question.png")));
-				menuBar.add(mnAjuda);
 				
 				mnSair = new JMenu("SAIR");
 				mnSair.setIcon(new ImageIcon(Employee_MainScreen.class.getResource("/images/cancel.png")));

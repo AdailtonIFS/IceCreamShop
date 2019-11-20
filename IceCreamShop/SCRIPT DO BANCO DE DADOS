@@ -5,10 +5,10 @@ create table employee(
 	Phone char(14) null,
 	Adress varchar(45) null,
 	CEP char(9) null,
-	Sex varchar(15) not null,
-	bornDate char(10) not null,
+	borndate char(10) not null,
 	Salar decimal  not null,
 	Office varchar(20) not null,
+	Sex varchar(15) not null,
 	Type varchar(20) not null,
 	Login varchar(20) null,
 	Password varchar(20) null
@@ -23,7 +23,7 @@ create table client(
 	Phone char(14) null,
 	Adress varchar(45) null,
 	CEP char(9) null,
-	bornDate char(10) not null,
+	borndate char(10) not null,
 	Email varchar(60) null,
 	Sex varchar(15) not null
 
@@ -31,7 +31,6 @@ create table client(
 
 create table IceCream (
 	
-	CPF_CLI char (14) not null references employee(CPF),
 	Flavor varchar(20) not null,
 	Price decimal not null,
 	Description varchar(40) null,
@@ -41,4 +40,4 @@ create table IceCream (
 );
 
 insert into employee
-values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','Indiferente','18/10/2019','0','Administrador','A','admin','admin');
+values('Default User','490.342.495-22','(79)99883-4109','No','49000-123','18/10/2019','0','Administrador','Indiferente','A','admin','admin');

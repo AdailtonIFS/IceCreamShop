@@ -89,7 +89,29 @@ public class Functions {
 		
 		
 		}
-	
+public static boolean cadastroSorvetes(String tabela,String codigo) throws SQLException {
+		
+		Connection conn = DataBase.DB.getConnection();
+		Statement statement = conn.createStatement();
+		ArrayList<Object> valores = new ArrayList <Object> ();
+		String sql = String.format("select cod from %s where cod = '%s'",tabela,codigo);
+
+		ResultSet rs = statement.executeQuery(sql);
+		boolean b= false;
+		
+		while(rs.next()) {
+			
+			valores.add(rs.getString("cod"));
+		}
+		for (int i = 0; i < valores.size(); i++) {
+			if(valores.get(i) == codigo) {
+				b = true;
+			}
+		}
+		return b;
+		
+		
+		}
 	
 	
 	
@@ -157,6 +179,29 @@ public class Functions {
 			valores.add(rs.getString("borndate"));
 			valores.add(rs.getString("email"));
 			valores.add(rs.getString("sex"));
+		}
+		
+		return valores;
+		
+		}
+	
+public static ArrayList<Object> buscarDadosSorvetes(String tabela) throws SQLException {
+		
+		Connection conn = DataBase.DB.getConnection();
+		Statement statement = conn.createStatement();
+		ArrayList<Object> valores = new ArrayList <Object> ();
+		String sql = String.format("select *from %s ",tabela);
+
+		ResultSet rs = statement.executeQuery(sql);
+		
+		while(rs.next()) {
+			
+			valores.add(rs.getString("flavor"));
+			valores.add(rs.getString("price"));
+			valores.add(rs.getString("description"));
+			valores.add(rs.getString("type"));
+			valores.add(rs.getString("cod"));
+			
 		}
 		
 		return valores;

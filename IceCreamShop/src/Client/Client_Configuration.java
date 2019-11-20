@@ -3,18 +3,20 @@ package Client;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.List;
 import java.awt.Toolkit;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,9 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
-import com.toedter.calendar.JDateChooser;
-import javax.swing.ImageIcon;
 
 public class Client_Configuration extends JFrame {
 
@@ -38,6 +37,7 @@ public class Client_Configuration extends JFrame {
 	private JTextField txtFGnero;
 	private JTextField txtFLogradouro;
 	private JTextField txtFCep;
+	private JTextField DateN;
 
 	/**
 	 * Launch the application.
@@ -61,7 +61,15 @@ public class Client_Configuration extends JFrame {
 	 */
 	public Client_Configuration() throws SQLException {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Client_Configuration.class.getResource("/images/gear.png")));
+		Font dropthegame1 = null;
 		
+		try {
+			dropthegame1 = Font.createFont(Font.TRUETYPE_FONT, new File("AquateScript_PERSONAL_USE_ONLY.ttf")).deriveFont(50f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("BRUX.ttf")));
+		} catch(IOException | FontFormatException e){
+			
+		}
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 600, 650);
 		setResizable(false);
@@ -131,11 +139,6 @@ public class Client_Configuration extends JFrame {
 		lblDataDeNascimento.setBounds(211, 419, 180, 16);
 		contentPane.add(lblDataDeNascimento);
 		
-		JDateChooser DateN = new JDateChooser();
-		DateN.setBorder(new LineBorder(new Color(0, 0, 0)));
-		DateN.setBounds(211, 445, 178, 22);
-		contentPane.add(DateN);
-		
 		JLabel lblSexo = new JLabel("G\u00EAnero:");
 		lblSexo.setFont(new Font("Segoe UI", Font.BOLD, 17));
 		lblSexo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -204,16 +207,7 @@ public class Client_Configuration extends JFrame {
 						txtFCpf.setText((String) valores.get(indice+1));
 						txtFEmail.setText((String) valores.get(indice+6));
 						txtFPhone.setText((String) valores.get(indice+2));
-						
-						String dataString = (String) valores.get(indice+5);
-					    try {
-							Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataString);
-							DateN.setDate(date);
-
-						} catch (ParseException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}  
+					    DateN.setText((String) valores.get(indice+5));
 						txtFGnero.setText((String) valores.get(indice+7));
 						txtFLogradouro.setText((String) valores.get(indice+3));
 						txtFCep.setText((String) valores.get(indice+4));
@@ -237,7 +231,7 @@ public class Client_Configuration extends JFrame {
 				JLabel label = new JLabel("Ice Cream Shop");
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 				label.setForeground(Color.WHITE);
-				label.setFont(null);
+				label.setFont(dropthegame1);
 				label.setBounds(0, 0, 600, 81);
 				panel_1.add(label);
 				
@@ -357,6 +351,13 @@ public class Client_Configuration extends JFrame {
 				label_1.setIcon(new ImageIcon(Client_Configuration.class.getResource("/images/hand.png")));
 				label_1.setBounds(509, 86, 35, 28);
 				contentPane.add(label_1);
+				
+				DateN = new JTextField();
+				DateN.setEditable(false);
+				DateN.setColumns(10);
+				DateN.setBorder(new LineBorder(Color.BLACK));
+				DateN.setBounds(211, 450, 180, 22);
+				contentPane.add(DateN);
 				
 				
 				

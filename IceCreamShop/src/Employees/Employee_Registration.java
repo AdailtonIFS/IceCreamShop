@@ -716,8 +716,6 @@ public class Employee_Registration extends JFrame {
 							e2.printStackTrace();
 						}
 						if(b == false){
-						
-						
 						if (Person.isCPF(cpf) == true && !txtFNome.getText().equalsIgnoreCase("Nome") && !txtFCPF.getText().equalsIgnoreCase("CPF")
 								&& !txtFCargo.getText().equalsIgnoreCase("Cargo")
 								&& (rdbtnA.isSelected() == true || rdbtnNewRadioButton.isSelected() == true)

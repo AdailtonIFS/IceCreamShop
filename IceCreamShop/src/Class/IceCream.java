@@ -47,6 +47,9 @@ public class IceCream {
 		Type = type;
 		Codigo = codigo;
 	}
+	public IceCream() {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 

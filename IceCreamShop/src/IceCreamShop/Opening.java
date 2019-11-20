@@ -11,13 +11,12 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-import javax.swing.ImageIcon;
 
 public class Opening extends JFrame {
 
@@ -87,16 +86,6 @@ public class Opening extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-	 	JProgressBar progressBar = new JProgressBar();
-	 	progressBar.setOpaque(true);
-		progressBar.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		progressBar.setStringPainted(true);
-		progressBar.setBackground(new Color(28, 189, 127));
-		progressBar.setBackground(Color.WHITE);
-		progressBar.setIndeterminate(true);
-		progressBar.setBounds(203, 242, 30, 36);
-		contentPane.add(progressBar);
-		
 		JLabel lblEntrada = new JLabel("");
 		lblEntrada.setForeground(Color.BLACK);
 		lblEntrada.setFont(new Font("Cambria Math", Font.BOLD, 17));
@@ -142,7 +131,6 @@ public class Opening extends JFrame {
 							    		if(i == 75) {
 
 							    		}
-							    progressBar.setValue(i);
 							
 		
 						}catch(InterruptedException ex){
