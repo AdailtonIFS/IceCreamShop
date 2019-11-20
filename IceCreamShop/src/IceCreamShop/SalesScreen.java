@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+import javax.swing.JTextField;
 
 public class SalesScreen extends JFrame {
 
@@ -26,7 +27,10 @@ public class SalesScreen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
+	public String sorvetes;
+	public int pegarPreco;
+	public double valorTotal;
+	private JTextField textField;
 	/**
 	 * Launch the application.
 	 */
@@ -96,6 +100,22 @@ public class SalesScreen extends JFrame {
 		
 		
 		List listSorvetes = new List();
+		listSorvetes.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				sorvetes = listSorvetes.getSelectedItem();
+				System.out.println(sorvetes);
+				for (int i = 0; i < valoresSorvetes.size(); i++) {
+					if(sorvetes.equals(valoresSorvetes.get(i))) {
+						pegarPreco = i;
+					}
+				}
+				 valorTotal =+ (double) valoresSorvetes.get(pegarPreco);
+				 textField.setText(String.valueOf(valorTotal));
+			
+			}
+		});
 		listSorvetes.setBounds(10, 10, 429, 155);
 		Sorvete.add(listSorvetes);
 		
@@ -111,13 +131,20 @@ public class SalesScreen extends JFrame {
 		
 		JPanel Sorvetes = new JPanel();
 		Sorvetes.setBorder(new LineBorder(new Color(0, 0, 0)));
-		Sorvetes.setBounds(553, 94, 236, 544);
+		Sorvetes.setBounds(555, 92, 236, 544);
 		contentPane.add(Sorvetes);
 		Sorvetes.setLayout(null);
 		
 		List list_2 = new List();
-		list_2.setBounds(10, 10, 216, 524);
+		list_2.setBounds(10, 10, 216, 494);
 		Sorvetes.add(list_2);
+		
+		textField = new JTextField();
+		textField.setBounds(70, 513, 104, 20);
+		Sorvetes.add(textField);
+		textField.setColumns(10);
+		list_2.add(sorvetes);
+		
 		
 		JPanel btnCadastrar = new JPanel();
 		btnCadastrar.setLayout(null);
