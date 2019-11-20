@@ -93,7 +93,7 @@ public class SalesScreen extends JFrame {
 		String tabela1  = "icecream";
 		
 		try {
-			valoresCliente.addAll(DataBase.Functions.buscarDadosSorvetes(tabela1));
+			valoresSorvetes.addAll(DataBase.Functions.buscarDadosSorvetes(tabela1));
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Não foi possível conectar ao Banco de Da1dos","AVISO",2);
 		}
@@ -108,10 +108,14 @@ public class SalesScreen extends JFrame {
 				System.out.println(sorvetes);
 				for (int i = 0; i < valoresSorvetes.size(); i++) {
 					if(sorvetes.equals(valoresSorvetes.get(i))) {
-						pegarPreco = i;
+						pegarPreco = i+1;
 					}
+					
 				}
-				 valorTotal =+ (double) valoresSorvetes.get(pegarPreco);
+				System.out.println(valoresSorvetes.get(pegarPreco));
+				String vt = (String) valoresSorvetes.get(pegarPreco);
+				String a = vt.replaceAll(",",".");
+				 valorTotal =+ Double.parseDouble(a);
 				 textField.setText(String.valueOf(valorTotal));
 			
 			}
