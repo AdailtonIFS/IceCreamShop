@@ -10,3 +10,4 @@
       - Vá até o arquivo "db.properties" e altere o usuario e senha;
       
       O design não está tão interessante e faltam algumas funcionalidades.
+      A ideia é futuramente corrigir alguns pequenos erros e adicionar funcionalidades ao sistema, lembrando que esse sistema foi para desenvolver habilidades na area de interfaces gráficas com Java para desktop.
